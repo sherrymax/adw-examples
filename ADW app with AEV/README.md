@@ -30,48 +30,51 @@ ADP Users can use NGINX to deploy the production build. Please follow the below 
     scp -i my-aws-key.pem html.zip ec2-user@ec2-1-2-3-4.compute-1.amazonaws.com:/home/ec2-user/adp/data/services/nginx
     ```
 
-2. Connect to EC2 Instance using SSH
+2. Connect to EC2 Instance using SSH.
     ```
     ssh -i "my-aws-key.pem" ec2-user@ec2-1-2-3-4.compute-1.amazonaws.com
     ```
 
-3. Navigate to NGINX Folder
+3. Navigate to NGINX Folder.
     ```
     cd data/services/nginx
     ```
 
-4. Rename existing `html` folder
+4. Rename existing `html` folder.
     ```
     mv html/ html-old/
     ```
 
-5. Unzip `html.zip` file
+5. Unzip `html.zip` file.
     ```
     unzip html.zip
     ```
 
-6. Navigate back to ADP Level
+6. Navigate back to ADP Level.
     ```
     cd ../../../
     ```
 
-7. Stop NGINX
+7. Stop NGINX.
     ```
     ./adp.py stop nginx
     ```
 
-8. Start NGINX
+8. Start NGINX.
     ```
     ./adp.py start nginx
     ```
 
 9. Navigate to Alfresco Digital Workspace in a new browser.
     ![ADW](assets/1.png)
+
 10. Login and Go to Settings.
     ![Settings](assets/2.png)
+
 11. Select the Document Viewer.
     ![Viewer](assets/3.png)
     ![Viewer](assets/4.png)
+
 12. Apply and Open a document to view in AEV.
     ![Open-In-AEV](assets/5.png)
 
@@ -82,28 +85,35 @@ ADP Users can use NGINX to deploy the production build. Please follow the below 
 1. Download Source code
 The source code of Alfresco Digital Workspace (ADW) Application can be downloaded from [Nexus Repository](https://nexus.alfresco.com/) for Alfresco Enterprise Customers.
 
+P.S : The source code of this application is ![available here](assets/source-code/)
+
 2. Install the dependencies
 Open a command prompt and run the following command to install all third-party dependencies.
     ``` 
     npm ci
     ```
 
-3. Run the following command to run the application
+3. Run the following command to run the application.
     ``` 
-    npm start  content-ee 
+    npm start content-ee 
     ```
 
-4. Navigate to Alfresco Digital Workspace in a new browser.
+4. Run the following command to build the application to deploy or server.
+    ``` 
+    npm run build content-ee 
+    ```
+
+5. Navigate to Alfresco Digital Workspace in a new browser.
     ![ADW](assets/1.png)
 
-5. Login and Go to Settings.
+6. Login and Go to Settings.
     ![Settings](assets/2.png)
 
-6. Select the Document Viewer.
+7. Select the Document Viewer.
     ![Viewer](assets/3.png)
     ![Viewer](assets/4.png)
 
-7. Apply and Open a document to view in AEV.
+8. Apply and Open a document to view in AEV.
     ![Open-In-AEV](assets/5.png)
 
 More details are available at https://docs.alfresco.com/digital-workspace/3.1/develop/deploy/#deploy-digital-workspace
