@@ -1,0 +1,12 @@
+{
+    "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+    "sourceRoot": "libs/content-ee/extensions-order-extension/src",
+    "projectType": "library",
+    "prefix": "lib",
+    "targets": {},
+    "tags": [
+        "scope:content-ee-extensions-order-extension",
+        "type:feature",
+        "category:extensions-order-extension"
+    ]
+}

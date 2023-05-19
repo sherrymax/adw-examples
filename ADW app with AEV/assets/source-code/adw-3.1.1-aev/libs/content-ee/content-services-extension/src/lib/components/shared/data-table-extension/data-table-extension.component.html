@@ -1,0 +1,21 @@
+<adf-datatable (showRowContextMenu)="showRowContextMenu.emit($event)"
+               [columns]="columns"
+               [contextMenu]="contextMenu"
+               [data]="data"
+               [loading]="loading"
+               [showHeader]="showHeader"
+               [stickyHeader]="true"
+               [selectionMode]="selectionMode">
+
+    <loading-content-template>
+        <ng-template>
+            <mat-progress-spinner color="primary" mode="indeterminate"></mat-progress-spinner>
+        </ng-template>
+    </loading-content-template>
+
+    <no-content-template>
+        <ng-template>
+            <ng-content select="adf-custom-empty-content-template"></ng-content>
+        </ng-template>
+    </no-content-template>
+</adf-datatable>

@@ -1,0 +1,19 @@
+{
+    "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+    "projectType": "library",
+    "sourceRoot": "libs/content-ee/shared/playwright/src",
+    "prefix": "alfresco-dbp",
+    "targets": {
+        "lint": {
+            "executor": "@nrwl/linter:eslint",
+            "options": {
+                "lintFilePatterns": [
+                    "libs/content-ee/shared/playwright/src/**/*.ts",
+                    "libs/content-ee/shared/playwright/src/**/*.html"
+                ]
+            },
+            "outputs": ["{options.outputFile}"]
+        }
+    },
+    "tags": ["scope:content-shared-playwright", "type:e2e"]
+}

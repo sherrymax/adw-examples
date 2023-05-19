@@ -1,0 +1,43 @@
+{
+    "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+    "sourceRoot": "libs/shared/lib/src",
+    "projectType": "library",
+    "generators": {},
+    "targets": {
+        "pretest": {
+            "executor": "nx:run-commands",
+            "options": {
+                "command": "nx run shared-unit-testing:build"
+            }
+        },
+        "test": {
+            "executor": "@nrwl/jest:jest",
+            "options": {
+                "jestConfig": "libs/shared/lib/jest.config.ts",
+                "runInBand": true
+            },
+            "configurations": {
+                "adf": {
+                    "jestConfig": "libs/shared/lib/jest.adf.config.ts",
+                    "codeCoverage": false,
+                    "silent": true
+                }
+            },
+            "outputs": ["coverage/libs/shared/lib"]
+        },
+        "lint": {
+            "executor": "@nrwl/linter:eslint",
+            "options": {
+                "lintFilePatterns": [
+                    "libs/shared/lib/src/**/*.ts",
+                    "libs/shared/lib/src/**/*.html"
+                ]
+            },
+            "outputs": ["{options.outputFile}"]
+        },
+        "cspell": {
+            "executor": "@alfresco-dbp/monorepo/builders:cspell"
+        }
+    },
+    "tags": ["scope:shared"]
+}

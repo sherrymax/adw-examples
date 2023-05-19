@@ -1,0 +1,156 @@
+{
+  "GOVERNANCE": {
+    "DECLARE-RECORD": {
+      "TITLE": "Ilmoita tietue",
+      "SUCCESS": "{{fileName}} on ilmoitettu tietueena",
+      "FAIL": "Tiedostoa {{fileName}} ei voida ilmoittaa tietueena",
+      "DIALOG": {
+        "TITLE": "Ilmoita tietue",
+        "MESSAGE": "Tämä asiakirja ilmoitettiin aiemmin tietueeksi ja hylättiin.",
+        "YES": "Ilmoita tietue",
+        "NO": "Peruuta",
+        "CLOSE": "Sulje"
+      },
+      "BULK-OPERATION": {
+        "ERRORS": {
+          "FOLDER": "Kansion ilmoittamista tietueeksi ei tällä hetkellä tueta",
+          "EXISTING-RECORD": "Ilmoitettu jo tietueena",
+          "FAILED": "Tietueena ilmoittaminen epäonnistui"
+        },
+        "SUCCESS": "Kohde on ilmoitettu tietueena"
+      }
+    },
+    "REJECTED-INFO-RECORD": {
+      "TITLE_LABEL": "Hylätty tietue",
+      "CLOSE_LABEL": "Sulje",
+      "SUB-TITLE": "Tiedosto {{ nodeName }} hylättiin tietueena",
+      "BY": "Tekijä",
+      "AT": "Klo",
+      "REASON": "Syy:",
+      "CONFIRM": "Vahvista",
+      "WARNING": "Jos poistat hylätyn tietueen varoituksen, toiminnot tiedoston tietueeksi ilmoittamiseen ovat taas käytettävissä",
+      "FAILED-REMOVE": "Kohteen {{nodeName}} hylkäysvaroituksen poistaminen epäonnistui: {{errorMessage}}"
+    },
+    "RECORD-NAME": {
+      "REJECT": "Hylätty tietue",
+      "TITLE": "Tietue",
+      "TOOLTIP-MESSAGE": "Poista varoitus",
+      "ICONS-TOOLTIP-MESSAGE": {
+        "RECORD": "Tietue",
+        "REJECTED-RECORD": "Hylätty tietue",
+        "RECORD-HYPERLINK": "Ilmoitettu tietueena",
+        "REJECTED-RECORD-HYPERLINK": "Tietue hylättiin, saat lisätietoja tiedoston tiedoista"
+      }
+    },
+    "DELETE-RECORD": {
+      "TITLE": "Poista",
+      "SUCCESS": "'{{ name }}' on poistettu",
+      "FAIL": "Poistaminen epäonnistui: {{recordId}}",
+      "DIALOG": {
+        "TITLE": "Poista tietue-esiintymä",
+        "YES-ALL": "Poista äläkä näytä tätä enää",
+        "YES": "Poista",
+        "NO": "Peruuta",
+        "MESSAGE": {
+          "DELETE": "Tämä kohteen '{{name}}' esiintymä poistetaan pysyvästi. Sitä ei voi palauttaa roskakorista.",
+          "ADDITIONAL": "Tämä ei vaikuta tietueeseen '{{name}}', joka on organisaatiosi tietuehallintajärjestelmässä."
+        }
+      }
+    },
+    "RECORD-PROPERTIES": {
+      "RECORD_GROUP_TITLE": "Tietue",
+      "RETENTION_SCHEDULE_GROUP_TITLE": "Säilytysaikataulu",
+      "REJECTED_RECORD_GROUP_TITLE": "Hylätty tietue"
+    },
+    "MOVE-RECORD": {
+      "TITLE": "Siirrä",
+      "MOVE-ITEM": "Siirrä '{{ name }}' kohteeseen...",
+      "SAME-FOLDER-MOVE": "Ei voi siirtää samaan kansioon",
+      "SUCCESSFUL": "Tietue siirrettiin"
+    },
+    "GLACIER": {
+      "STORE": {
+        "TITLE": "Lähetä arkistoon",
+        "SUCCESS": "Tiedosto {{ name }} arkistoidaan",
+        "FAIL": "Kohteen {{ name }} arkistointi epäonnistui",
+        "BULK-OPERATION": {
+          "ERRORS": {
+            "EXISTING-STORED-NODE": "Kohde on jo arkistoitu.",
+            "PENDING-RESTORE": " Kohde odottaa palautusta. ",
+            "RESTORED": "Palautettuja kohteita ei voi arkistoida",
+            "FOLDER": "Palauttamista arkistosta ei tällä hetkellä tueta"
+          },
+          "FAIL": "Arkistointi epäonnistui",
+          "SUCCESS": "Kohde arkistoidaan"
+        },
+        "DIALOG": {
+          "TITLE": "Lähetä arkistoon",
+          "MESSAGE": "Olet lähettämässä tiedostoja ulkoiseen arkistoon. Tiedostojen noutaminen arkistosta saattaa olla maksullista. Haluatko varmasti jatkaa?",
+          "YES": "Lähetä arkistoon",
+          "NO": "Peruuta"
+        }
+      },
+      "RESTORE": {
+        "TITLE": "Palauta arkistosta",
+        "SYNC-ERROR": "Tiedostoa, jota yrität palauttaa, ei ole vielä synkronoitu arkistoon. Tämä toiminto voi kestää jopa 24 tuntia. Yritä myöhemmin uudelleen.",
+        "FAIL": "Kohteen {{ name }} palauttaminen arkistosta epäonnistui",
+        "DIALOG": {
+          "TITLE": "Palauta arkistosta",
+          "LABEL": {
+            "TYPE": "Palautusnopeus (250  megatavun rajoitus per palautus)",
+            "OPTION-FAST": "Nopea: kesto 1–5 minuuttia (suurin kustannus)",
+            "OPTION-STANDARD": "Vakio: kesto 3–5 tuntia",
+            "OPTION-SLOW": "Hidas: kesto 5–12 tuntia (pienin kustannus)",
+            "DURATION": "Kuinka kauan tiedostojen palautus kestää (päivinä)?"
+          },
+          "YES": "Vahvista",
+          "NO": "Peruuta"
+        },
+        "BULK-OPERATION": {
+          "TITLE": "Palauta arkistosta",
+          "ERRORS": {
+            "EXISTING-SYNC-ERROR": " Tiedostoja, joita yrität palauttaa, ei ole vielä synkronoitu arkistoon. Tämä toiminto voi kestää jopa 24 tuntia. Yritä myöhemmin uudelleen.",
+            "RESTORED": "Kohde on jo palautettu",
+            "PENDING-RESTORE": "Kohde odottaa jo palautusta.",
+            "NOT-STORED": "Kohdetta, jota yrität palauttaa, ei ole vielä synkronoitu arkistoon",
+            "FAIL": "Palautus epäonnistui",
+            "FOLDER": "Kansion palauttamista ei tueta tällä hetkellä"
+          },
+          "SUCCESS": "Kohde palautetaan"
+        }
+      },
+      "EXTEND-RESTORE": {
+        "TITLE": "Jatka palautusaikaa",
+        "SUCCESS": "Palautusaikaa jatketaan '{{ days }}' päivään päivästä {{ date }} alkaen",
+        "FAIL": "Kohteen {{ name }} arkistosta palauttamisen ajan jatkaminen epäonnistui"
+      },
+      "ICONS-TOOLTIP-MESSAGE": {
+        "STORE": "Tämä tiedosto on arkistoitu. Jos haluat palauttaa sen, napsauta sitä hiiren kakkospainikkeella ja valitse Palauta arkistosta.",
+        "RESTORED": "Palautettu",
+        "PENDING-RESTORE": "Tiedostoja palautetaan parhaillaan arkistosta. Jos et voi esikatsella tai ladata tiedostoa, yritä myöhemmin uudelleen."
+      }
+    },
+    "BULK-OPERATION": {
+      "TITLE": "Joukkotoiminnon tila",
+      "FAIL": "Toiminnon suorittaminen epäonnistui",
+      "CLOSE": "Sulje"
+    },
+    "SECURITY_MARKS": {
+      "EDIT_SECURITY_MARKS_ERROR": "Virhe suojausmerkintöjen tallennuksessa",
+      "DIALOG_TITLE": "Muokkaa suojausmerkintöjä",
+      "MENU_TITLE": "Suojausmerkinnät",
+      "SAVE": "Tallenna",
+      "CANCEL": "Peruuta",
+      "HELP": "Ohje",
+      "CLOSE": "Sulje",
+      "SHOW_ALL": "Näytä kaikki",
+      "APPLIED": "Sovellettu",
+      "NOT_APPLIED": "Ei sovellettu",
+      "COLUMNS": {
+        "NAME": "Suojausmerkinnät"
+      },
+      "SECURITY_MARKS_HELP": "Suojausmerkintäohjeita",
+      "HELP_ICON_TEXT": "Suojausmerkintöjen soveltaminen rajoittaa pääsyä digitaaliseen sisältöön. Vain ihmiset, joiden käyttöoikeuksiin kuuluu vastaavat merkit, voivat tarkastella tai muokata merkittyä sisältöä."
+    }
+  }
+}

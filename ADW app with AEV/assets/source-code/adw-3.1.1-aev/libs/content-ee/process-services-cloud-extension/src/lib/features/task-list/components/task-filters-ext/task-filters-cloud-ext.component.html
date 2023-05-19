@@ -1,0 +1,6 @@
+<adf-cloud-task-filters
+    [appName]="appName$ | async"
+    [showIcons]="false"
+    [filterParam]="currentTaskFilter$ | async"
+    (filterClicked)="onTaskFilterClick($event)">
+</adf-cloud-task-filters>

@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "type": "object",
+  "properties": {
+    "include": {
+      "type": "array",
+      "description": "Projects names that needs to be included",
+      "default": [],
+      "items": {
+        "type": "string"
+      }
+    },
+    "paths": {
+      "type": "array",
+      "description": "i18n paths that needs to be included",
+      "default": [],
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

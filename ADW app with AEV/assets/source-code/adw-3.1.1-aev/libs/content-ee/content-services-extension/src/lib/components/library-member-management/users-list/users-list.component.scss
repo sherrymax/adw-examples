@@ -1,0 +1,14 @@
+.adw-users-list-container {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--theme-border-color);
+    height: 100%;
+
+    adw-member-list {
+        overflow: hidden;
+
+        mat-card-content {
+            height: calc(100% - 50px);
+        }
+    }
+}

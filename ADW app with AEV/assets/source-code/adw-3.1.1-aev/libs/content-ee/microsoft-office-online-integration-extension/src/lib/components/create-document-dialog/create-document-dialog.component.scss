@@ -1,0 +1,16 @@
+.adw-create-document {
+    &-form-group {
+        display: flex;
+        max-width: 400px;
+        margin-bottom: 38px;
+    }
+
+    &-text-area {
+        resize: none !important;
+    }
+
+    &-form-field {
+        width: 100%;
+        float: right;
+    }
+}

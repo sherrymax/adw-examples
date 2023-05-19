@@ -1,0 +1,12 @@
+{
+  "name": "@alfresco-dbp/tools",
+  "version": "0.0.7",
+  "main": "index.js",
+  "license": "See license in LICENSE file.",
+  "dependencies": {
+    "tslib": "^2.0.0"
+  },
+  "bin": {
+    "run-tool": "./bin/run-tool.js"
+  }
+}

@@ -1,0 +1,185 @@
+{
+  "name": "sqlserverConnector",
+  "description": "SQL Server Connector",
+  "actions": {
+    "fb302532-6a2e-4dc4-b6c4-c2053725321e": {
+      "id": "fb302532-6a2e-4dc4-b6c4-c2053725321e",
+      "name": "INSERT",
+      "description": "Insert rows in a database",
+      "inputs": [{
+          "id": "94eb09d7-d0d9-4802-a255-c2cf10b7ee45",
+          "name": "metadata",
+          "description": "Map of parameters",
+          "type": "key-value",
+          "required": false
+        },
+        {
+          "id": "b95bf5b2-13f3-48c4-99ff-8bc11e141733",
+          "name": "query",
+          "description": "Query to execute",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "outputs": [{
+        "id": "3988ffcd-dff3-4c6e-b6e9-90379507a515",
+        "name": "result",
+        "description": "Number of rows affected",
+        "type": "integer"
+      }]
+    },
+    "ba72b9f5-06b7-444f-b200-6d2d6d063ba9": {
+      "id": "ba72b9f5-06b7-444f-b200-6d2d6d063ba9",
+      "name": "UPDATE",
+      "description": "Update rows from a database",
+      "inputs": [{
+          "id": "b7687a13-4e25-4db6-9162-00b81ad047e2",
+          "name": "metadata",
+          "description": "Map of parameters",
+          "type": "key-value",
+          "required": false
+        },
+        {
+          "id": "bfe1cfe0-1601-4c5e-9f1a-8cd1c34bb750",
+          "name": "query",
+          "description": "Query to execute",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "outputs": [{
+        "id": "f6fd1ff5-121f-4ec8-abcd-4c94d31e999f",
+        "name": "result",
+        "description": "Number of rows affected",
+        "type": "integer"
+      }]
+    },
+    "3b3f3ad2-4130-438f-ba5f-8a04e1ea3600": {
+      "id": "3b3f3ad2-4130-438f-ba5f-8a04e1ea3600",
+      "name": "DELETE",
+      "description": "Delete rows from a database",
+      "inputs": [{
+          "id": "cba66d88-bd27-4fa5-a7d6-e8056be0899e",
+          "name": "metadata",
+          "description": "Map of parameters",
+          "type": "key-value",
+          "required": false
+        },
+        {
+          "id": "fe3ffba1-8913-4ce1-a76c-f4a1b8b2ad7b",
+          "name": "query",
+          "description": "Query to execute",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "outputs": [{
+        "id": "2592edb0-59d9-474b-a029-52d79c783c71",
+        "name": "result",
+        "description": "Number of rows affected",
+        "type": "integer"
+      }]
+    },
+    "b5471b6a-701e-4143-9cf0-67d1dfcf05f3": {
+      "id": "b5471b6a-701e-4143-9cf0-67d1dfcf05f3",
+      "name": "SELECT",
+      "description": "Extract data from a database",
+      "inputs": [{
+        "id": "1f934f4a-9252-4e9e-97f1-4f555ca0244f",
+        "name": "metadata",
+        "description": "Map of parameters",
+        "type": "key-value"
+      }, {
+        "id": "538fa2c5-18be-4980-bca8-149f85f2bd20",
+        "name": "query",
+        "description": "Query to execute",
+        "type": "string",
+        "required": false
+      }],
+      "outputs": [{
+        "id": "ef1ffc37-95a1-4b2b-9fda-656ce18d6e06",
+        "name": "result",
+        "description": "Object including requested data",
+        "type": "json"
+      }]
+    }
+  },
+  "errors": [{
+    "name": "MISSING_INPUT",
+    "code": "MISSING_INPUT",
+    "description": "A mandatory input variable was not provided"
+  }, {
+    "name": "INVALID_INPUT",
+    "code": "INVALID_INPUT",
+    "description": "The input variable has an invalid type"
+  }, {
+    "name": "DATA_ACCESS_ERROR",
+    "code": "DATA_ACCESS_ERROR",
+    "description": "Unable to access data"
+  }, {
+    "name": "DATA_INTEGRITY_VIOLATION_ERROR",
+    "code": "DATA_INTEGRITY_VIOLATION_ERROR",
+    "description": "Data integrity violation error occurs when performing database operation"
+  }, {
+    "name": "CONNECTION_ERROR",
+    "code": "CONNECTION_ERROR",
+    "description": "Cannot connect to a database instance"
+  }, {
+    "name": "SQL_GRAMMAR_ERROR",
+    "code": "SQL_GRAMMAR_ERROR",
+    "description": "Invalid syntax error"
+  }, {
+    "name": "DUPLICATE_KEY_ERROR",
+    "code": "DUPLICATE_KEY_ERROR",
+    "description": "Duplicate key error occurs when performing database operation"
+  }, {
+    "name": "OPTIMISTIC_LOCK_ERROR",
+    "code": "OPTIMISTIC_LOCK_ERROR",
+    "description": "Optimistic error occurs when performing database operation"
+  }, {
+    "name": "DEAD_LOCK_ERROR",
+    "code": "DEAD_LOCK_ERROR",
+    "description": "Deadlock error occurs when performing database operation"
+  }, {
+    "name": "PERMISSION_DENIED_ERROR",
+    "code": "PERMISSION_DENIED_ERROR",
+    "description": "Lack of permission to the resource and method requested"
+  }, {
+    "name": "UNKNOWN_ERROR",
+    "code": "UNKNOWN_ERROR",
+    "description": "Unexpected runtime error"
+  }],
+  "config": [{
+    "name": "DB_USERNAME",
+    "description": "Database username",
+    "required": true,
+    "value": ""
+  }, {
+    "name": "DB_PASSWORD",
+    "description": "Database password",
+    "value": "",
+    "required": true,
+    "secure": true
+  }, {
+    "name": "DB_NAME",
+    "description": "Database name",
+    "value": ""
+  }, {
+    "name": "SQLSERVER_HOST",
+    "description": "SQL Server host",
+    "value": ""
+  }, {
+    "name": "SQLSERVER_PORT",
+    "description": "SQL Server port",
+    "value": ""
+  }, {
+    "name": "DB_DATASOURCE",
+    "description": "Database datasource",
+    "value": "jdbc:sqlserver://${SQLSERVER_HOST}:${SQLSERVER_PORT};databaseName=${DB_NAME}",
+    "required": true
+  }, {
+    "name": "DB_DRIVER_CLASS_NAME",
+    "description": "Database driver class name",
+    "value": "com.microsoft.sqlserver.jdbc.SQLServerDriver"
+  }]
+}

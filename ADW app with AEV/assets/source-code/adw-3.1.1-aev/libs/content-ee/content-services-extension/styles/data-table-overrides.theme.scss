@@ -1,0 +1,64 @@
+.adw-member-list-container {
+
+    &.mat-card {
+        padding: 0;
+        border: none;
+        margin: 0;
+        box-shadow: none;
+        height: 100%;
+    }
+
+    adf-toolbar {
+        position: sticky;
+        top: 0;
+        z-index: 10000;
+
+        adf-toolbar-title {
+            font-size: var(--theme-body-1-font-size);
+        }
+    }
+
+    adf-datatable {
+        display: block;
+
+        .adf-datatable-cell.adf-datatable-cell--image {
+            min-width: 40px;
+
+            mat-icon svg {
+                height: 40px;
+                width: 40px;
+            }
+        }
+
+        adw-role-selector {
+            width: 100%;
+
+            mat-form-field {
+                width: 100%;
+                max-width: 200px;
+            }
+        }
+
+        .adw-member-column {
+            flex: 40%;
+        }
+
+        .adw-member-action {
+            min-width: 80px;
+
+            .adf-datatable-cell-container {
+                place-content: flex-end;
+            }
+
+            .adf-cell-value {
+                width: 50px;
+                place-content: flex-end;
+            }
+        }
+
+        .adw-member-pending-actions {
+            margin-right: 10px;
+            min-width: 180px;
+        }
+    }
+}

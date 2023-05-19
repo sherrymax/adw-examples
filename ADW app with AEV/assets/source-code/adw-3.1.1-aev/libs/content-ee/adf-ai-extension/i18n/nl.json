@@ -1,0 +1,10 @@
+{
+  "AI-VIEW": {
+    "ROTATE_LEFT": "Linksom draaien",
+    "ROTATE_RIGHT": "Rechtsom draaien",
+    "CONFIDENCE": "Betrouwbaarheid",
+    "AI": "AI",
+    "TEXT_EXTRACT": "aiTextract",
+    "AI_RECOGNITION": "aiRekognition"
+  }
+}

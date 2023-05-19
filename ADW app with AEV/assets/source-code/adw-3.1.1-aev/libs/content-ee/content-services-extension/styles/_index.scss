@@ -1,0 +1,10 @@
+@import 'data-table-overrides.theme';
+
+.adf-info-drawer-layout-header {
+    align-items: center; // Todo: move to ADF
+}
+
+adw-data-table-extension {
+    overflow: hidden;
+    height: 100%;
+}

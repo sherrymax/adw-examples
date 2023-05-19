@@ -1,0 +1,50 @@
+{
+    "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+    "projectType": "library",
+    "sourceRoot": "libs/shared/form-rules/src",
+    "prefix": "alfresco-dbp",
+    "targets": {
+        "lint": {
+            "executor": "@nrwl/linter:eslint",
+            "options": {
+                "lintFilePatterns": [
+                    "libs/shared/form-rules/src/**/*.ts",
+                    "libs/shared/form-rules/src/**/*.html"
+                ]
+            },
+            "outputs": ["{options.outputFile}"]
+        },
+        "pretest": {
+            "executor": "nx:run-commands",
+            "options": {
+                "command": "nx run shared-unit-testing:build"
+            }
+        },
+        "test": {
+            "executor": "@nrwl/jest:jest",
+            "outputs": ["coverage/libs/shared/form-rules"],
+            "options": {
+                "jestConfig": "libs/shared/form-rules/jest.config.ts",
+                "passWithNoTests": true,
+                "runInBand": true
+            },
+            "configurations": {
+                "adf": {
+                    "jestConfig": "libs/shared/form-rules/jest.adf.config.ts",
+                    "codeCoverage": false,
+                    "silent": true
+                }
+            }
+        },
+        "language-check": {
+            "executor": "@alfresco-dbp/monorepo/builders:language-check",
+            "options": {
+                "include": ["modeling-ce"]
+            }
+        },
+        "cspell": {
+            "executor": "@alfresco-dbp/monorepo/builders:cspell"
+        }
+    },
+    "tags": ["scope:shared-form-rules"]
+}

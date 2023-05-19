@@ -1,0 +1,71 @@
+{
+    "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+    "projectType": "library",
+    "sourceRoot": "libs/monorepo/builders/src",
+    "targets": {
+        "lint": {
+            "executor": "@nrwl/linter:eslint",
+            "options": {
+                "lintFilePatterns": [
+                    "libs/monorepo/builders/src/**/*.ts",
+                    "libs/monorepo/builders/src/**/*.html"
+                ]
+            },
+            "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+            "executor": "@nrwl/jest:jest",
+            "options": {
+                "jestConfig": "libs/monorepo/builders/jest.config.ts",
+                "passWithNoTests": true,
+                "runInBand": true
+            },
+            "dependsOn": [
+                {
+                    "target": "test",
+                    "projects": "dependencies"
+                }
+            ],
+            "outputs": ["coverage/libs/monorepo/builders"]
+        },
+        "build": {
+            "executor": "@nrwl/js:tsc",
+            "outputs": ["{options.outputPath}"],
+            "options": {
+                "outputPath": "node_modules/@alfresco-dbp/monorepo/builders",
+                "tsConfig": "libs/monorepo/builders/tsconfig.lib.json",
+                "packageJson": "libs/monorepo/builders/package.json",
+                "main": "libs/monorepo/builders/src/index.ts",
+                "assets": [
+                    "libs/monorepo/builders/*.md",
+                    {
+                        "input": "./libs/monorepo/builders/src",
+                        "glob": "**/*.!(ts)",
+                        "output": "./src"
+                    },
+                    {
+                        "input": "./libs/monorepo/builders",
+                        "glob": "generators.json",
+                        "output": "."
+                    },
+                    {
+                        "input": "./libs/monorepo/builders",
+                        "glob": "builders.json",
+                        "output": "."
+                    }
+                ]
+            },
+            "dependsOn": [
+                {
+                    "target": "build",
+                    "projects": "dependencies"
+                }
+            ]
+        },
+        "cspell": {
+            "executor": "@alfresco-dbp/monorepo/builders:cspell"
+        }
+    },
+    "tags": ["scope:monorepo-builders", "category:tooling"],
+    "implicitDependencies": ["monorepo-core"]
+}

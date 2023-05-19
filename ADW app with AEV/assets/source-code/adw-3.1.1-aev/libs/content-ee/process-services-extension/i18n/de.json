@@ -1,0 +1,100 @@
+{
+  "PROCESS-EXTENSION": {
+    "DIALOG": {
+      "NEW_PROCESS": "Neuer Prozess",
+      "SELECT_APPLICATION": "Anwendung auswählen",
+      "ERROR": "Sie können keinen Prozess starten, weil es keine Prozessdefinitionen gibt"
+    },
+    "BREADCRUMB": {
+      "ROOT": "Prozessmanagement",
+      "PROCESS_LIST": {
+        "PROCESSES": "Prozesse"
+      },
+      "START_PROCESS": "Prozess starten",
+      "ACTIONS": {
+        "INFO-TOOLTIP": "Details anzeigen"
+      }
+    },
+    "MENU": {
+      "PROCESS_MANAGEMENT": "Prozessmanagement",
+      "CREATE_NEW_PROCESS": "Prozess starten",
+      "CREATE_PROCESS_NOT_ALLOWED": "Neuer Prozess kann nicht erstellt werden"
+    },
+    "PROCESS_SUBMENU": {
+      "MORE": "Mehr anzeigen"
+    },
+    "ERROR": {
+      "NO_FORM": "Kein Formular für Prozessdefinition definiert",
+      "NO_CONTENT": "Anhängen der Datei von Ihrem Gerät nicht möglich",
+      "CAN_NOT_ATTACH": "Anhängen des ausgewählten Inhalts nicht möglich",
+      "AUDIT_ERROR": "Fehler bei Aufgabenanzeige: {{error}}",
+      "TASK_ACCESS_WARNING": "Sie sind nicht berechtigt, die Aufgabe zu ändern"
+    },
+    "SNACKBAR": {
+      "PROCESS-CREATED": "Prozess erstellt: '{{ processName }}'",
+      "BACKEND_SERVICE_ERROR": "Unbekannter Netzwerkfehler. Funktionen für den Prozess-Service wurden deaktiviert.",
+      "ACTION": "Laufenden Prozess anzeigen"
+    },
+    "NO_PROCESS_DEFINITIONS": "Keine Prozessdefinitionen verfügbar",
+    "SIDE_NAV_TITLE": "Prozessmanagement",
+    "TASK_LIST": {
+      "TASKS": "Aufgaben",
+      "ACTIONS": {
+        "TASK_DETAILS": "Anzeigen"
+      }
+    },
+    "PROCESS_LIST": {
+      "ACTIONS": {
+        "PROCESS_DETAILS": "Anzeigen"
+      }
+    },
+    "TASK_FORM": {
+      "FORM_SAVED": "Formular erfolgreich gespeichert",
+      "FORM_COMPLETED": "Diese Aufgabe wurde abgeschlossen",
+      "CLOSE_TOOLTIP": "Schließen",
+      "CLAIM_TASK": "Aufgabe wurde beansprucht",
+      "UNCLAIM_TASK": "Beanspruchung der Aufgabe aufgehoben",
+      "CLAIM_FAILED": "Aktion kann nicht durchgeführt werden"
+    },
+    "TASK_DETAILS": {
+      "ERROR": "Aktion kann nicht durchgeführt werden",
+      "FAILED_TO_LOAD": "Aufgabendetails konnten nicht geladen werden. Versuchen Sie es später noch einmal.",
+      "UPDATED": "{{ property }} erfolgreich aktualisiert",
+      "FAILED_TO_UPDATE": "{{ property }} konnte nicht aktualisiert werden",
+      "METADATA_TOOLTIP": "Details anzeigen",
+      "NO_TASK_NAME": "Kein Name"
+    }
+  },
+  "SHARED": {
+    "PROCESSES_LIST": {
+      "NO_PROCESS_DEFINITIONS": "Keine Prozessdefinitionen verfügbar"
+    }
+  },
+  "ADF_PROCESS_LIST": {
+    "PROPERTIES": {
+      "CREATED_BY": "Gestartet von",
+      "CREATED": "Startdatum"
+    },
+    "START_PROCESS": {
+      "NO_PROCESS_DEFINITIONS": "Sie können keinen Prozess starten, weil es keine Prozessdefinitionen gibt",
+      "NO_START_FORM": "Dieser Prozess erfordert keine weiteren Konfigurationen",
+      "NO_PROCESS_DEF_SELECTED": "Keine Kategorie/kein Prozess ausgewählt",
+      "FORM": {
+        "LABEL": {
+          "SELECT_APPLICATION": "Anwendung auswählen"
+        }
+      }
+    }
+  },
+  "ADF_TASK_LIST": {
+    "PROPERTIES": {
+      "CREATED": "Datum der Erstellung"
+    },
+    "DETAILS": {
+      "BUTTON": {
+        "CLAIM": "Beanspruchen",
+        "UNCLAIM": "Anspruch aufheben"
+      }
+    }
+  }
+}

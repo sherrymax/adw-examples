@@ -1,0 +1,21 @@
+{
+  "npmScope": "alfresco-dbp",
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "nx/tasks-runners/default",
+      "options": {
+        "cacheableOperations": [
+          "build",
+          "lint",
+          "test",
+          "pretest"
+        ],
+        "cacheDirectory": "nxcache",
+        "parallel": 1
+      }
+    }
+  },
+  "affected": {
+    "defaultBase": "develop"
+  }
+}

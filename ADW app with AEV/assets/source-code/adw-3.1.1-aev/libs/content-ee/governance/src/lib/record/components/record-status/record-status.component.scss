@@ -1,0 +1,70 @@
+.adf {
+    &-record-action-container {
+        color: initial;
+        padding: 0 10px;
+        overflow: hidden;
+        mat-chip-list {
+            .mat-chip-list-wrapper {
+                margin: 0;
+            }
+
+            .mat-chip.mat-standard-chip {
+                &:focus {
+                    box-shadow: none;
+                    background-color: initial;
+                }
+            }
+
+            overflow: hidden;
+        }
+    }
+
+    &-record-name span {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        color: var(--theme-governance-name-color);
+
+        &:hover {
+            text-decoration: underline;
+            text-decoration-color: var(--theme-governance-name-color);
+        }
+    }
+
+    &-reject-name {
+        &.mat-chip.mat-standard-chip {
+            background-color: var(--theme-governance-reject-bg-color);
+        }
+
+        span {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            color: var(--theme-governance-reject-color);
+
+            &:hover {
+                text-decoration: underline;
+                text-decoration-color: var(--theme-governance-reject-color);
+            }
+        }
+    }
+
+    &-action-icon {
+        & > svg {
+            height: 24px;
+            width: 24px;
+        }
+    }
+
+    &-record-loading {
+        &-spinner {
+            width: 58px !important;
+            height: 24px !important;
+            color: var(--theme-governance-loading-color);
+            & > svg {
+                width: 100% !important;
+                height: 100% !important;
+            }
+        }
+    }
+}

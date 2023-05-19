@@ -1,0 +1,156 @@
+{
+  "GOVERNANCE": {
+    "DECLARE-RECORD": {
+      "TITLE": "Declareren als archiefstuk",
+      "SUCCESS": "{{fileName}} is gedeclareerd als archiefstuk",
+      "FAIL": "Kan {{fileName}} niet declareren als archiefstuk",
+      "DIALOG": {
+        "TITLE": "Declareren als archiefstuk",
+        "MESSAGE": "Dit document is eerder gedeclareerd als archiefstuk en is afgewezen.",
+        "YES": "Declareren als archiefstuk",
+        "NO": "Annuleren",
+        "CLOSE": "Sluiten"
+      },
+      "BULK-OPERATION": {
+        "ERRORS": {
+          "FOLDER": "Map declareren als archiefstuk wordt momenteel niet ondersteund",
+          "EXISTING-RECORD": "Al gedeclareerd als archiefstuk",
+          "FAILED": "Declareren als archiefstuk mislukt"
+        },
+        "SUCCESS": "Item is gedeclareerd als archiefstuk"
+      }
+    },
+    "REJECTED-INFO-RECORD": {
+      "TITLE_LABEL": "Afgewezen archiefstuk",
+      "CLOSE_LABEL": "Sluiten",
+      "SUB-TITLE": "Het bestand '{{ nodeName }}' is afgewezen als een archiefstuk",
+      "BY": "Door",
+      "AT": "Om",
+      "REASON": "Met de reden",
+      "CONFIRM": "Bevestigen",
+      "WARNING": "Als u de afgewezen-archiefstukwaarschuwing verwijdert, zijn de opties voor het declareren van het bestand als een archiefstuk weer beschikbaar",
+      "FAILED-REMOVE": "Kan afgewezen-archiefstukwaarschuwing niet verwijderen van {{nodeName}} : {{errorMessage}}"
+    },
+    "RECORD-NAME": {
+      "REJECT": "Afgewezen archiefstuk",
+      "TITLE": "Archiefstuk",
+      "TOOLTIP-MESSAGE": "Waarschuwing verwijderen",
+      "ICONS-TOOLTIP-MESSAGE": {
+        "RECORD": "Archiefstuk",
+        "REJECTED-RECORD": "Afgewezen archiefstuk",
+        "RECORD-HYPERLINK": "Gedeclareerd als een archiefstuk",
+        "REJECTED-RECORD-HYPERLINK": "Archiefstuk is afgewezen, bekijk de bestandsgegevens voor meer informatie"
+      }
+    },
+    "DELETE-RECORD": {
+      "TITLE": "Verwijderen",
+      "SUCCESS": "'{{ name }}' is verwijderd",
+      "FAIL": "Kan {{recordId}} niet verwijderen",
+      "DIALOG": {
+        "TITLE": "Archiefstuk-instance verwijderen",
+        "YES-ALL": "Verwijderen en dit niet opnieuw weergeven",
+        "YES": "Verwijderen",
+        "NO": "Annuleren",
+        "MESSAGE": {
+          "DELETE": "Deze instance van '{{name}}' wordt definitief verwijderd en kan niet worden opgehaald uit de prullenbak.",
+          "ADDITIONAL": "Dit heeft geen gevolgen voor het archiefstuk '{{name}}' dat zich bevindt in het Records Management System van uw organisatie."
+        }
+      }
+    },
+    "RECORD-PROPERTIES": {
+      "RECORD_GROUP_TITLE": "Archiefstuk",
+      "RETENTION_SCHEDULE_GROUP_TITLE": "Retentieschema",
+      "REJECTED_RECORD_GROUP_TITLE": "Afgewezen archiefstuk"
+    },
+    "MOVE-RECORD": {
+      "TITLE": "Verplaatsen",
+      "MOVE-ITEM": "'{{ name }}' verplaatsen naar...",
+      "SAME-FOLDER-MOVE": "Verplaatsen naar dezelfde map is niet mogelijk",
+      "SUCCESSFUL": "Archiefstuk is verplaatst"
+    },
+    "GLACIER": {
+      "STORE": {
+        "TITLE": "Verzenden naar archief",
+        "SUCCESS": "Het bestand {{ name }} wordt gearchiveerd",
+        "FAIL": "Kan {{ name }} niet archiveren",
+        "BULK-OPERATION": {
+          "ERRORS": {
+            "EXISTING-STORED-NODE": "Item is al gearchiveerd.",
+            "PENDING-RESTORE": " Herstellen van item is in behandeling. ",
+            "RESTORED": "Kan de herstelde items niet archiveren",
+            "FOLDER": "Herstellen uit archief wordt momenteel niet ondersteund"
+          },
+          "FAIL": "Archiveren is mislukt",
+          "SUCCESS": "Item wordt gearchiveerd"
+        },
+        "DIALOG": {
+          "TITLE": "Verzenden naar archief",
+          "MESSAGE": "U staat op het punt om bestanden naar een extern archief te sturen. Er kunnen kosten verbonden zijn aan het ophalen van bestanden uit het archief. Weet u zeker dat u wilt doorgaan?",
+          "YES": "Verzenden naar archief",
+          "NO": "Annuleren"
+        }
+      },
+      "RESTORE": {
+        "TITLE": "Herstellen uit archief",
+        "SYNC-ERROR": "Het bestand dat u wilt herstellen is nog niet gesynchroniseerd met het archief. Deze bewerking kan tot 24 uur duren. Probeer het later opnieuw.",
+        "FAIL": "Kan {{ name }} niet herstellen uit het archief",
+        "DIALOG": {
+          "TITLE": "Herstellen uit archief",
+          "LABEL": {
+            "TYPE": "Herstelsnelheid (limiet van 250 MB per herstelbewerking)",
+            "OPTION-FAST": "Snel – duur: 1-5 min (hoogste kosten)",
+            "OPTION-STANDARD": "Standaard – duur: 3-5 uur",
+            "OPTION-SLOW": "Langzaam – duur: 5-12 uur (laagste kosten)",
+            "DURATION": "Hoe lang blijven de bestanden hersteld? (dagen)"
+          },
+          "YES": "Bevestigen",
+          "NO": "Annuleren"
+        },
+        "BULK-OPERATION": {
+          "TITLE": "Herstellen uit archief",
+          "ERRORS": {
+            "EXISTING-SYNC-ERROR": " De bestanden die u wilt herstellen zijn nog niet gesynchroniseerd met het archief. Deze bewerking kan tot 24 uur duren. Probeer het later opnieuw.",
+            "RESTORED": "Item is al hersteld",
+            "PENDING-RESTORE": "Herstellen van item is al in behandeling.",
+            "NOT-STORED": "Het item dat u wilt herstellen is nog niet gesynchroniseerd met het archief",
+            "FAIL": "Herstellen is mislukt",
+            "FOLDER": "Het herstellen van een map wordt momenteel niet ondersteund"
+          },
+          "SUCCESS": "Item wordt hersteld"
+        }
+      },
+      "EXTEND-RESTORE": {
+        "TITLE": "Herstelduur verlengen",
+        "SUCCESS": "Herstelduur wordt verlengd met '{{ days }}' dagen vanaf {{ date }}",
+        "FAIL": "Kan herstelduur van {{ name }} uit het archief niet verlengen"
+      },
+      "ICONS-TOOLTIP-MESSAGE": {
+        "STORE": "Dit bestand is gearchiveerd. Om het te herstellen, klikt u met de rechtermuisknop en selecteert u de optie voor herstellen uit het archief.",
+        "RESTORED": "Hersteld",
+        "PENDING-RESTORE": "Bezig met het herstellen van bestanden uit het archief. Als u geen preview van het bestand kunt weergeven of het bestand niet kunt downloaden, probeert u het later opnieuw"
+      }
+    },
+    "BULK-OPERATION": {
+      "TITLE": "Status bulkbewerking",
+      "FAIL": "Kan de bewerking niet uitvoeren",
+      "CLOSE": "Sluiten"
+    },
+    "SECURITY_MARKS": {
+      "EDIT_SECURITY_MARKS_ERROR": "Fout bij het opslaan van beveiligingsmarkeringen",
+      "DIALOG_TITLE": "Beveiligingsmarkeringen bewerken",
+      "MENU_TITLE": "Beveiligingsmarkeringen",
+      "SAVE": "Opslaan",
+      "CANCEL": "Annuleren",
+      "HELP": "Help",
+      "CLOSE": "Sluiten",
+      "SHOW_ALL": "Alle weergeven",
+      "APPLIED": "Toegepast",
+      "NOT_APPLIED": "Niet toegepast",
+      "COLUMNS": {
+        "NAME": "Beveiligingsmarkeringen"
+      },
+      "SECURITY_MARKS_HELP": "Veiligheidsmarkeringen help",
+      "HELP_ICON_TEXT": "Door veiligheidsmarkeringen toe te passen, wordt de toegang tot digitale content beperkt. Alleen mensen met overeenkomstige markeringen in hun gebruikersrechten mogen de gemarkeerde content bekijken of bewerken."
+    }
+  }
+}

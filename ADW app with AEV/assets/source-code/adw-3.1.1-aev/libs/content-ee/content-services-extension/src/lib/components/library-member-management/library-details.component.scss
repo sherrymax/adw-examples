@@ -1,0 +1,41 @@
+.acs-members-container {
+    background-color: var(--theme-card-background-color);
+    width: 100%;
+}
+
+.adw-member-manager-tabs {
+    margin-top: 40px;
+    height: calc(100% - 80px);
+
+    .mat-tab-body-wrapper {
+        height: 100%;
+    }
+
+    .mat-tab-labels {
+        text-transform: uppercase;
+    }
+}
+
+.acs-members-topbar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .acs-close-members-container {
+        margin-right: 15px;
+    }
+}
+
+.acs-members-breadcrumb {
+    font-size: var(--theme-adf-font-size-2);
+    margin-left: 20px;
+
+    .acs-members-breadcrumb-library {
+        font-weight: 900;
+    }
+
+    .acs-members-breadcrumb-item {
+        font-weight: 100;
+    }
+}

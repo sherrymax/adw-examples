@@ -1,0 +1,187 @@
+{
+    "name": "lambdaConnector",
+    "description": "The lambda connector supports invocation of AWS lambda functions from an APS Activiti 7 process instance, via the lambda service task.",
+    "actions": {
+      "ab1eb136-7bb2-4480-8248-edf72ef0016e": {
+        "id": "ab1eb136-7bb2-4480-8248-edf72ef0016e",
+        "name": "INVOKE",
+        "description": "Invokes a AWS lambda function",
+        "inputs": [
+          {
+            "id": "098ceac9-c6d2-4ed1-8382-9023903d9a5f",
+            "name": "function",
+            "description": "Name of the lambda function. E.g: 'LambdaFunction'",
+            "type": "string",
+            "required": true
+          },
+          {
+            "id": "b77b7c14-402c-426e-853f-d2bd346a3ae6",
+            "name": "payload",
+            "description": "JSON object that is passed to the lambda function. E.g:'{\"key1\":\"value1\", \"key2\":\"value2\", \"key3\":\"value3\"}'",
+            "type": "json",
+            "required": false
+          }
+        ],
+        "outputs": [
+          {
+            "id": "b00ae3d8-d1ba-4a7f-bff1-cedda68986ff",
+            "name": "lambdaPayload",
+            "description": "Lambda function result payload",
+            "type": "json"
+          },
+          {
+            "id": "b0a7d476-4f30-4d80-8301-8e38ac13190e",
+            "name": "lambdaStatus",
+            "description": "Status code that indicates whether the function invocation was successful",
+            "type": "integer",
+            "required": false
+          },
+          {
+            "id": "d1c649d8-9dc8-4881-8571-a03748455679",
+            "name": "lambdaLog",
+            "description": "Log produced during the lambda function invocation",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "errors": [
+      {
+        "name": "MISSING_INPUT",
+        "description": "A mandatory input variable was not provided",
+        "code": "MISSING_INPUT"
+      },
+      {
+        "name": "INVALID_INPUT",
+        "description": "The input variable has an invalid type",
+        "code": "INVALID_INPUT"
+      },
+      {
+        "name": "SERVICE_ERROR",
+        "description": "The service encountered an internal error",
+        "code": "SERVICE_ERROR"
+      },
+      {
+        "name": "INVALID_REQUEST",
+        "description": "The request body could not be parsed as JSON",
+        "code": "INVALID_REQUEST"
+      },
+      {
+        "name": "REQUEST_TOO_LARGE",
+        "description": "The request payload exceeded the Invoke request body JSON input limit",
+        "code": "REQUEST_TOO_LARGE"
+      },
+      {
+        "name": "UNKNOWN_ERROR",
+        "description": "Unexpected runtime error",
+        "code": "UNKNOWN_ERROR"
+      },
+      {
+        "name": "BAD_REQUEST",
+        "description": "The server could not understand the request due to invalid syntax",
+        "code": "BAD_REQUEST"
+      },
+      {
+        "name": "UNAUTHORIZED",
+        "description": "The request has not been applied because it lacks valid authentication",
+        "code": "UNAUTHORIZED"
+      },
+      {
+        "name": "FORBIDDEN",
+        "description": "The server understood the request but refuses to authorize it",
+        "code": "FORBIDDEN"
+      },
+      {
+        "name": "NOT_FOUND",
+        "description": "The server could not find what was requested",
+        "code": "NOT_FOUND"
+      },
+      {
+        "name": "METHOD_NOT_ALLOWED",
+        "description": "The request method is known by the server but is not supported",
+        "code": "METHOD_NOT_ALLOWED"
+      },
+      {
+        "name": "NOT_ACCEPTABLE",
+        "description": "The server cannot produce a response matching the list of acceptable values",
+        "code": "NOT_ACCEPTABLE"
+      },
+      {
+        "name": "REQUEST_TIMEOUT",
+        "description": "The server would like to shut down this unused connection",
+        "code": "REQUEST_TIMEOUT"
+      },
+      {
+        "name": "CONFLICT",
+        "description": "The request conflicts with current state of the server",
+        "code": "CONFLICT"
+      },
+      {
+        "name": "GONE",
+        "description": "No longer available",
+        "code": "GONE"
+      },
+      {
+        "name": "UNPROCESSABLE_ENTITY",
+        "description": "The server understands the content type of the request entity, and the syntax of the request entity is correct, but it was unable to process the contained instructions",
+        "code": "UNPROCESSABLE_ENTITY"
+      },
+      {
+        "name": "LOCKED",
+        "description": "The resource that is being accessed is locked",
+        "code": "LOCKED"
+      },
+      {
+        "name": "FAILED_DEPENDENCY",
+        "description": "The request failed due to failure of a previous request",
+        "code": "FAILED_DEPENDENCY"
+      },
+      {
+        "name": "INTERNAL_SERVER_ERROR",
+        "description": "The server has encountered a situation it doesn't know how to handle",
+        "code": "INTERNAL_SERVER_ERROR"
+      },
+      {
+        "name": "NOT_IMPLEMENTED",
+        "description": "The request method is not supported by the server and cannot be handled",
+        "code": "NOT_IMPLEMENTED"
+      },
+      {
+        "name": "BAD_GATEWAY",
+        "description": "The server got an invalid response",
+        "code": "BAD_GATEWAY"
+      },
+      {
+        "name": "SERVICE_UNAVAILABLE",
+        "description": "The server is not ready to handle the request",
+        "code": "SERVICE_UNAVAILABLE"
+      },
+      {
+        "name": "GATEWAY_TIMEOUT",
+        "description": "The server is acting as a gateway and cannot get a response in time",
+        "code": "GATEWAY_TIMEOUT"
+      }
+    ],
+    "config": [
+        {
+            "name": "AWS_LAMBDA_AWS_ACCESS_KEY",
+            "description": "AWS Access Key ID",
+            "value": "",
+            "required": true,
+            "secure": true
+        },
+        {
+            "name": "AWS_LAMBDA_AWS_SECRET_KEY",
+            "description": "AWS Secret key",
+            "value": "",
+            "required": true,
+            "secure": true
+        },
+        {
+            "name": "AWS_LAMBDA_AWS_REGION",
+            "description": "AWS Region",
+            "value": "",
+            "required": true
+        }
+    ]
+}

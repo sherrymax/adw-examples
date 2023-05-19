@@ -1,0 +1,47 @@
+<h1 mat-dialog-title>{{ title | translate }}</h1>
+<mat-dialog-content>
+    <form [formGroup]="form" fxLayout="column">
+        <ng-container *ngIf="canShowTypes">
+            <label>{{
+                'GOVERNANCE.GLACIER.RESTORE.DIALOG.LABEL.TYPE' | translate
+            }}</label>
+            <mat-radio-group
+                formControlName="type"
+                fxLayout="column"
+                fxLayoutGap="5px"
+                style="margin: 15px 0;"
+            >
+                <mat-radio-button *ngFor="let type of types" [value]="type.id">
+                    {{ type.desc | translate }}
+                </mat-radio-button>
+            </mat-radio-group>
+        </ng-container>
+
+        <mat-form-field>
+            <mat-label>{{
+                'GOVERNANCE.GLACIER.RESTORE.DIALOG.LABEL.DURATION' | translate
+            }}</mat-label>
+            <input
+                type="number"
+                matInput
+                formControlName="days"
+                min="1"
+                max="1000"
+            />
+        </mat-form-field>
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <button
+        mat-button
+        [mat-dialog-close]="form.value"
+        [disabled]="form.invalid"
+        data-automation-id="restore-yes-action"
+    >
+        {{ yesLabel | translate }}
+    </button>
+    <button mat-button [mat-dialog-close]="false" cdkFocusInitial>
+        {{ noLabel | translate }}
+    </button>
+</mat-dialog-actions>

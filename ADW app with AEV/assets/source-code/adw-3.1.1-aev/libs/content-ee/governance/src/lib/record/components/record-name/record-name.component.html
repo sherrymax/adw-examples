@@ -1,0 +1,47 @@
+<div
+    [attr.data-automation-id]="(displayText$ | async) + '-governance-row'"
+    fxLayout
+    fxLayoutAlign="stretch center"
+>
+    <div fxFlex="70%" fxLayout="column">
+        <div
+            fxFlex="100"
+            [class.aga-disabled-name]="isStoredRecord()"
+            class="adf-ellipsis-cell"
+        >
+            <span
+                role="link"
+                title="{{ node | adfNodeNameTooltip }}"
+                [attr.aria-label]="
+                    'NAME_COLUMN_LINK.ACCESSIBILITY.ARIA_LABEL'
+                        | translate
+                            : {
+                                  name: displayText$ | async
+                              }
+                "
+                data-automation-id="adf-name-column"
+                (click)="onClick()"
+                [class.adf-datatable-link]="!isStoredRecord()"
+                class="aga-datatable-cell-value"
+            >
+                {{ displayText$ | async }}
+            </span>
+        </div>
+
+        <ng-container
+            *ngIf="!isRecordNode() && isFile() && isFileWriteLocked()"
+        >
+            <aca-locked-by
+                class="aga-datatable-cell-value"
+                fxFlex="100"
+                [node]="context.row.node"
+            ></aca-locked-by>
+        </ng-container>
+    </div>
+
+    <aga-record-status
+        *ngIf="isRecordNode() || isRejectedRecordNode()"
+        [node]="node"
+        fxFlex="25"
+    ></aga-record-status>
+</div>

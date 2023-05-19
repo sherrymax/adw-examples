@@ -1,0 +1,100 @@
+<div
+    #divElement
+    [ngSwitch]="getRecordAction()"
+    class="adf-record-action-container"
+    fxLayout="row-reverse"
+    fxLayoutAlign="stretch center"
+    fxLayoutGap="5px"
+>
+    <ng-container *ngSwitchCase="'rejectedRecord'">
+        <mat-icon
+            (click)="openRejectedRecordInfo(true)"
+            class="adf-action-icon"
+            fxHide
+            fxShow.sm
+            fxShow.xs
+            [fxShow.gt-lg]="canHideName"
+            [fxShow.md]="canHideChip"
+            matTooltip="{{
+                'GOVERNANCE.RECORD-NAME.ICONS-TOOLTIP-MESSAGE.REJECTED-RECORD'
+                    | translate
+            }}"
+            svgIcon="rejected"
+        >
+        </mat-icon>
+
+        <mat-chip-list [attr.data-automation-id]="'rejected-record'">
+            <mat-chip
+                (click)="openRejectedRecordInfo()"
+                [fxHide.gt-lg]="canHideName"
+                [fxHide.md]="canHideChip"
+                class="adf-reject-name"
+                fxHide.sm
+                fxHide.xs
+            >
+                <span
+                    matTooltip="{{
+                        'GOVERNANCE.RECORD-NAME.ICONS-TOOLTIP-MESSAGE.REJECTED-RECORD-HYPERLINK'
+                            | translate
+                    }}"
+                >
+                    {{ 'GOVERNANCE.RECORD-NAME.REJECT' | translate }}
+                </span>
+            </mat-chip>
+        </mat-chip-list>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'record'">
+        <mat-icon
+            (click)="openRecordInfo(true)"
+            class="adf-action-icon"
+            fxHide
+            fxShow.sm
+            fxShow.xs
+            [fxShow.gt-lg]="canHideName"
+            [fxShow.md]="canHideChip"
+            matTooltip="{{
+                'GOVERNANCE.RECORD-NAME.ICONS-TOOLTIP-MESSAGE.RECORD'
+                    | translate
+            }}"
+            svgIcon="record"
+        >
+        </mat-icon>
+
+        <mat-chip-list [attr.data-automation-id]="'record'">
+            <mat-chip
+                (click)="openRecordInfo()"
+                [fxHide.gt-lg]="canHideName"
+                class="adf-record-name"
+                fxHide.sm
+                fxHide.xs
+                [fxHide.md]="canHideChip"
+            >
+                <span
+                    data-automation-id="record-title"
+                    matTooltip="{{
+                        'GOVERNANCE.RECORD-NAME.ICONS-TOOLTIP-MESSAGE.RECORD-HYPERLINK'
+                            | translate
+                    }}"
+                >{{ 'GOVERNANCE.RECORD-NAME.TITLE' | translate }}</span>
+            </mat-chip>
+        </mat-chip-list>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'loading'">
+        <mat-spinner
+            class="adf-record-loading-spinner"
+            fxHide.xs
+            [fxHide.lt-lg]="canHideName"
+        ></mat-spinner>
+    </ng-container>
+
+    <aga-glacier-icon
+        fxLayout
+        fxLayoutAlign="center"
+        [fxHide.lt-lg]="canHideName"
+        [node]="node"
+        fxHide.sm
+        fxHide.xs
+    ></aga-glacier-icon>
+</div>

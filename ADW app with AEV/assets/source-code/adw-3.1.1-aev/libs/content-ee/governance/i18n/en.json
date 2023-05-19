@@ -1,0 +1,156 @@
+{
+  "GOVERNANCE": {
+    "DECLARE-RECORD": {
+      "TITLE" : "Declare Record",
+      "SUCCESS": "{{fileName}} has been declared as record",
+      "FAIL": "Cannot declare {{fileName}} as record",
+      "DIALOG": {
+        "TITLE": "Declare Record",
+        "MESSAGE": "This document was previously declared as a record and was rejected.",
+        "YES": "Declare Record",
+        "NO": "Cancel",
+        "CLOSE": "CLOSE"
+      },
+      "BULK-OPERATION": {
+        "ERRORS": {
+          "FOLDER": "Declare folder as record is not currently supported",
+          "EXISTING-RECORD": "Already declared as record",
+          "FAILED": "Failed to declare as record"
+        },
+        "SUCCESS": "Item has been declared as record"
+      }
+    },
+    "REJECTED-INFO-RECORD": {
+      "TITLE_LABEL": "Rejected Record",
+      "CLOSE_LABEL": "Close",
+      "SUB-TITLE": "The file '{{ nodeName }}' was rejected as a record",
+      "BY": "By",
+      "AT": "At",
+      "REASON": "With the reason",
+      "CONFIRM": "Confirm",
+      "WARNING": "If you remove the rejected record warning then the options to declare the file as a record will be available again",
+      "FAILED-REMOVE": "Failed to remove rejected warning of {{nodeName}} : {{errorMessage}}"
+    },
+    "RECORD-NAME": {
+      "REJECT": "Record rejected",
+      "TITLE": "Record",
+      "TOOLTIP-MESSAGE": "Remove Warning",
+      "ICONS-TOOLTIP-MESSAGE": {
+        "RECORD": "Record",
+        "REJECTED-RECORD": "Rejected Record",
+        "RECORD-HYPERLINK": "Declared as a Record",
+        "REJECTED-RECORD-HYPERLINK": "Record was rejected, view file information for details"
+      }
+    },
+    "DELETE-RECORD" : {
+      "TITLE": "Remove",
+      "SUCCESS": "'{{ name }}' has been removed",
+      "FAIL": "Failed to remove {{recordId}}",
+      "DIALOG": {
+        "TITLE": "Remove Record Instance",
+        "YES-ALL": "REMOVE, AND DON'T SHOW THIS AGAIN",
+        "YES": "Remove",
+        "NO": "Cancel",
+        "MESSAGE": {
+          "DELETE": "This instance of '{{name}}' will be permanently removed, and will not be retrievable from the trash.",
+          "ADDITIONAL": "The record '{{name}}' that resides in your organisation's records management system will not be affected."
+        }
+      }
+    },
+    "RECORD-PROPERTIES": {
+      "RECORD_GROUP_TITLE" : "Record",
+      "RETENTION_SCHEDULE_GROUP_TITLE" : "Retention Schedule",
+      "REJECTED_RECORD_GROUP_TITLE": "Rejected Record"
+    },
+    "MOVE-RECORD" : {
+      "TITLE": "Move",
+      "MOVE-ITEM": "Move '{{ name }}' to...",
+      "SAME-FOLDER-MOVE": "Cannot move to the same folder",
+      "SUCCESSFUL": "Record moved successfully"
+    },
+    "GLACIER" : {
+      "STORE": {
+        "TITLE": "Send to Archive",
+        "SUCCESS": "The file {{ name }} will be archived",
+        "FAIL": "Failed to archive {{ name }}",
+        "BULK-OPERATION": {
+          "ERRORS": {
+            "EXISTING-STORED-NODE": "Item already archived.",
+            "PENDING-RESTORE": " Item pending restore. ",
+            "RESTORED": "Unable to archive the restored items",
+            "FOLDER": "Restoring from archive is not currently supported"
+          },
+          "FAIL": "Failed to archive",
+          "SUCCESS": "Item will be archived"
+        },
+        "DIALOG": {
+          "TITLE": "Send to Archive",
+          "MESSAGE": "You are about to send files to an external archive. There may be a cost associated with retrieving files from the archive. Are you sure you want to continue?",
+          "YES": "Send to Archive",
+          "NO": "Cancel"
+        }
+      },
+      "RESTORE": {
+        "TITLE": "Restore from Archive",
+        "SYNC-ERROR": "The file you are trying to restore has not been synchronized to archive yet. This operation might take up to 24 hours. Please try again later.",
+        "FAIL": "Failed to restore {{ name }} from the archive",
+        "DIALOG": {
+          "TITLE": "Restore from Archive",
+          "LABEL": {
+            "TYPE": "Restore Speed (250MB limit per restore)",
+            "OPTION-FAST":"Fast – duration 1-5 mins (highest cost)",
+            "OPTION-STANDARD":"Standard – duration 3-5 hrs",
+            "OPTION-SLOW":"Slow – duration 5-12 hrs (lowest cost)",
+            "DURATION": "How long will files be restored for? (days)"
+          },
+          "YES": "Confirm",
+          "NO": "Cancel"
+        },
+        "BULK-OPERATION": {
+          "TITLE": "Restore from Archive",
+          "ERRORS": {
+            "EXISTING-SYNC-ERROR": " The files you are trying to restore have not been synchronized to archive yet. This operation might take up to 24 hours. Please try again later.",
+            "RESTORED": "Item is already restored",
+            "PENDING-RESTORE": "Item is already pending restore.",
+            "NOT-STORED": "The item you are trying to restore has not been synchronized to archive yet",
+            "FAIL": "Failed to restore",
+            "FOLDER": "Restoring a folder is not currently supported"
+          },
+          "SUCCESS": "Item will be restored"
+        }
+      },
+      "EXTEND-RESTORE": {
+        "TITLE": "Extend Restore Time",
+        "SUCCESS": "Restore duration will be extended to '{{ days }}' days from {{ date }}",
+        "FAIL": "Failed to extend restore time of {{ name }} from the archive"
+      },
+      "ICONS-TOOLTIP-MESSAGE": {
+        "STORE": "This file is archived. To restore, right click and select restore from the archive.",
+        "RESTORED": "Restored",
+        "PENDING-RESTORE": "Currently restoring files from the archive. If you cannot preview the file or download it, please try again later"
+      }
+    },
+    "BULK-OPERATION": {
+      "TITLE": "Bulk Operation Status",
+      "FAIL": "Failed to perform the operation",
+      "CLOSE": "CLOSE"
+    },
+    "SECURITY_MARKS" :{
+        "EDIT_SECURITY_MARKS_ERROR": "Error in saving security marks",
+        "DIALOG_TITLE": "Edit Security Marks",
+        "MENU_TITLE": "Security Marks",
+        "SAVE": "Save",
+        "CANCEL": "Cancel",
+        "HELP": "Help",
+        "CLOSE": "Close",
+        "SHOW_ALL": "Show all",
+        "APPLIED": "Applied",
+        "NOT_APPLIED": "Not Applied",
+        "COLUMNS": {
+            "NAME": "Security Marks"
+        },
+        "SECURITY_MARKS_HELP": "Security marks help",
+        "HELP_ICON_TEXT": "Applying security marks will restrict access to digital content. Only people with matching marks applied to their user permission will be able view or edit marked content."
+    }
+  }
+}

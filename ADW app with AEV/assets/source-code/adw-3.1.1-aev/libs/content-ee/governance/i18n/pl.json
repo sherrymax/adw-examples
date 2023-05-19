@@ -1,0 +1,156 @@
+{
+  "GOVERNANCE": {
+    "DECLARE-RECORD": {
+      "TITLE": "Zadeklaruj rekord",
+      "SUCCESS": "Plik {{fileName}} został zadeklarowany jako rekord",
+      "FAIL": "Pliku {{fileName}} nie można zadeklarować jako rekord",
+      "DIALOG": {
+        "TITLE": "Zadeklaruj rekord",
+        "MESSAGE": "Ten dokument został uprzednio zadeklarowany jako rekord i został odrzucony.",
+        "YES": "Zadeklaruj rekord",
+        "NO": "Anuluj",
+        "CLOSE": "Zamknij"
+      },
+      "BULK-OPERATION": {
+        "ERRORS": {
+          "FOLDER": "Deklarowanie folderu jako rekordu nie jest obecnie obsługiwane",
+          "EXISTING-RECORD": "Już zadeklarowano jako rekord",
+          "FAILED": "Nie udało się zadeklarować jako rekord"
+        },
+        "SUCCESS": "Element został zadeklarowany jako rekord"
+      }
+    },
+    "REJECTED-INFO-RECORD": {
+      "TITLE_LABEL": "Odrzucony rekord",
+      "CLOSE_LABEL": "Zamknij",
+      "SUB-TITLE": "Plik '{{ nodeName }}' został odrzucony jako rekord",
+      "BY": "Przez",
+      "AT": "w dn.",
+      "REASON": "Przyczyna:",
+      "CONFIRM": "Potwierdź",
+      "WARNING": "W przypadku usunięcia ostrzeżenia o odrzuconym rekordzie opcje umożliwiające zadeklarowanie pliku jako rekordu staną się ponownie dostępne",
+      "FAILED-REMOVE": "Nie udało się usunąć ostrzeżenia dotyczącego odrzuconego węzła {{nodeName}}: {{errorMessage}}"
+    },
+    "RECORD-NAME": {
+      "REJECT": "Odrzucony rekord",
+      "TITLE": "Rekord",
+      "TOOLTIP-MESSAGE": "Ostrzeżenie dotyczące usunięcia",
+      "ICONS-TOOLTIP-MESSAGE": {
+        "RECORD": "Rekord",
+        "REJECTED-RECORD": "Odrzucony rekord",
+        "RECORD-HYPERLINK": "Zadeklarowano jako rekord",
+        "REJECTED-RECORD-HYPERLINK": "Rekord został odrzucony, szczegóły znajdziesz w informacjach o pliku"
+      }
+    },
+    "DELETE-RECORD": {
+      "TITLE": "Usuń",
+      "SUCCESS": "Rekord '{{ name }}' został usunięty",
+      "FAIL": "Nie udało się usunąć rekordu {{recordId}}",
+      "DIALOG": {
+        "TITLE": "Usuń wystąpienie rekordu",
+        "YES-ALL": "Usuń i nie pokazuj tego ponownie",
+        "YES": "Usuń",
+        "NO": "Anuluj",
+        "MESSAGE": {
+          "DELETE": "To wystąpienie rekordu '{{name}}' zostanie trwale usunięte i nie będzie można go pobrać z kosza.",
+          "ADDITIONAL": "Nie będzie to miało wpływu na rekord '{{name}}' znajdujący się w systemie zarządzania rekordami Twojej organizacji."
+        }
+      }
+    },
+    "RECORD-PROPERTIES": {
+      "RECORD_GROUP_TITLE": "Rekord",
+      "RETENTION_SCHEDULE_GROUP_TITLE": "Harmonogram przechowywania",
+      "REJECTED_RECORD_GROUP_TITLE": "Odrzucony rekord"
+    },
+    "MOVE-RECORD": {
+      "TITLE": "Przenieś",
+      "MOVE-ITEM": "Przenieś '{{ name }}' do...",
+      "SAME-FOLDER-MOVE": "Nie można przenieść do tego samego folderu",
+      "SUCCESSFUL": "Rekord został przeniesiony pomyślnie"
+    },
+    "GLACIER": {
+      "STORE": {
+        "TITLE": "Wyślij do archiwum",
+        "SUCCESS": "Plik {{ name }} zostanie zarchiwizowany",
+        "FAIL": "Nie udało się zarchiwizować pliku {{ name }}",
+        "BULK-OPERATION": {
+          "ERRORS": {
+            "EXISTING-STORED-NODE": "Element już zarchiwizowany.",
+            "PENDING-RESTORE": " Elementy oczekujące na przywrócenie. ",
+            "RESTORED": "Nie można zarchiwizować przywróconych elementów",
+            "FOLDER": "Przywracanie z archiwum nie jest obecnie obsługiwane"
+          },
+          "FAIL": "Nie udało się zarchiwizować",
+          "SUCCESS": "Element zostanie zarchiwizowany"
+        },
+        "DIALOG": {
+          "TITLE": "Wyślij do archiwum",
+          "MESSAGE": "Zamierzasz wysłać pliki do archiwum zewnętrznego. Pobieranie plików z archiwum może wiązać się z kosztami. Czy na pewno chcesz kontynuować?",
+          "YES": "Wyślij do archiwum",
+          "NO": "Anuluj"
+        }
+      },
+      "RESTORE": {
+        "TITLE": "Przywracanie z archiwum",
+        "SYNC-ERROR": "Plik, który próbujesz przywrócić, nie został jeszcze zsynchronizowany z archiwum. Ta operacja może potrwać do 24 godzin. Spróbuj ponownie później.",
+        "FAIL": "Nie udało się przywrócić pliku {{ name }} z archiwum",
+        "DIALOG": {
+          "TITLE": "Przywracanie z archiwum",
+          "LABEL": {
+            "TYPE": "Szybkość przywracania (limit 250 MB na jedną operację przywracania)",
+            "OPTION-FAST": "Szybkie — czas trwania 1–5 min (najwyższy koszt)",
+            "OPTION-STANDARD": "Standardowe — czas trwania 3–5 godzin",
+            "OPTION-SLOW": "Wolne — czas trwania 5–12 godzin (najniższy koszt)",
+            "DURATION": "Na jak długo pliki zostaną przywrócone? (dni)"
+          },
+          "YES": "Potwierdź",
+          "NO": "Anuluj"
+        },
+        "BULK-OPERATION": {
+          "TITLE": "Przywracanie z archiwum",
+          "ERRORS": {
+            "EXISTING-SYNC-ERROR": " Pliki, które próbujesz przywrócić, nie zostały jeszcze zsynchronizowane z archiwum. Ta operacja może potrwać do 24 godzin. Spróbuj ponownie później.",
+            "RESTORED": "Element jest już przywrócony",
+            "PENDING-RESTORE": "Element już oczekuje na przywrócenie.",
+            "NOT-STORED": "Element, który próbujesz przywrócić, nie został jeszcze zsynchronizowany z archiwum",
+            "FAIL": "Nie udało się przywrócić",
+            "FOLDER": "Przywracanie folderu nie jest obecnie obsługiwane"
+          },
+          "SUCCESS": "Element zostanie przywrócony"
+        }
+      },
+      "EXTEND-RESTORE": {
+        "TITLE": "Przedłużenie czasu przywrócenia",
+        "SUCCESS": "Czas przywrócenia zostanie wydłużony do '{{ days }}' dni od {{ date }}",
+        "FAIL": "Nie udało się przedłużyć czasu przywrócenia pliku {{ name }} z archiwum"
+      },
+      "ICONS-TOOLTIP-MESSAGE": {
+        "STORE": "Ten plik jest zarchiwizowany. Aby go przywrócić, kliknij prawym przyciskiem myszy i wybierz polecenie przywrócenia z archiwum.",
+        "RESTORED": "Przywrócono",
+        "PENDING-RESTORE": "Obecnie trwa przywracanie plików z archiwum. Jeśli nie możesz pobrać pliku lub wyświetlić jego podglądu, spróbuj ponownie później"
+      }
+    },
+    "BULK-OPERATION": {
+      "TITLE": "Status operacji masowej",
+      "FAIL": "Nie udało się wykonać operacji",
+      "CLOSE": "Zamknij"
+    },
+    "SECURITY_MARKS": {
+      "EDIT_SECURITY_MARKS_ERROR": "Błąd w zapisywaniu znaków zabezpieczeń",
+      "DIALOG_TITLE": "Edytuj znaki zabezpieczeń",
+      "MENU_TITLE": "Znaki zabezpieczeń",
+      "SAVE": "Zapisz",
+      "CANCEL": "Anuluj",
+      "HELP": "Pomoc",
+      "CLOSE": "Zamknij",
+      "SHOW_ALL": "Pokaż wszystko",
+      "APPLIED": "Zastosowano",
+      "NOT_APPLIED": "Nie zastosowano",
+      "COLUMNS": {
+        "NAME": "Znaki zabezpieczeń"
+      },
+      "SECURITY_MARKS_HELP": "Pomoc dotycząca znaków zabezpieczeń",
+      "HELP_ICON_TEXT": "Zastosowanie znaków zabezpieczeń ograniczy dostęp do treści cyfrowych. Tylko osoby ze zgodnymi znakami zastosowanymi do ich uprawnień użytkownika będą mogły wyświetlać lub edytować treści opatrzone znakiem."
+    }
+  }
+}

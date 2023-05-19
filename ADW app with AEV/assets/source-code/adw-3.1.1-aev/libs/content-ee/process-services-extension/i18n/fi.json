@@ -1,0 +1,100 @@
+{
+  "PROCESS-EXTENSION": {
+    "DIALOG": {
+      "NEW_PROCESS": "Uusi prosessi",
+      "SELECT_APPLICATION": "Valitse sovellus",
+      "ERROR": "Et voi käynnistää prosessia, koska prosessimääritelmiä ei ole saatavilla"
+    },
+    "BREADCRUMB": {
+      "ROOT": "Prosessien hallinta",
+      "PROCESS_LIST": {
+        "PROCESSES": "Prosessit"
+      },
+      "START_PROCESS": "Käynnistä prosessi",
+      "ACTIONS": {
+        "INFO-TOOLTIP": "Näytä tiedot"
+      }
+    },
+    "MENU": {
+      "PROCESS_MANAGEMENT": "Prosessien hallinta",
+      "CREATE_NEW_PROCESS": "Käynnistä prosessi",
+      "CREATE_PROCESS_NOT_ALLOWED": "Uutta prosessia ei voida luoda"
+    },
+    "PROCESS_SUBMENU": {
+      "MORE": "Näytä lisää"
+    },
+    "ERROR": {
+      "NO_FORM": "Prosessimääritelmälle ei ole määritelty lomaketta",
+      "NO_CONTENT": "Tiedoston liittäminen laitteeltasi epäonnistui",
+      "CAN_NOT_ATTACH": "Valitun sisällön liittäminen epäonnistui",
+      "AUDIT_ERROR": "Näytä tehtävävirhe: {{error}}",
+      "TASK_ACCESS_WARNING": "Sinulla ei ole oikeutta muokata tätä tehtävää"
+    },
+    "SNACKBAR": {
+      "PROCESS-CREATED": "'{{ processName }}'-prosessi luotu",
+      "BACKEND_SERVICE_ERROR": "Tapahtui tuntematon verkkovirhe. Prosessipalveluihin liittyvät ominaisuudet ovat poissa käytöstä.",
+      "ACTION": "Näytä  käynnissä oleva prosessi"
+    },
+    "NO_PROCESS_DEFINITIONS": "Ei prosessimääritelmiä käytettävissä",
+    "SIDE_NAV_TITLE": "Prosessien hallinta",
+    "TASK_LIST": {
+      "TASKS": "Tehtävät",
+      "ACTIONS": {
+        "TASK_DETAILS": "Näytä"
+      }
+    },
+    "PROCESS_LIST": {
+      "ACTIONS": {
+        "PROCESS_DETAILS": "Näytä"
+      }
+    },
+    "TASK_FORM": {
+      "FORM_SAVED": "Lomake tallennettiin",
+      "FORM_COMPLETED": "Tehtävä on suoritettu",
+      "CLOSE_TOOLTIP": "Sulje",
+      "CLAIM_TASK": "Tehtävä on varattu",
+      "UNCLAIM_TASK": "Tehtävä on vapautettu",
+      "CLAIM_FAILED": "Toiminto epäonnistui"
+    },
+    "TASK_DETAILS": {
+      "ERROR": "Toiminto epäonnistui",
+      "FAILED_TO_LOAD": "Tehtävän tietojen lataaminen epäonnistui. Yritä hetken kuluttua uudestaan.",
+      "UPDATED": "{{ property }}-ominaisuus päivitettiin",
+      "FAILED_TO_UPDATE": "{{ property }}-ominaisuuden päivittäminen epäonnistui",
+      "METADATA_TOOLTIP": "Näytä tiedot",
+      "NO_TASK_NAME": "Ei nimeä"
+    }
+  },
+  "SHARED": {
+    "PROCESSES_LIST": {
+      "NO_PROCESS_DEFINITIONS": "Ei prosessimääritelmiä käytettävissä"
+    }
+  },
+  "ADF_PROCESS_LIST": {
+    "PROPERTIES": {
+      "CREATED_BY": "Aloittaja",
+      "CREATED": "Alkamispäivä"
+    },
+    "START_PROCESS": {
+      "NO_PROCESS_DEFINITIONS": "Et voi käynnistää prosessia, koska prosessimääritelmiä ei ole saatavilla",
+      "NO_START_FORM": "Tämä prosessi ei vaadi ylimääräisiä määrityksiä",
+      "NO_PROCESS_DEF_SELECTED": "Luokkia/prosesseja ei ole valittu",
+      "FORM": {
+        "LABEL": {
+          "SELECT_APPLICATION": "Valitse sovellus"
+        }
+      }
+    }
+  },
+  "ADF_TASK_LIST": {
+    "PROPERTIES": {
+      "CREATED": "Luontipäivämäärä"
+    },
+    "DETAILS": {
+      "BUTTON": {
+        "CLAIM": "Varaa",
+        "UNCLAIM": "JULKAISU"
+      }
+    }
+  }
+}

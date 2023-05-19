@@ -1,0 +1,156 @@
+{
+  "GOVERNANCE": {
+    "DECLARE-RECORD": {
+      "TITLE": "Déclarer comme document d'archives",
+      "SUCCESS": "{{fileName}} a été déclaré comme document d'archives",
+      "FAIL": "Impossible de déclarer {{fileName}} comme document d'archives",
+      "DIALOG": {
+        "TITLE": "Déclarer comme document d'archives",
+        "MESSAGE": "Ce document a été déclaré précédemment comme document d'archives et a été rejeté.",
+        "YES": "Déclarer comme document d'archives",
+        "NO": "Annuler",
+        "CLOSE": "Fermer"
+      },
+      "BULK-OPERATION": {
+        "ERRORS": {
+          "FOLDER": "La déclaration d'un dossier comme document d'archives n'est actuellement pas prise en charge",
+          "EXISTING-RECORD": "Déjà déclaré comme document d'archives",
+          "FAILED": "Impossible de déclarer comme document d'archives"
+        },
+        "SUCCESS": "L'élément a été déclaré comme document d'archives"
+      }
+    },
+    "REJECTED-INFO-RECORD": {
+      "TITLE_LABEL": "Document d'archives rejeté",
+      "CLOSE_LABEL": "Fermer",
+      "SUB-TITLE": "Le fichier '{{ nodeName }}' a été rejeté comme document d'archives",
+      "BY": "Par",
+      "AT": "A",
+      "REASON": "Pour le motif suivant :",
+      "CONFIRM": "Confirmer",
+      "WARNING": "Si vous supprimez l'avertissement associé au rejet du document d'archives, les options permettant de déclarer le fichier comme document d'archives seront de nouveau disponibles",
+      "FAILED-REMOVE": "Impossible de supprimer l'avertissement de rejet de {{nodeName}} : {{errorMessage}}"
+    },
+    "RECORD-NAME": {
+      "REJECT": "Document d'archives rejeté",
+      "TITLE": "Document d'archives",
+      "TOOLTIP-MESSAGE": "Supprimer l'avertissement",
+      "ICONS-TOOLTIP-MESSAGE": {
+        "RECORD": "Document d'archives",
+        "REJECTED-RECORD": "Document d'archives rejeté",
+        "RECORD-HYPERLINK": "Déclaré comme document d'archives",
+        "REJECTED-RECORD-HYPERLINK": "Le document d'archives a été rejeté ; voir les informations du fichier pour plus de détails"
+      }
+    },
+    "DELETE-RECORD": {
+      "TITLE": "Supprimer",
+      "SUCCESS": "'{{ name }}' a été supprimé",
+      "FAIL": "Impossible de supprimer {{recordId}}",
+      "DIALOG": {
+        "TITLE": "Supprimer l'instance de document d'archives",
+        "YES-ALL": "Supprimer et ne plus afficher ce message",
+        "YES": "Supprimer",
+        "NO": "Annuler",
+        "MESSAGE": {
+          "DELETE": "L'instance de '{{name}}' sera définitivement supprimée et ne pourra pas être récupérée dans la corbeille.",
+          "ADDITIONAL": "Le document d'archives '{{name}}' stocké dans le système de gestion des documents d'archive de votre entreprise ne sera pas affecté."
+        }
+      }
+    },
+    "RECORD-PROPERTIES": {
+      "RECORD_GROUP_TITLE": "Document d'archives",
+      "RETENTION_SCHEDULE_GROUP_TITLE": "Règle de conservation",
+      "REJECTED_RECORD_GROUP_TITLE": "Document d'archives rejeté"
+    },
+    "MOVE-RECORD": {
+      "TITLE": "Déplacer",
+      "MOVE-ITEM": "Déplacer '{{ name }}' vers...",
+      "SAME-FOLDER-MOVE": "Impossible de déplacer dans le même dossier",
+      "SUCCESSFUL": "Le document d'archives a été déplacé"
+    },
+    "GLACIER": {
+      "STORE": {
+        "TITLE": "Envoyer vers les archives",
+        "SUCCESS": "Le fichier {{ name }} sera archivé",
+        "FAIL": "Impossible d'archiver {{ name }}",
+        "BULK-OPERATION": {
+          "ERRORS": {
+            "EXISTING-STORED-NODE": "Elément déjà archivé.",
+            "PENDING-RESTORE": " Elément en attente de restauration. ",
+            "RESTORED": "Impossible d'archiver les éléments restaurés",
+            "FOLDER": "La restauration à partir d'une archive n'est pas actuellement prise en charge"
+          },
+          "FAIL": "Impossible d'archiver",
+          "SUCCESS": "L'élément sera archivé"
+        },
+        "DIALOG": {
+          "TITLE": "Envoyer vers les archives",
+          "MESSAGE": "Vous êtes sur le point d'envoyer des fichiers vers une archive externe. Récupérer des fichiers archivés peut entraîner des frais. Voulez-vous continuer ?",
+          "YES": "Envoyer vers les archives",
+          "NO": "Annuler"
+        }
+      },
+      "RESTORE": {
+        "TITLE": "Restaurer depuis les archives",
+        "SYNC-ERROR": "Le fichier que vous tentez de restaurer n'a pas encore été synchronisé avec les archives. L'opération peut prendre 24 heures. Veuillez réessayer ultérieurement.",
+        "FAIL": "Impossible de restaurer {{ name }} depuis les archives",
+        "DIALOG": {
+          "TITLE": "Restaurer depuis les archives",
+          "LABEL": {
+            "TYPE": "Vitesse de restauration (250 Mo max par restauration)",
+            "OPTION-FAST": "Rapide – durée 1-5 min (coût max)",
+            "OPTION-STANDARD": "Standard – durée 3-5 h",
+            "OPTION-SLOW": "Lente – durée 5-12 h (coût min)",
+            "DURATION": "Combien de temps les fichiers seront-ils restaurés ? (jours)"
+          },
+          "YES": "Confirmer",
+          "NO": "Annuler"
+        },
+        "BULK-OPERATION": {
+          "TITLE": "Restaurer depuis les archives",
+          "ERRORS": {
+            "EXISTING-SYNC-ERROR": " Les fichiers que vous tentez de restaurer n'ont pas encore été synchronisés avec les archives. L'opération peut prendre 24 heures. Veuillez réessayer ultérieurement.",
+            "RESTORED": "Elément déjà restauré",
+            "PENDING-RESTORE": "Elément déjà en attente de restauration.",
+            "NOT-STORED": "L'élément que vous tentez de restaurer n'a pas encore été synchronisé avec les archives",
+            "FAIL": "La restauration a échoué",
+            "FOLDER": "La restauration d'un dossier n'est pas prise en charge actuellement"
+          },
+          "SUCCESS": "L'élément sera restauré"
+        }
+      },
+      "EXTEND-RESTORE": {
+        "TITLE": "Augmenter la durée de restauration",
+        "SUCCESS": "La durée de restauration sera augmentée de '{{ days }}' jours à compter du {{ date }}",
+        "FAIL": "Impossible d'augmenter la durée de restauration de {{ name }} à partir des archives"
+      },
+      "ICONS-TOOLTIP-MESSAGE": {
+        "STORE": "Ce fichier est archivé. Pour le restaurer, faites un clic droit et sélectionnez la restauration depuis les archives.",
+        "RESTORED": "Restauré",
+        "PENDING-RESTORE": "Restauration des fichiers depuis les archives en cours. Si vous ne parvenez pas à prévisualiser le fichier ou à le télécharger, veuillez réessayer ultérieurement"
+      }
+    },
+    "BULK-OPERATION": {
+      "TITLE": "Statut de l'opération en bloc",
+      "FAIL": "Impossible d'effectuer l'opération",
+      "CLOSE": "Fermer"
+    },
+    "SECURITY_MARKS": {
+      "EDIT_SECURITY_MARKS_ERROR": "Erreur d'enregistrement des marques de sécurité",
+      "DIALOG_TITLE": "Modifier les marques de sécurité",
+      "MENU_TITLE": "Marques de sécurité",
+      "SAVE": "Enregistrer",
+      "CANCEL": "Annuler",
+      "HELP": "Aide",
+      "CLOSE": "Fermer",
+      "SHOW_ALL": "Afficher tout",
+      "APPLIED": "Appliqué",
+      "NOT_APPLIED": "Pas appliqué",
+      "COLUMNS": {
+        "NAME": "Marques de sécurité"
+      },
+      "SECURITY_MARKS_HELP": "Aide pour les marques de sécurité",
+      "HELP_ICON_TEXT": "L'application de marques de sécurité limitera l'accès au contenu numérique. Seules les personnes avec des marques correspondantes appliquées à leur droit d'accèss pourront afficher ou modifier le contenu marqué."
+    }
+  }
+}

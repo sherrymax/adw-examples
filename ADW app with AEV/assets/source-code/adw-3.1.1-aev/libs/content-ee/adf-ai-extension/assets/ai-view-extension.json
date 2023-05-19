@@ -1,0 +1,408 @@
+{
+  "$id": "db8b2870-725c-4181-99f2-e50b52c14077",
+  "$version": "1.0.0",
+  "$name": "adf ai extension",
+  "$description": "adf ai plugin",
+  "$vendor": "Alfresco",
+  "$license": "Apache-2.0",
+  "$runtime": "1.7.0",
+
+  "settings": [
+    {
+      "id": "extensions.ai.settings",
+      "name": "Extensions: AI",
+      "parameters": [
+        {
+          "name": "Enable AI Extensions",
+          "key": "ai",
+          "type": "boolean",
+          "value": false
+        }
+      ]
+    }
+  ],
+
+  "features": {
+      "viewer": {
+      "content": [
+        {
+          "id": "ai.viewer.png",
+          "fileExtension": "png",
+          "component": "ai-extension.main.component",
+          "rules": {
+            "disabled": "ai.viewer.disabled"
+          }
+        },
+        {
+          "id": "ai.viewer.jpg",
+          "fileExtension": "jpg",
+          "component": "ai-extension.main.component",
+          "rules": {
+            "disabled": "ai.viewer.disabled"
+          }
+        }
+      ]
+    },
+      "content-metadata-presets": [
+            {
+                "id": "app.content.metadata.custom",
+                "custom": [
+                    {
+                        "id": "app.content.metadata.customSetting",
+                        "includeAll": true,
+                        "exclude": [
+                            "rn:renditioned",
+                            "cm:versionable",
+                            "cm:auditable",
+                            "cm:thumbnailModification",
+                            "cm:content",
+                            "cm:author",
+                            "cm:titled",
+                            "cm:generalclassifiable",
+                            "cm:taggable",
+                            "dp:restrictable",
+                            "fm:commentsRollup",
+                            "qshare:shared",
+                            "exif:exif",
+                            "cm:effectivity",
+                            "cm:emailed",
+                            "cm:likesRatingSchemeRollups",
+                            "cm:lockable",
+                            "cm:ownable",
+                            "ai:textLines",
+                            "ai:transcript",
+                            "ai:products",
+                            "ai:dates",
+                            "ai:places",
+                            "ai:events",
+                            "ai:organizations",
+                            "ai:people",
+                            "ai:things",
+                            "ai:quantities",
+                            "ai:creativeWorks",
+                            "ai:labels",
+                            "ai:piiEntitiesDetected"
+                        ]
+                    },
+                    {
+                        "id": "ai.metadata.features",
+                        "title": "AI Data",
+                        "items": [
+                            {
+                                "id": "ai:transcript",
+                                "aspect": "ai:transcript",
+                                "properties": "*"
+                            },
+                            {
+                                "id": "ai:textLines",
+                                "aspect": "ai:textLines",
+                                "properties": "*"
+                            },
+                            {
+                                "id": "ai:products",
+                                "aspect": "ai:products",
+                                "properties": "*"
+                            },
+                            {
+                                "id": "ai:dates",
+                                "aspect": "ai:dates",
+                                "properties": "*"
+                            },
+                            {
+                                "id": "ai:places",
+                                "aspect": "ai:places",
+                                "properties": "*"
+                            },
+                            {
+                                "id": "ai:events",
+                                "aspect": "ai:events",
+                                "properties": "*"
+                            },
+                            {
+                                "id": "ai:organizations",
+                                "aspect": "ai:organizations",
+                                "properties": "*"
+                            },
+                            {
+                                "id": "ai:people",
+                                "aspect": "ai:people",
+                                "properties": "*"
+                            },
+                            {
+                                "id": "ai:things",
+                                "aspect": "ai:things",
+                                "properties": "*"
+                            },
+                            {
+                                "id": "ai:quantities",
+                                "aspect": "ai:quantities",
+                                "properties": "*"
+                            },
+                            {
+                                "id": "ai:creativeWorks",
+                                "aspect": "ai:creativeWorks",
+                                "properties": "*"
+                            },
+                            {
+                                "id": "ai:labels",
+                                "aspect": "ai:labels",
+                                "properties": "*"
+                            },
+                            {
+                                "id": "ai:piiEntitiesDetected",
+                                "aspect": "ai:piiEntitiesDetected",
+                                "properties": "*"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+      "search": [
+          {
+              "id": "app.search.ai",
+              "order": 100,
+              "name": "APP.BROWSE.SEARCH.DEFAULT_SEARCH",
+              "default": true,
+              "rules": {
+                  "visible": "ai.plugin.enabled"
+              },
+              "filterWithContains": true,
+              "aca:fields": [
+                  "cm:name",
+                  "cm:title",
+                  "cm:description",
+                  "TEXT",
+                  "TAG",
+                  "schema:textLines",
+                  "schema:transcription",
+                  "schema:label",
+                  "schema:product",
+                  "schema:date",
+                  "schema:place",
+                  "schema:event",
+                  "schema:organization",
+                  "schema:thing",
+                  "schema:quantity",
+                  "schema:creativeWork",
+                  "schema:piiEntityTypes",
+                  "schema:person"
+              ],
+              "include": ["path", "allowableOperations", "properties"],
+              "sorting": {
+                  "options": [
+                      {
+                          "key": "score",
+                          "label": "SEARCH.SORT.RELEVANCE",
+                          "type": "SCORE",
+                          "field": "score",
+                          "ascending": false
+                      },
+                      {
+                          "key": "name",
+                          "label": "SEARCH.SORT.FILENAME",
+                          "type": "FIELD",
+                          "field": "cm:name",
+                          "ascending": true
+                      },
+                      {
+                          "key": "title",
+                          "label": "SEARCH.SORT.TITLE",
+                          "type": "FIELD",
+                          "field": "cm:title",
+                          "ascending": true
+                      },
+                      {
+                          "key": "modified",
+                          "label": "SEARCH.SORT.MODIFIED_DATE",
+                          "type": "FIELD",
+                          "field": "cm:modified",
+                          "ascending": true
+                      },
+                      {
+                          "key": "modifier",
+                          "label": "SEARCH.SORT.MODIFIER",
+                          "type": "FIELD",
+                          "field": "cm:modifier",
+                          "ascending": true
+                      },
+                      {
+                          "key": "created",
+                          "label": "SEARCH.SORT.CREATE_DATE",
+                          "type": "FIELD",
+                          "field": "cm:created",
+                          "ascending": true
+                      },
+                      {
+                          "key": "content.sizeInBytes",
+                          "label": "SEARCH.SORT.SIZE",
+                          "type": "FIELD",
+                          "field": "content.size",
+                          "ascending": true
+                      },
+                      {
+                          "key": "content.mimetype",
+                          "label": "SEARCH.SORT.TYPE",
+                          "type": "FIELD",
+                          "field": "content.mimetype",
+                          "ascending": true
+                      }
+                  ],
+                  "defaults": [
+                      {
+                          "key": "score",
+                          "type": "SCORE",
+                          "field": "score",
+                          "ascending": false
+                      }
+                  ]
+              },
+              "aca:triggeredOnChange": false,
+              "resetButton": true,
+              "filterQueries": [
+                  { "query": "+TYPE:'cm:folder' OR +TYPE:'cm:content'" },
+                  {
+                      "query": "-TYPE:'cm:thumbnail' AND -TYPE:'cm:failedThumbnail' AND -TYPE:'cm:rating'"
+                  },
+                  { "query": "-cm:creator:System AND -QNAME:comment" },
+                  {
+                      "query": "-TYPE:'st:site' AND -ASPECT:'st:siteContainer' AND -ASPECT:'sys:hidden'"
+                  },
+                  {
+                      "query": "-TYPE:'dl:dataList' AND -TYPE:'dl:todoList' AND -TYPE:'dl:issue'"
+                  },
+                  { "query": "-TYPE:'fm:topic' AND -TYPE:'fm:post'" },
+                  { "query": "-TYPE:'lnk:link'" },
+                  { "query": "-PNAME:'0/wiki'" },
+                  {
+                      "query": "-TYPE:'cm:person' AND -TYPE:'cm:authorityContainer' AND -TYPE:'sys:container'"
+                  }
+              ],
+              "facetFields": {
+                  "expanded": true,
+                  "fields": [
+                      {
+                          "mincount": 1,
+                          "field": "content.mimetype",
+                          "label": "SEARCH.FACET_FIELDS.FILE_TYPE",
+                          "settings": {
+                              "allowUpdateOnChange": false,
+                              "hideDefaultAction": true
+                          }
+                      },
+                      {
+                          "mincount": 1,
+                          "field": "creator",
+                          "label": "SEARCH.FACET_FIELDS.CREATOR",
+                          "settings": {
+                              "allowUpdateOnChange": false,
+                              "hideDefaultAction": true
+                          }
+                      },
+                      {
+                          "mincount": 1,
+                          "field": "modifier",
+                          "label": "SEARCH.FACET_FIELDS.MODIFIER",
+                          "settings": {
+                              "allowUpdateOnChange": false,
+                              "hideDefaultAction": true
+                          }
+                      },
+                      {
+                          "mincount": 1,
+                          "field": "SITE",
+                          "label": "SEARCH.FACET_FIELDS.LOCATION",
+                          "settings": {
+                              "allowUpdateOnChange": false,
+                              "hideDefaultAction": true
+                          }
+                      }
+                  ]
+              },
+              "facetQueries": {
+                  "label": "SEARCH.CATEGORIES.MODIFIED_DATE",
+                  "expanded": true,
+                  "queries": [
+                      {
+                          "label": "SEARCH.FACET_QUERIES.TODAY",
+                          "query": "cm:modified:[TODAY to TODAY]"
+                      },
+                      {
+                          "label": "SEARCH.FACET_QUERIES.THIS_WEEK",
+                          "query": "cm:modified:[NOW/DAY-7DAYS TO NOW/DAY+1DAY]"
+                      },
+                      {
+                          "label": "SEARCH.FACET_QUERIES.THIS_MONTH",
+                          "query": "cm:modified:[NOW/DAY-1MONTH TO NOW/DAY+1DAY]"
+                      },
+                      {
+                          "label": "SEARCH.FACET_QUERIES.LAST_6_MONTHS",
+                          "query": "cm:modified:[NOW/DAY-6MONTHS TO NOW/DAY+1DAY]"
+                      },
+                      {
+                          "label": "SEARCH.FACET_QUERIES.THIS_YEAR",
+                          "query": "cm:modified:[NOW/DAY-1YEAR TO NOW/DAY+1DAY]"
+                      }
+                  ],
+                  "settings": {
+                      "allowUpdateOnChange": false,
+                      "hideDefaultAction": true
+                  }
+              },
+              "categories": [
+                  {
+                      "id": "size",
+                      "name": "SEARCH.CATEGORIES.SIZE",
+                      "enabled": true,
+                      "component": {
+                          "selector": "check-list",
+                          "settings": {
+                              "allowUpdateOnChange": false,
+                              "hideDefaultAction": true,
+                              "options": [
+                                  {
+                                      "name": "SEARCH.CATEGORIES.SIZE_OPTIONS.SMALL",
+                                      "value": "content.size:[0 TO 1048576>"
+                                  },
+                                  {
+                                      "name": "SEARCH.CATEGORIES.SIZE_OPTIONS.MEDIUM",
+                                      "value": "content.size:[1048576 TO 52428800]"
+                                  },
+                                  {
+                                      "name": "SEARCH.CATEGORIES.SIZE_OPTIONS.LARGE",
+                                      "value": "content.size:<52428800 TO 524288000]"
+                                  },
+                                  {
+                                      "name": "SEARCH.CATEGORIES.SIZE_OPTIONS.HUGE",
+                                      "value": "content.size:<524288000 TO MAX]"
+                                  }
+                              ]
+                          }
+                      }
+                  },
+                  {
+                      "id": "createdDateRange",
+                      "name": "SEARCH.CATEGORIES.CREATED_DATE",
+                      "enabled": true,
+                      "component": {
+                          "selector": "date-range",
+                          "settings": {
+                              "allowUpdateOnChange": false,
+                              "hideDefaultAction": true,
+                              "field": "cm:created",
+                              "dateFormat": "DD-MMM-YY",
+                              "maxDate": "today"
+                          }
+                      }
+                  }
+              ]
+          },
+          {
+              "id": "app.search.default",
+              "rules": {
+                  "visible": "!ai.plugin.enabled"
+              }
+          }
+      ]
+  }
+}

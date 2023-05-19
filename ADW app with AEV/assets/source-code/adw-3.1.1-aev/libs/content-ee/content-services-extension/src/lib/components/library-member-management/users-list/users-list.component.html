@@ -1,0 +1,16 @@
+<div class="adw-users-list-container" fxLayout="column">
+    <adw-member-list
+        fxFlex
+        [members]="members | async"
+        [loading]="loading | async"
+        [siteId]="siteId"
+        [multiSelect]="true"
+        [showActions]="true"
+        (memberRemoved)="bulkDeleteMember($event)"
+        (memberRoleChanged)="onMemberRoleChanged($event)"
+        (showRowContextMenu)="onShowRowContextMenu($event)"
+        (bulkDelete)="bulkDeleteMember()"
+        #membersList>
+    </adw-member-list>
+    <adf-pagination acaPagination [target]="membersList"></adf-pagination>
+</div>

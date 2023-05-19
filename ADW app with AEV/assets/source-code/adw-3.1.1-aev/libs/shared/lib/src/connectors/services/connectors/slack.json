@@ -1,0 +1,272 @@
+{
+    "name": "slackConnector",
+    "description": "APS Connector for sending and receiving messages using Slack. It can also create public and private channels including a list of users to them.",
+    "actions": {
+        "88296a50-f6cf-496e-b433-5d794788fc8f": {
+          "id": "88296a50-f6cf-496e-b433-5d794788fc8f",
+          "name": "SEND_MESSAGE",
+          "description": "Sends a standalone message to a Slack conversation. Conversations can be public or private channels, or direct messages.",
+          "inputs": [
+            {
+              "id": "f7435a5c-20bd-46e4-9d26-901a9dabb87c",
+              "name": "userId",
+              "description": "Internal Slack user id. If present, the message will be sent as a direct message. E.g: 'U1234F3F'",
+              "type": "string"
+            },
+            {
+              "id": "3eb922f9-20c0-4411-9588-7a8cfe8fc45c",
+              "name": "userEmail",
+              "description": "User email. If present, the connector will use the email to resolve the internal user id, and the message will be sent as a direct message.",
+              "type": "string",
+              "required": false
+            },
+            {
+              "id": "997a0024-a0b8-43b7-aadf-24b488b53a84",
+              "name": "channelId",
+              "description": "Internal channel id. If present, the message will be sent to the public or private channel identified by this id. E.g: 'C1234F32'",
+              "type": "string",
+              "required": false
+            },
+            {
+              "id": "0075b546-eb30-49b0-817a-734d3bc3e2ac",
+              "name": "channelName",
+              "description": "Name of the channel. If present, the connector will use the name to resolve the internal channel id. The message will be sent to the channel identified by the id. Name of the channel to be created. E.g: 'general'",
+              "type": "string",
+              "required": false
+            },
+            {
+              "id": "b044816e-a000-4ffc-bfcf-16f7d8a0cdb5",
+              "name": "text",
+              "description": "Text of the message to be sent.",
+              "type": "string",
+              "required": true
+            },
+            {
+              "id": "0816253b-7be0-48c2-8dd4-81f1c3c52127",
+              "name": "metadata",
+              "description": "Metadata to be used by the template to resolve variable placeholders. Metadata is a JSON object that contains key-value pairs.",
+              "type": "json"
+            }
+          ],
+          "outputs": [
+            {
+              "id": "f74f8ddf-3266-424a-bd19-2870c0a309a8",
+              "name": "message",
+              "description": "Message replied by the user, if requestResponse is set to \"any\" or \"thread\"",
+              "type": "string"
+            }
+          ]
+        },
+        "5741ce03-b0af-4e9d-809f-850acd5bc441": {
+          "id": "5741ce03-b0af-4e9d-809f-850acd5bc441",
+          "name": "CREATE_CHANNEL",
+          "description": "Creates a public or private Slack channel, and adds a list of users to the channel.",
+          "inputs": [
+            {
+              "id": "f7b0a09c-28bc-4684-9b9e-908f419a08e4",
+              "name": "channelType",
+              "description": "Type of channel (\"public\" or \"private\") to be created.",
+              "type": "string",
+              "required": true
+            },
+            {
+              "id": "38aef72a-9d21-47b9-ac54-9b1bdad5c7bf",
+              "name": "channelName",
+              "description": "Name of the channel to be created. E.g: 'general'",
+              "type": "string",
+              "required": true
+            },
+            {
+              "id": "249cf8d3-2a61-40bd-80d9-8f691f14d512",
+              "name": "members",
+              "description": "List of users to be added to the channel. (Either Slack IDs or Emails can be used)",
+              "type": "array",
+              "required": true
+            }
+          ],
+          "outputs": [
+            {
+              "id": "ca3d0003-2469-42a8-88ad-a049f99f844e",
+              "name": "slackResult",
+              "description": "Object including information about the channel that has been created.",
+              "type": "json",
+              "required": false
+            }
+          ]
+        }
+    },
+    "events": {
+        "b39eb8c6-58be-435c-9904-7dff5905b5a1": {
+            "id": "b39eb8c6-58be-435c-9904-7dff5905b5a1",
+            "name": "MESSAGE_RECEIVED",
+            "description": "Event that is dispatched when a message is received",
+            "inputs": [
+                {
+                    "id": "bed3cd06-d257-11eb-b8bc-0242ac130003",
+                    "name": "condition",
+                    "description": "Expression that shall be true in order to trigger an action. Event and payload can be used in variables.",
+                    "type": "predicate",
+                    "required": false
+                },
+                {
+                    "id": "c6add218-7c0f-44b3-891f-95be5dbc1da7",
+                    "name": "pattern",
+                    "description": "Regular expression that any incoming message shall match in order to be published as events. Regular expressions can contain matching groups delimited by '(' and ')'. Matching groups can be used in variables and the echo message.",
+                    "type": "string",
+                    "required": true
+                },
+                {
+                    "id": "3a8d3849-e2ca-46bb-8e14-c5578c2f7ac3",
+                    "name": "echo",
+                    "description": "Message to reply to the user if the incoming message matches the pattern.",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "512f8539-8ba6-4cd7-aa84-7b011081f92c",
+                    "name": "echoError",
+                    "description": "Message to reply to the user if an error occurs trying to publish the event.",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "9161219c-3552-4b21-b615-e99d3897fb77",
+                    "name": "channelTypes",
+                    "description": "List of channel types in which the connector may receive the message e.g. direct-message, mention, public-channel",
+                    "type": "array",
+                    "required": false
+                }
+            ],
+            "outputs": [
+                {
+                    "id": "1e5d68ef-e6bd-4aae-ab96-a5447c422d4d",
+                    "name": "matchGroups",
+                    "description": "Matching groups between pattern and message. They can be used in variables and the echo messages.",
+                    "type": "json"
+                },
+                {
+                    "id": "c80f2c53-169a-46e5-ae4a-0d5dded030ea",
+                    "name": "originalMessage",
+                    "description": "Original message that receives the event.",
+                    "type": "string"
+                },
+                {
+                    "id": "075459b6-e4ab-42b4-aef3-68ff21cdbd1d",
+                    "name": "slackChannelId",
+                    "description": "The slack channel id that is used in the message.",
+                    "type": "string"
+                },
+                {
+                    "id": "665030d8-2eea-4184-a58f-fa64e63ba373",
+                    "name": "slackUserId",
+                    "description": "The slack user id that sends the message.",
+                    "type": "string"
+                }
+            ],
+            "model": {
+                "$schema": "https://json-schema.org/draft/2019-09/schema",
+                "type": "object",
+                "properties": {
+                  "originalMessage": {
+                    "type": "string"
+                  },
+                  "slackChannelId": {
+                    "type": "string"
+                  },
+                  "slackUserId": {
+                    "type": "string"
+                  },
+                  "slackChannelType": {
+                    "enum": ["direct-message", "public-channel", "private-channel", "mention"]
+                  }
+                },
+                "required": [
+                  "originalMessage"
+                ]
+            }
+        }
+    },
+    "errors": [
+      {
+        "name": "MISSING_INPUT",
+        "description": "A mandatory input variable was not provided",
+        "code": "MISSING_INPUT"
+      },
+      {
+        "name": "INVALID_INPUT",
+        "description": "The input variable has an invalid type",
+        "code": "INVALID_INPUT"
+      },
+      {
+        "name": "INVALID_RESULT_FORMAT",
+        "description": "The REST service result payload cannot be parsed",
+        "code": "INVALID_RESULT_FORMAT"
+      },
+      {
+        "name": "USER_NOT_FOUND",
+        "description": "User is not found",
+        "code": "USER_NOT_FOUND"
+      },
+      {
+        "name": "CHANNEL_NOT_FOUND",
+        "description": "Channel is not found",
+        "code": "CHANNEL_NOT_FOUND"
+      },
+      {
+        "name": "INVALID_REQUEST",
+        "description": "A null response is received while sending message",
+        "code": "INVALID_REQUEST"
+      },
+      {
+        "name": "INVALID_CHANNEL",
+        "description": "There is a problem with the channel",
+        "code": "INVALID_CHANNEL"
+      },
+      {
+        "name": "MSG_TOO_LONG",
+        "description": "Message text is too long",
+        "code": "MSG_TOO_LONG"
+      },
+      {
+        "name": "FATAL_ERROR",
+        "description": "The server could not complete the operation without encountering a catastrophic error",
+        "code": "FATAL_ERROR"
+      },
+      {
+        "name": "UNKNOWN_ERROR",
+        "description": "Unexpected runtime error",
+        "code": "UNKNOWN_ERROR"
+      },
+      {
+        "name": "UNAUTHORIZED",
+        "description": "The request has not been applied because it lacks valid authentication",
+        "code": "UNAUTHORIZED"
+      },
+      {
+        "name": "FORBIDDEN",
+        "description": "The server understood the request but refuses to authorize it",
+        "code": "FORBIDDEN"
+      },
+      {
+        "name": "REQUEST_TIMEOUT",
+        "description": "The server would like to shut down this unused connection",
+        "code": "REQUEST_TIMEOUT"
+      }
+    ],
+    "config": [
+        {
+            "name": "SLACK_SIGNING_SECRET",
+            "description": "Slack Signing Secret",
+            "value": "",
+            "required": true,
+            "secure": true
+        },
+        {
+            "name": "SLACK_BOT_TOKEN",
+            "description": "Slack bot user token",
+            "value": "",
+            "required": true,
+            "secure": true
+        }
+    ]
+}

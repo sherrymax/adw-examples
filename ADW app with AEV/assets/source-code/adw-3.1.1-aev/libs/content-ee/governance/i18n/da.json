@@ -1,0 +1,156 @@
+{
+  "GOVERNANCE": {
+    "DECLARE-RECORD": {
+      "TITLE": "Deklarer post",
+      "SUCCESS": "{{fileName}} er blevet deklareret som en post",
+      "FAIL": "{{fileName}} kan ikke deklareres som en post",
+      "DIALOG": {
+        "TITLE": "Deklarer post",
+        "MESSAGE": "Dette dokument blev tidligere erklæret som en post og blev afvist.",
+        "YES": "Deklarer post",
+        "NO": "Annuller",
+        "CLOSE": "Luk"
+      },
+      "BULK-OPERATION": {
+        "ERRORS": {
+          "FOLDER": "Erklæring af mappen som en post understøttes ikke i øjeblikket",
+          "EXISTING-RECORD": "Er allerede deklareret som en post",
+          "FAILED": "Kunne ikke deklareres som en post"
+        },
+        "SUCCESS": "Elementet er blevet deklareret som en post"
+      }
+    },
+    "REJECTED-INFO-RECORD": {
+      "TITLE_LABEL": "Afvist post",
+      "CLOSE_LABEL": "Luk",
+      "SUB-TITLE": "Filen '{{ nodeName }}' blev afvist som en post",
+      "BY": "Af",
+      "AT": "I",
+      "REASON": "Med årsagen",
+      "CONFIRM": "Bekræft",
+      "WARNING": "Hvis du fjerner advarslen om den afviste post, vil indstillingerne for erklæring af filen som en post være tilgængelige igen.",
+      "FAILED-REMOVE": "Den afviste advarsel for {{nodeName}} : {{errorMessage}} kunne ikke fjernes"
+    },
+    "RECORD-NAME": {
+      "REJECT": "Afvist post",
+      "TITLE": "Post",
+      "TOOLTIP-MESSAGE": "Fjern advarsel",
+      "ICONS-TOOLTIP-MESSAGE": {
+        "RECORD": "Post",
+        "REJECTED-RECORD": "Afvist post",
+        "RECORD-HYPERLINK": "Deklareret som en post",
+        "REJECTED-RECORD-HYPERLINK": "Posten blev afvist. Du kan se flere detaljer i filoplysningerne"
+      }
+    },
+    "DELETE-RECORD": {
+      "TITLE": "Fjern",
+      "SUCCESS": "'{{ name }}' er blevet fjernet",
+      "FAIL": "{{recordId}} kunne ikke fjernes",
+      "DIALOG": {
+        "TITLE": "Fjern postforekomst",
+        "YES-ALL": "FJERN, OG VIS IKKE DETTE IGEN",
+        "YES": "Fjern",
+        "NO": "Annuller",
+        "MESSAGE": {
+          "DELETE": "Denne forekomst af '{{name}}' bliver fjernet permanent, og den kan ikke hentes fra papirkurven.",
+          "ADDITIONAL": "Posten '{{name}}', som findes i organisationens Records Management-system, berøres ikke."
+        }
+      }
+    },
+    "RECORD-PROPERTIES": {
+      "RECORD_GROUP_TITLE": "Post",
+      "RETENTION_SCHEDULE_GROUP_TITLE": "Opbevaringsplan",
+      "REJECTED_RECORD_GROUP_TITLE": "Afvist post"
+    },
+    "MOVE-RECORD": {
+      "TITLE": "Flyt",
+      "MOVE-ITEM": "Flyt '{{ name }}' til...",
+      "SAME-FOLDER-MOVE": "Der kan ikke flyttes til den samme mappe",
+      "SUCCESSFUL": "Posten blev flyttet"
+    },
+    "GLACIER": {
+      "STORE": {
+        "TITLE": "Send til arkiv",
+        "SUCCESS": "Filen {{ name }} bliver arkiveret",
+        "FAIL": "{{ name }} kunne ikke arkiveres",
+        "BULK-OPERATION": {
+          "ERRORS": {
+            "EXISTING-STORED-NODE": "Elementet er allerede arkiveret.",
+            "PENDING-RESTORE": " Elementet afventer gendannelse. ",
+            "RESTORED": "De gendannede elementer kan ikke arkiveres",
+            "FOLDER": "Det understøttes ikke at gendanne fra arkivet"
+          },
+          "FAIL": "Der kunne ikke arkiveres",
+          "SUCCESS": "Elementet bliver arkiveret"
+        },
+        "DIALOG": {
+          "TITLE": "Send til arkiv",
+          "MESSAGE": "Du er ved at sende filer til et eksternt arkiv. Der kan være omkostninger forbundet med at hente filer fra arkivet. Er du sikker på, at du vil fortsætte?",
+          "YES": "Send til arkiv",
+          "NO": "Annuller"
+        }
+      },
+      "RESTORE": {
+        "TITLE": "Gendan fra arkiv",
+        "SYNC-ERROR": "Den fil, du forsøger at gendanne, er ikke blevet synkroniseret til arkivet endnu. Denne handling kan tage op til 24 timer. Prøv igen senere.",
+        "FAIL": "{{ name }} kunne ikke gendannes fra arkivet",
+        "DIALOG": {
+          "TITLE": "Gendan fra arkiv",
+          "LABEL": {
+            "TYPE": "Gendannelseshastighed (begrænset til 250 MB pr. gendannelse)",
+            "OPTION-FAST": "Hurtig – 1-5 minutter (dyrest)",
+            "OPTION-STANDARD": "Standard – 3-5 timer",
+            "OPTION-SLOW": "Langsom – 5-12 timer (billigst)",
+            "DURATION": "Hvor længe skal filerne være gendannet? (dage)"
+          },
+          "YES": "Bekræft",
+          "NO": "Annuller"
+        },
+        "BULK-OPERATION": {
+          "TITLE": "Gendan fra arkiv",
+          "ERRORS": {
+            "EXISTING-SYNC-ERROR": " De filer, du forsøger at gendanne, er ikke blevet synkroniseret til arkivet endnu. Denne handling kan tage op til 24 timer. Prøv igen senere.",
+            "RESTORED": "Elementet er allerede gendannet",
+            "PENDING-RESTORE": "Elementet afventer allerede gendannelse.",
+            "NOT-STORED": "Det element, du forsøger at gendanne, er ikke blevet synkroniseret til arkivet endnu",
+            "FAIL": "Der kunne ikke gendannes",
+            "FOLDER": "Det understøttes ikke at gendanne en mappe"
+          },
+          "SUCCESS": "Elementet bliver gendannet"
+        }
+      },
+      "EXTEND-RESTORE": {
+        "TITLE": "Forlæng gendannelsestiden",
+        "SUCCESS": "Gendannelsen forlænges til '{{ days }}' dage fra {{ date }}",
+        "FAIL": "Gendannelsen af {{ name }} kunne ikke forlænges"
+      },
+      "ICONS-TOOLTIP-MESSAGE": {
+        "STORE": "Denne fil er arkiveret. Hvis du vil gendanne den, skal du højreklikke på den og vælge at gendanne den fra arkivet.",
+        "RESTORED": "Gendannet",
+        "PENDING-RESTORE": "Der gendannes filer fra arkivet. Hvis du ikke kan få forhåndsvist filen eller downloade den, kan du prøve igen senere"
+      }
+    },
+    "BULK-OPERATION": {
+      "TITLE": "Status for massehandling",
+      "FAIL": "Handlingen kunne ikke udføres",
+      "CLOSE": "Luk"
+    },
+    "SECURITY_MARKS": {
+      "EDIT_SECURITY_MARKS_ERROR": "Fejl ved lagring af sikkerhedsmærker",
+      "DIALOG_TITLE": "Redigér sikkerhedsmærker",
+      "MENU_TITLE": "Sikkerhedsmærker",
+      "SAVE": "Gem",
+      "CANCEL": "Annuller",
+      "HELP": "Hjælp",
+      "CLOSE": "Luk",
+      "SHOW_ALL": "Vis alle",
+      "APPLIED": "Anvendt",
+      "NOT_APPLIED": "Ikke anvendt",
+      "COLUMNS": {
+        "NAME": "Sikkerhedsmærker"
+      },
+      "SECURITY_MARKS_HELP": "Sikkerhedsmærker hjælper",
+      "HELP_ICON_TEXT": "Anvendelse af sikkerhedsmærker vil begrænse adgangen til digitalt indhold. Kun personer med matchende mærker påført deres brugertilladelse vil kunne se eller redigere markeret indhold."
+    }
+  }
+}

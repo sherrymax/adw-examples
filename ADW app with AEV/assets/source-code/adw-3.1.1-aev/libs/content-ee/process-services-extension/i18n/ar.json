@@ -1,0 +1,100 @@
+{
+  "PROCESS-EXTENSION": {
+    "DIALOG": {
+      "NEW_PROCESS": "عملية جديدة",
+      "SELECT_APPLICATION": "تحديد التطبيق",
+      "ERROR": "لا يمكنك بدء عملية حيث لا توجد تعريفات عملية متاحة"
+    },
+    "BREADCRUMB": {
+      "ROOT": "إدارة العملية",
+      "PROCESS_LIST": {
+        "PROCESSES": "عمليات"
+      },
+      "START_PROCESS": "بدء العملية",
+      "ACTIONS": {
+        "INFO-TOOLTIP": "عرض التفاصيل"
+      }
+    },
+    "MENU": {
+      "PROCESS_MANAGEMENT": "إدارة العملية",
+      "CREATE_NEW_PROCESS": "بدء العملية",
+      "CREATE_PROCESS_NOT_ALLOWED": "لا يمكن إنشاء عملية جديدة"
+    },
+    "PROCESS_SUBMENU": {
+      "MORE": "إظهار المزيد"
+    },
+    "ERROR": {
+      "NO_FORM": "تعريف العملية لا يملك نموذجًا مُعرفًا",
+      "NO_CONTENT": "يتعذر إرفاق الملف من جهازك",
+      "CAN_NOT_ATTACH": "يتعذر إرفاق المحتوى المحدد",
+      "AUDIT_ERROR": "عرض خطأ المهمة: {{error}}",
+      "TASK_ACCESS_WARNING": "ليس لديك الحق لتعديل المهمة"
+    },
+    "SNACKBAR": {
+      "PROCESS-CREATED": "تم إنشاء العملية '{{ processName }}'",
+      "BACKEND_SERVICE_ERROR": "حدث خطأ شبكة غير معروف. تم تعطيل الميزات المرتبطة بخدمة العملية.",
+      "ACTION": "عرض العملية المشغلة"
+    },
+    "NO_PROCESS_DEFINITIONS": "لا توجد تعريفات عملية متاحة",
+    "SIDE_NAV_TITLE": "إدارة العملية",
+    "TASK_LIST": {
+      "TASKS": "المهام",
+      "ACTIONS": {
+        "TASK_DETAILS": "عرض"
+      }
+    },
+    "PROCESS_LIST": {
+      "ACTIONS": {
+        "PROCESS_DETAILS": "عرض"
+      }
+    },
+    "TASK_FORM": {
+      "FORM_SAVED": "تم حفظ النموذج بنجاح",
+      "FORM_COMPLETED": "اكتملت المهمة",
+      "CLOSE_TOOLTIP": "إغلاق",
+      "CLAIM_TASK": "تمت المطالبة بالمهمة",
+      "UNCLAIM_TASK": "تم تحرير المهمة",
+      "CLAIM_FAILED": "يتعذر تنفيذ الإجراء"
+    },
+    "TASK_DETAILS": {
+      "ERROR": "يتعذر تنفيذ الإجراء",
+      "FAILED_TO_LOAD": "فشل تحميل تفاصيل المهمة، حاول بعد بعض الوقت",
+      "UPDATED": "تم تحديث {{ property }} بنجاح",
+      "FAILED_TO_UPDATE": "فشل تحديث {{ property }}",
+      "METADATA_TOOLTIP": "عرض التفاصيل",
+      "NO_TASK_NAME": "بلا اسم"
+    }
+  },
+  "SHARED": {
+    "PROCESSES_LIST": {
+      "NO_PROCESS_DEFINITIONS": "لا توجد تعريفات عملية متاحة"
+    }
+  },
+  "ADF_PROCESS_LIST": {
+    "PROPERTIES": {
+      "CREATED_BY": "بدأ بواسطة",
+      "CREATED": "تاريخ البدء"
+    },
+    "START_PROCESS": {
+      "NO_PROCESS_DEFINITIONS": "لا يمكنك بدء عملية حيث لا توجد تعريفات عملية متاحة",
+      "NO_START_FORM": "لا تتطلب هذه المهمة أي تكوينات إضافية",
+      "NO_PROCESS_DEF_SELECTED": "لم يتم تحديد فئة/عملية",
+      "FORM": {
+        "LABEL": {
+          "SELECT_APPLICATION": "تحديد التطبيق"
+        }
+      }
+    }
+  },
+  "ADF_TASK_LIST": {
+    "PROPERTIES": {
+      "CREATED": "تاريخ الإنشاء"
+    },
+    "DETAILS": {
+      "BUTTON": {
+        "CLAIM": "مطالبة",
+        "UNCLAIM": "تحرير"
+      }
+    }
+  }
+}

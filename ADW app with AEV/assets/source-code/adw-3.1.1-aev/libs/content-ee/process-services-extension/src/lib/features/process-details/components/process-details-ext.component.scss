@@ -1,0 +1,54 @@
+.adf-content-area {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    height: 100%;
+    overflow: hidden;
+    min-height: 0;
+}
+
+.adf-content-border {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+    min-height: 0;
+    vertical-align: unset;
+    text-align: unset;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+adf-tasklist {
+    min-height: 0;
+    height: 100%;
+    background-color: #fff;
+}
+
+aca-page-layout-header {
+    justify-content: space-between;
+
+    .adf-breadcrumb-item {
+        margin-top: inherit;
+    }
+}
+
+.aps-process-list-toolbar-actions {
+    display: flex;
+    align-items: center;
+
+    & > mat-icon {
+        font-size: var(--theme-button-font-size);
+        cursor: pointer;
+        text-align: center;
+        margin-left: 10px;
+
+        &:hover {
+            color: var(--theme-primary-color);
+        }
+    }
+
+    .aps-selected-action {
+        color: var(--theme-primary-color);
+    }
+}

@@ -1,0 +1,30 @@
+{
+  "$schema": "../../../node_modules/@angular-devkit/architect/src/builders-schema.json",
+  "builders": {
+    "browser": {
+      "implementation": "./src/builders/browser",
+      "schema": "./src/builders/browser/schema.json",
+      "description": "Angular browser builder facade with hooks pre and post hook capabilities"
+    },
+    "dev-server": {
+      "implementation": "./src/builders/dev-server",
+      "schema": "./src/builders/dev-server/schema.json",
+      "description": "Angular browser dev-server facade with hooks pre and post hook capabilities"
+    },
+    "language-check": {
+      "implementation": "./src/builders/language-check",
+      "schema": "./src/builders/language-check/schema.json",
+      "description": "Check if the project contains unused and undefined language keys"
+    },
+    "docker": {
+      "implementation": "./src/builders/docker",
+      "schema": "./src/builders/docker/schema.json",
+      "description": "Build and deploy the bundle on a docker registry"
+    },
+    "cspell": {
+      "implementation": "./src/builders/cspell",
+      "schema": "./src/builders/cspell/schema.json",
+      "description": "Check if the project contains cspell errors"
+    }
+  }
+}

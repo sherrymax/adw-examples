@@ -1,0 +1,54 @@
+.mat-drawer-inner-container {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+#processmanagement .mat-expansion-panel-body {
+    padding: 0 14px 6px;
+}
+
+aps-sidenav-ext {
+    .adf-filters__entry {
+        opacity: 1;
+        color: var(--theme-secondary-text-color) !important;
+
+        &:hover {
+            color: var(--theme-primary-color) !important;
+        }
+
+        &.adf-active {
+            color: var(--theme-primary-color) !important;
+        }
+    }
+}
+
+.aps-filters-icon {
+    opacity: 1;
+}
+
+.aps-filters-title {
+    display: flex;
+    cursor: auto;
+    align-items: flex-end;
+    color: var(--theme-secondary-text-color) !important;
+
+    span {
+        margin-left: 10px;
+    }
+}
+
+aps-process-filters-ext {
+    mat-list {
+        margin-left: 25px;
+    }
+}
+
+aps-task-filters-ext {
+    mat-list {
+        margin-left: 25px;
+    }
+}
+

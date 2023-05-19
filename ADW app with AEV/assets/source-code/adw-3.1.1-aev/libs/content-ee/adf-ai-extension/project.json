@@ -1,0 +1,49 @@
+{
+    "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+    "sourceRoot": "libs/content-ee/adf-ai-extension/src",
+    "projectType": "library",
+    "prefix": "lib",
+    "targets": {
+        "test": {
+            "executor": "@angular-devkit/build-angular:karma",
+            "options": {
+                "main": "libs/content-ee/adf-ai-extension/src/test.ts",
+                "tsConfig": "libs/content-ee/adf-ai-extension/tsconfig.spec.json",
+                "karmaConfig": "libs/content-ee/adf-ai-extension/karma.conf.js"
+            },
+            "configurations": {
+                "adf": {
+                    "tsConfig": "libs/content-ee/adf-ai-extension/tsconfig.spec.adf.json",
+                    "karmaConfig": "libs/content-ee/adf-ai-extension/karma.conf.js",
+                    "progress": false,
+                    "codeCoverage": false
+                }
+            },
+            "outputs": ["coverage/libs/content-ee/adf-ai-extension"]
+        },
+        "lint": {
+            "executor": "@nrwl/linter:eslint",
+            "options": {
+                "lintFilePatterns": [
+                    "libs/content-ee/adf-ai-extension/src/**/*.ts",
+                    "libs/content-ee/adf-ai-extension/src/**/*.html"
+                ]
+            },
+            "outputs": ["{options.outputFile}"]
+        },
+        "cspell": {
+            "executor": "@alfresco-dbp/monorepo/builders:cspell"
+        },
+        "language-check": {
+            "executor": "@alfresco-dbp/monorepo/builders:language-check",
+            "options": {
+                "paths": ["node_modules/@alfresco/adf-core/bundles/assets"]
+            }
+        }
+    },
+    "tags": [
+        "scope:content-ee-ai-extension",
+        "type:feature",
+        "category:adf-ai-extension"
+    ]
+}

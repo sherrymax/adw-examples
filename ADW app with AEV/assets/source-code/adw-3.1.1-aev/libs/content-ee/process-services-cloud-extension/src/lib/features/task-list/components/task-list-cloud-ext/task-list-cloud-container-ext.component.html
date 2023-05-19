@@ -1,0 +1,61 @@
+<aca-page-layout>
+    <aca-page-layout-header>
+        <nav>
+            <div
+                class="adf-breadcrumb-item adf-active"
+                title="{{ 'PROCESS_CLOUD_EXTENSION.BREADCRUMB.ROOT' | translate }}"
+            >
+                <div
+                    aria-current="location"
+                    class="adf-breadcrumb-item-current"
+                >
+                    <div class="adf-breadcrumb-item adf-active" role="listitem">
+                        <div class="adf-breadcrumb-item-current">
+                            {{
+                                'PROCESS_CLOUD_EXTENSION.BREADCRUMB.ROOT'
+                                    | translate
+                            }}
+                        </div>
+                        <mat-icon class="adf-breadcrumb-item-chevron">
+                            chevron_right
+                        </mat-icon>
+                        <div class="adf-breadcrumb-item-current">
+                            {{
+                                'PROCESS_CLOUD_EXTENSION.BREADCRUMB.TASK_LIST_CLOUD'
+                                    | translate
+                            }}
+                        </div>
+                        <mat-icon class="adf-breadcrumb-item-chevron">
+                            chevron_right
+                        </mat-icon>
+                        <div class="adf-breadcrumb-item-current">{{ taskFilter?.name | translate }}</div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+</aca-page-layout-header>
+
+    <aca-page-layout-content *ngIf="taskFilter">
+        <div class="main-content" fxFlex.gt-md="1 1 auto">
+            <div class="adf-content-area">
+                <div class="adf-content-border">
+                    <ng-container *ngIf="apaTaskListCloudExt">
+                        <adf-cloud-edit-task-filter *ngIf="taskFilter"
+                            [appName]="taskFilter.appName"
+                            [id]="taskFilter.id"
+                            [filterProperties]="taskFilterProperties.filterProperties"
+                            [sortProperties]="taskFilterProperties.sortProperties"
+                            [showTaskFilterName]="false"
+                            [actions]="taskFilterProperties.actions"
+                            (action)="onTaskFilterAction($event)"
+                            (filterChange)="onFilterChange($event)">
+                        </adf-cloud-edit-task-filter>
+                    </ng-container>
+                    <div class="apa-task-list-cloud-container">
+                        <apa-task-list-cloud-ext [currentFilter]="taskFilter" #apaTaskListCloudExt></apa-task-list-cloud-ext>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </aca-page-layout-content>
+</aca-page-layout>

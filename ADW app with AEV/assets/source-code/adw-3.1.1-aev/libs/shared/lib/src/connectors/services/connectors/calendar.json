@@ -1,0 +1,265 @@
+{
+    "name": "calendarConnector",
+    "description": "The following functions can be associated to a service task and use the MS Teams to execute actions with the calendar.",
+    "actions": {
+        "a3c9ba81-c26f-40d4-b0f3-8c1af06c1806": {
+            "id": "a3c9ba81-c26f-40d4-b0f3-8c1af06c1806",
+            "name": "CREATE_CALENDAR_EVENT",
+            "description": "Creates an event or appointment in the calendar",
+            "inputs": [{
+              "id": "447ff215-6072-459f-9d6c-906396953304",
+              "name": "subject",
+              "description": "Subject of the calendar event.",
+              "type": "string",
+              "required": true
+            }, {
+              "id": "eecd914a-8215-4936-a941-ec9a9eb9196f",
+              "name": "text",
+              "description": "Body of the calendar event.",
+              "type": "string",
+              "required": false
+            }, {
+              "id": "1bfd90c9-97f0-48dd-b542-3172b273edbd",
+              "name": "startDate",
+              "description": "Start Date / Time of the event",
+              "type": "datetime",
+              "required": true
+            }, {
+              "id": "e0b0bbb9-ba3f-4cc9-aeed-695f59fd1c7b",
+              "name": "timeZone",
+              "description": "Timezone of the event. E.g: 'Pacific Standard Time'. The timeZone property can be set to any of the time zones currently supported by Windows: https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/default-time-zones as well as the additional time zones supported by the calendar API: https://docs.microsoft.com/en-us/graph/api/resources/datetimetimezone?view=graph-rest-1.0. By default, 'GMT Standard Time'.",
+              "type": "string",
+              "required": false
+            }, {
+              "id": "e8b0b66c-50ed-4155-9a48-e5927ccd456d",
+              "name": "duration",
+              "description": "Duration in minutes of the event",
+              "type": "integer",
+              "required": true
+            }, {
+              "id": "deb9c7af-a634-4174-9bd5-c71d8d5c01f3",
+              "name": "endDate",
+              "description": "End Date / Time of the event.",
+              "type": "datetime",
+              "required": true
+            }, {
+              "id": "d34a5597-0d7e-4710-9df9-2a6c191ba53d",
+              "name": "attendees",
+              "description": "List of attendees email addresses.",
+              "type": "array",
+              "required": true
+            }, {
+              "id": "5831cd31-1121-441e-869a-3452e889d389",
+              "name": "location",
+              "description": "Location of the event",
+              "type": "string",
+              "required": false
+            }, {
+              "id": "8cec5c6a-2282-4023-b13b-10fe8a160c9d",
+              "name": "attachments",
+              "description": "File to attach to the calendar event",
+              "type": "file",
+              "required": false
+            }, {
+                "id": "c06080a5-c178-40a0-8134-f35805912cbb",
+                "name": "onlineMeeting",
+                "description": "Add online Teams meeting to this event",
+                "type": "boolean"
+            }],
+            "outputs": [{
+              "id": "0c2a75c1-06e6-49de-8c89-9957259243f1",
+              "name": "result",
+              "description": "Response with the identifier returned by MS Teams API",
+              "type": "json"
+            }]
+          },
+        "455e5108-00a6-45a8-a850-67e536951b16": {
+            "id": "455e5108-00a6-45a8-a850-67e536951b16",
+            "name": "GET_SCHEDULE_AVAILABILITY",
+            "description": "Retrieves user availability information for a specific time period of time.\n",
+            "inputs": [{
+              "id": "9e35b68e-40cf-4ef2-b359-d56447e5a663",
+              "name": "startDate",
+              "description": "Start date of the period of time to query. The time period to look up must be less than 42 days.",
+              "type": "datetime",
+              "required": true
+            }, {
+              "id": "05fa4cba-5a1d-4474-a930-fb34e03b2037",
+              "name": "endDate",
+              "description": "End date of the period of time to query. The time period to look up must be less than 42 days.",
+              "type": "datetime",
+              "required": true
+            }, {
+              "id": "6d7daa4b-2bf1-4a79-a945-0d7b2c85160e",
+              "name": "timeZone",
+              "description": "Time zone. E.g: 'Pacific Standard Time'. The timeZone property can be set to any of the time zones currently supported by Windows: https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/default-time-zones as well as the additional time zones supported by the calendar API: https://docs.microsoft.com/en-us/graph/api/resources/datetimetimezone?view=graph-rest-1.0. By default, 'GMT Standard Time'.",
+              "type": "string",
+              "required": false
+            }, {
+              "id": "8d5be0a7-f8f1-44fa-8ea2-a960b8766730",
+              "name": "scheduleAddress",
+              "description": "Email address of a user, group, or room.",
+              "type": "string",
+              "required": true
+            }, {
+              "id": "409eee46-62a2-4019-88b0-364ba75f2d6e",
+              "name": "availabilityViewInterval",
+              "description": "Defines the granularity, in minutes, used to represent the availability view result. E.g: 15",
+              "type": "integer",
+              "required": false
+            }],
+            "outputs": [{
+              "id": "a534fb6e-a012-4086-8e1b-cbc506005167",
+              "name": "availabilityView",
+              "description": "Merged view of availability for the specific period of time. The merged view is a string that consists of time slots covering that day, with each time slot following convention:\n\n0= free\n1= tentative\n2= busy\n3= out of office\n4= working elsewhere.",
+              "type": "string"
+            }, {
+              "id": "6f72e652-eff8-4ebb-add4-5bc7e6701022",
+              "name": "availability",
+              "description": "Single value that represents a global availability status for the required period:\n\n0: if the user is free during the whole interval.\n\n1: If all the existing slots in the required period are either free or tentative.\n\n2, 3, 4: If there are busy, OOO, or working elsewhere slots respectively in the required period.",
+              "type": "string"
+            }, {
+              "id": "a4c95150-7df0-490d-a519-5f87a5be7205",
+              "name": "scheduleItems",
+              "description": "List of objects containing each of the events in the user's calendar.",
+              "type": "json"
+            }, {
+              "id": "57c0e0be-0590-47f9-b782-ad84f8694ce4",
+              "name": "workingHours",
+              "description": "Indicates the days of the week and time intervals when the user can be available.",
+              "type": "json"
+            }]
+        },
+        "9ac7cbc5-09ed-4590-bc29-ca1053b782e9": {
+            "id": "9ac7cbc5-09ed-4590-bc29-ca1053b782e9",
+            "name": "UPDATE_CALENDAR_EVENT",
+            "description": "Updates an event or appointment in the calendar",
+            "inputs": [{
+              "id": "b5f25316-4797-41dc-bcd3-66dc7544d63c",
+              "name": "id",
+              "description": "Identifier of the calendar event to be updated.",
+              "type": "string",
+              "required": true
+            }, {
+              "id": "67f66210-6a17-4f3f-be94-cd8f6a848dbd",
+              "name": "subject",
+              "description": "Subject to be updated in the calendar event.",
+              "type": "string",
+              "required": true
+            },{
+              "id": "d80ecb07-b341-4d1a-b42e-3cde241f16c0",
+              "name": "text",
+              "description": "Body to be updated in the calendar event.",
+              "type": "string",
+              "required": false
+            }, {
+              "id": "eca5c01b-cbfe-4171-a6bb-21cc076b5a19",
+              "name": "startDate",
+              "description": "Start Date / Time to be updated in the calendar event.",
+              "type": "datetime",
+              "required": true
+            }, {
+              "id": "e3aca17a-83e2-456b-8869-63b964e80787",
+              "name": "timeZone",
+              "description": "Timezone to be updated in the calendar event. E.g: 'Pacific Standard Time'. The timeZone property can be set to any of the time zones currently supported by Windows: https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/default-time-zones as well as the additional time zones supported by the calendar API: https://docs.microsoft.com/en-us/graph/api/resources/datetimetimezone?view=graph-rest-1.0. By default, 'GMT Standard Time'.",
+              "type": "string",
+              "required": false
+            }, {
+              "id": "99112efa-1f9f-47db-885d-276f1f4155c4",
+              "name": "duration",
+              "description": "Duration in minutes to be updated in the calendar event. If this property is included, the startDate is required.",
+              "type": "integer",
+              "required": true
+            }, {
+              "id": "5421e99a-fa3f-4670-90a3-68ab214143e5",
+              "name": "endDate",
+              "description": "End Date / Time to be updated in the calendar event.",
+              "type": "datetime",
+              "required": true
+            }, {
+              "id": "9f81eb34-2703-44a6-a446-3907d5969648",
+              "name": "attendees",
+              "description": "List of attendees email addresses to be updated in the calendar event.",
+              "type": "array",
+              "required": true
+            }, {
+              "id": "a0b1aee5-38f4-4de2-9d41-a553cc426441",
+              "name": "location",
+              "description": "Location to be updated in the calendar event.",
+              "type": "string",
+              "required": false
+            },
+            {
+                "id": "6f5c1430-80f4-4b3e-9167-4a0e060f0e4b",
+                "name": "onlineMeeting",
+                "description": "Add online Teams meeting to this event",
+                "type": "boolean"
+            }],
+            "outputs": [{
+              "id": "d005ed16-dbf7-4d1a-9cbd-e859ee5dd771",
+              "name": "result",
+              "description": "Response with the identifier returned by MS Teams API",
+              "type": "json"
+            }]
+          }, 
+          "18cb9d3a-2403-4aaf-8d5b-bd38ff3b7f36": {
+              "id": "18cb9d3a-2403-4aaf-8d5b-bd38ff3b7f36",
+              "name": "REMOVE_CALENDAR_EVENT",
+              "description": "Removes an event or appointment in the calendar",
+              "inputs": [{
+                "id": "4f20eed5-20f9-48e2-a5db-73e66e1eb910",
+                "name": "id",
+                "description": "Identifier of the calendar event to be removed.",
+                "type": "string",
+                "required": true
+              }]
+            }
+    },
+    "errors": [{
+      "name": "MISSING_INPUT",
+      "code": "MISSING_INPUT",
+      "description": "A mandatory input was not provided"
+    }, {
+      "name": "INVALID_INPUT",
+      "code": "INVALID_INPUT",
+      "description": "An input provided is invalid (e.g. It has a wrong type)"
+    }, {
+      "name": "INVALID_REQUEST",
+      "code": "INVALID_REQUEST",
+      "description": "An invalid request is received"
+    }, {
+      "name": "SCHEDULE_ERROR",
+      "code": "SCHEDULE_ERROR",
+      "description": "An error occurred from attempting to get the availability."
+    }, {
+      "name": "UNKNOWN_ERROR",
+      "code": "UNKNOWN_ERROR",
+      "description": "An unexpected error occurred during the execution of the action."
+    }],
+    "config": [{
+      "name": "TEAMS_CLIENT_ID",
+      "description": "",
+      "value": "",
+      "required": true
+    }, {
+      "name": "TEAMS_CLIENT_SECRET",
+      "description": "",
+      "value": "",
+      "required": true,
+      "secure": true
+    }, {
+      "name": "TEAMS_SCOPE",
+      "description": "",
+      "value": "https://graph.microsoft.com/.default"
+    }, {
+      "name": "TEAMS_USERNAME",
+      "description": "",
+      "value": "",
+      "required": true
+    }, {
+      "name": "TEAMS_TENANT",
+      "description": "",
+      "value": "",
+      "required": true
+    }]
+  }

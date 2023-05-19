@@ -1,0 +1,60 @@
+<div *ngIf="data.isMarksDialogEnabled">
+  <div>
+    <div mat-dialog-title>{{'GOVERNANCE.SECURITY_MARKS.DIALOG_TITLE' | translate}}</div>
+      <div id="help-button-container">
+        <button mat-icon-button id="helpIcon" (click)="showHelpDialog()">
+            <mat-icon>help_outline</mat-icon>
+        </button>
+        <button mat-icon-button mat-dialog-close title="{{'GOVERNANCE.SECURITY_MARKS.CLOSE' | translate}}">
+            <mat-icon>close</mat-icon>
+        </button>
+      </div>
+    </div>
+
+    <div id="divScroll">
+      <div *ngFor="let group of availableGroupAndMarkMap | keyvalue" id="div-table">
+        <hr>
+        <p>{{group.key.groupName}} ({{group.key.groupType  | titlecase}})</p>
+        <table>
+          <tr>
+            <ng-container *ngFor="let marks of group.value">
+              <td (click)="manageSecurityMarksList(marks.id, group.key.id, group.key.groupType)"
+                  [id]="isSelected(marks.id, group.key.id) ? 'selected' : ''">{{marks.name}}</td>
+            </ng-container>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <footer mat-dialog-actions>
+      <button mat-button mat-dialog-close id="cancelButton" (click)="handleCancel()">
+        {{'GOVERNANCE.SECURITY_MARKS.CANCEL' | translate}}
+      </button>
+      <button mat-button class="save" [id]="isSaveButtonDisabled() ? 'buttonDisabled' : 'saveButton'"
+          [disabled]="isSaveButtonDisabled()" (click)="onSave()">
+          {{'GOVERNANCE.SECURITY_MARKS.SAVE' | translate}}
+      </button>
+    </footer>
+  </div>
+    <div *ngIf="data.isHelpDialogEnabled">
+      <div class="app-security-marks-container">
+        <div mat-dialog-title>{{'GOVERNANCE.SECURITY_MARKS.SECURITY_MARKS_HELP' | translate}}</div>
+        <div class="app-security-marks-help-title">
+        <button mat-icon-button mat-dialog-close title="{{'GOVERNANCE.SECURITY_MARKS.CLOSE' | translate}}">
+          <mat-icon class="app-help-close-icon">close</mat-icon>
+        </button>
+        </div>
+      </div>
+       <mat-divider class="app-mat-divider"></mat-divider>
+      <div mat-dialog-content class="app-security-marks-content">
+        <p class="app-security-marks-help-icon">{{'GOVERNANCE.SECURITY_MARKS.HELP_ICON_TEXT' | translate}}</p>
+        <div id="security-marks-help-div">
+          <span class="app-applied-btn"></span>
+           <p>{{'GOVERNANCE.SECURITY_MARKS.APPLIED' | translate}}</p>
+        </div>
+        <div id="security-marks-help-div">
+          <span class="app-non-applied-btn"></span>
+          <p>{{'GOVERNANCE.SECURITY_MARKS.NOT_APPLIED' | translate}}</p>
+        </div>
+      </div>
+    </div>

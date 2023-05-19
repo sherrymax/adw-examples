@@ -1,0 +1,7 @@
+<adf-cloud-process-filters
+    [appName]="appName$ | async"
+    [showIcons]="false"
+    [filterParam]="currentFilter$ | async"
+    (filterClicked)="onProcessFilterClick($event)"
+>
+</adf-cloud-process-filters>

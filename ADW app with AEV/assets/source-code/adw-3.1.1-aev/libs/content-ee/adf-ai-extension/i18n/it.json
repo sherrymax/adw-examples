@@ -1,0 +1,10 @@
+{
+  "AI-VIEW": {
+    "ROTATE_LEFT": "Ruota a sinistra",
+    "ROTATE_RIGHT": "Ruota a destra",
+    "CONFIDENCE": "Confidenza",
+    "AI": "AI",
+    "TEXT_EXTRACT": "aiTextract",
+    "AI_RECOGNITION": "aiRekognition"
+  }
+}

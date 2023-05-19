@@ -1,0 +1,54 @@
+{
+    "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+    "projectType": "library",
+    "sourceRoot": "libs/content-ee/custom-modeled-extension/src",
+    "targets": {
+        "test": {
+            "executor": "@angular-devkit/build-angular:karma",
+            "options": {
+                "main": "libs/content-ee/custom-modeled-extension/src/test.ts",
+                "tsConfig": "libs/content-ee/custom-modeled-extension/tsconfig.spec.json",
+                "karmaConfig": "libs/content-ee/custom-modeled-extension/karma.conf.js"
+            },
+            "configurations": {
+                "adf": {
+                    "tsConfig": "libs/content-ee/custom-modeled-extension/tsconfig.spec.adf.json",
+                    "karmaConfig": "libs/content-ee/custom-modeled-extension/karma.conf.js",
+                    "progress": false,
+                    "codeCoverage": false
+                }
+            },
+            "outputs": ["coverage/libs/content-ee/custom-modeled-extension"]
+        },
+        "lint": {
+            "executor": "@nrwl/linter:eslint",
+            "options": {
+                "lintFilePatterns": [
+                    "libs/content-ee/custom-modeled-extension/src/**/*.ts",
+                    "libs/content-ee/custom-modeled-extension/src/**/*.html"
+                ]
+            },
+            "outputs": ["{options.outputFile}"]
+        },
+        "stylelint": {
+            "executor": "nx-stylelint:lint",
+            "options": {
+                "config": "libs/content-ee/custom-modeled-extension/.stylelintrc.json",
+                "lintFilePatterns": [
+                    "libs/content-ee/custom-modeled-extension/**/*.scss"
+                ]
+            }
+        },
+        "cspell": {
+            "executor": "@alfresco-dbp/monorepo/builders:cspell"
+        },
+        "language-check": {
+            "executor": "@alfresco-dbp/monorepo/builders:language-check"
+        }
+    },
+    "tags": [
+        "scope:content-ee-custom-modeled-extension",
+        "type:feature",
+        "category:content-ee-apa"
+    ]
+}

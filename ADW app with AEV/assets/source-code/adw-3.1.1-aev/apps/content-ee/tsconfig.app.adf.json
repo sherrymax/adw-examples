@@ -1,0 +1,31 @@
+{
+    "extends": "../../tsconfig.adf.json",
+    "compilerOptions": {
+        "outDir": "../../out-tsc/content-ee",
+        "types": [
+            "jasmine",
+            "node"
+        ]
+    },
+    "files": [
+        "../content-ce/app/src/main.ts",
+        "../content-ce/app/src/polyfills.ts"
+    ],
+    "include": [
+        "../content-ce/app/src",
+        "./src/app"
+    ],
+    "exclude": [
+        "../content-ce/**/*.spec.ts",
+        "../content-ce/**/*.spec.ts",
+        "../content-ce/**/*.mock.ts",
+        "../content-ce/app/src/test.ts",
+        "../content-ce/app/src/environments/environment.prod.ts",
+        "../content-ce/app/src/environments/environment.e2e.ts",
+        "../content-ce/app/src/app/testing/app-testing.module.ts",
+        "../content-ce/app/src/app/testing/translation.service.ts",
+        "../content-ce/app/src/app/testing/translate-pipe.directive.ts",
+        "../content-ce/app/src/environments/environment.release.ts",
+        "./src/app/extensions.module.ts"
+    ]
+}

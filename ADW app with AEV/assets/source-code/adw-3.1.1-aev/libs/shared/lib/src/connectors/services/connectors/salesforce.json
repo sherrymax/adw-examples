@@ -1,0 +1,360 @@
+{
+    "name": "salesforceConnector",
+    "description": "APS Connector that provides an integration with Salesforce",
+    "actions": {
+        "f2dec2c2-c469-48d0-80be-3d4a318d9d71": {
+          "id": "f2dec2c2-c469-48d0-80be-3d4a318d9d71",
+          "name": "APPROVAL_SUBMIT",
+          "description": "Submits a Record for Approval",
+          "inputs": [
+            {
+              "id": "4b831c89-99f9-4704-a56d-41e2f8ec2934",
+              "name": "salesforcePayload",
+              "description": "Map of JSON properties and values to compose the salesforce payload. E.g: {\"Name\":\"Test Account Name\",\"Description\":\"Test Description\"}",
+              "type": "json",
+              "required": true
+            }
+          ],
+          "outputs": [
+            {
+              "id": "8b98ce4b-3179-433f-8571-7da21a147b32",
+              "name": "salesforceResult",
+              "description": "Object with lists with the type and attributes of the object, errors and success",
+              "type": "string"
+            },
+            {
+              "id": "63c5a974-5be5-4119-bb73-3ef35a2bee6e",
+              "name": "salesforceStatus",
+              "description": "HTTP status code",
+              "type": "string"
+            }
+          ]
+        },
+        "d94cfd20-cf18-4122-bc2f-c0401340e1fc": {
+          "id": "d94cfd20-cf18-4122-bc2f-c0401340e1fc",
+          "name": "CREATE",
+          "description": "Creates an object of the specified type.",
+          "inputs": [
+            {
+              "id": "381764aa-f418-46a9-8b75-ca67f1a4f575",
+              "name": "SObjectName",
+              "description": "Object type to execute an operation. E.g: 'Account'",
+              "type": "string",
+              "required": true
+            },
+            {
+              "id": "160dc300-05e4-4cde-9db6-6ea40e0b306b",
+              "name": "salesforcePayload",
+              "description": "Map of JSON properties and values to compose the salesforce payload. E.g: {\"Name\":\"Test Account Name\",\"Description\":\"Test Description\"}",
+              "type": "json",
+              "required": true
+            }
+          ],
+          "outputs": [
+            {
+              "id": "70b5f691-84ec-4fa3-a74a-4d8cd8da9571",
+              "name": "salesforceResult",
+              "description": "Result of the creation",
+              "type": "string"
+            },
+            {
+              "id": "d6e7612f-00f5-4291-a6db-704c3e39cd8f",
+              "name": "salesforceStatus",
+              "description": "HTTP status code",
+              "type": "string"
+            }
+          ]
+        },
+        "60b74bf4-b85c-4040-be63-0ce3b8ac32e0": {
+          "id": "60b74bf4-b85c-4040-be63-0ce3b8ac32e0",
+          "name": "GET",
+          "description": "Retrieves field values from a record.",
+          "inputs": [
+            {
+              "id": "4d04acc2-3d59-44bf-86b7-01bdf354aef0",
+              "name": "SObjectName",
+              "description": "Object type to execute an operation. E.g: 'Account'",
+              "type": "string",
+              "required": true
+            },
+            {
+              "id": "d66d9fbd-8337-4523-81bd-057a534b7dd4",
+              "name": "SObjectId",
+              "description": "Salesforce Object ID. E.g: 'accountId'",
+              "type": "string",
+              "required": true
+            }
+          ],
+          "outputs": [
+            {
+              "id": "5017aba2-1404-4407-95e5-380dad0d51cd",
+              "name": "salesforceResult",
+              "description": "Attributes of the object",
+              "type": "string"
+            },
+            {
+              "id": "b36149fb-f467-4b40-a0f5-0acb1fa8b926",
+              "name": "salesforceStatus",
+              "description": "HTTP status code",
+              "type": "string"
+            }
+          ]
+        },
+        "c0998c9e-bc79-466b-92bc-61eb0835768d": {
+          "id": "c0998c9e-bc79-466b-92bc-61eb0835768d",
+          "name": "UPDATE",
+          "description": " Updates records. Provide the updated record information in your request data and use the PATCH method of the resource with a specific record ID to update that record",
+          "inputs": [
+            {
+              "id": "b078b6ec-3374-45b5-a9da-f2231304b374",
+              "name": "SObjectName",
+              "description": "Object type to execute an operation. E.g: 'Account'",
+              "type": "string",
+              "required": true
+            },
+            {
+              "id": "0390e5bc-f6e4-4d52-91a0-9075b4442ec6",
+              "name": "SObjectId",
+              "description": "Salesforce Object ID. E.g: 'accountId'",
+              "type": "string",
+              "required": true
+            },
+            {
+              "id": "f58ee3f8-dce6-4a55-8664-e073d27c971b",
+              "name": "salesforcePayload",
+              "description": "Map of JSON properties and values to compose the salesforce payload. E.g: {\"Name\":\"Test Account Name\",\"Description\":\"Test Description\"}",
+              "type": "json",
+              "required": true
+            }
+          ],
+          "outputs": [
+            {
+              "id": "55ee925d-001c-43b2-98d4-e84d857f5424",
+              "name": "salesforceStatus",
+              "description": "HTTP status code",
+              "type": "string"
+            }
+          ]
+        },
+        "7f12c5dd-c932-4faf-9ce7-6955b219709c": {
+          "id": "7f12c5dd-c932-4faf-9ce7-6955b219709c",
+          "name": "DELETE",
+          "description": "Deletes records. Specify the record ID.",
+          "inputs": [
+            {
+              "id": "9f5f987a-fca0-4782-acd5-90e7fccce4c4",
+              "name": "SObjectName",
+              "description": "Object type to execute an operation. E.g: 'Account'",
+              "type": "string",
+              "required": true
+            },
+            {
+              "id": "02f69fbf-6ad8-4797-9138-061e5e85aa9b",
+              "name": "SObjectId",
+              "description": "Salesforce Object ID. E.g: 'accountId'",
+              "type": "string",
+              "required": true
+            }
+          ],
+          "outputs": [
+            {
+              "id": "7a4a8b4b-7104-4575-9257-a6eb335231ad",
+              "name": "salesforceStatus",
+              "description": "HTTP status code",
+              "type": "string"
+            }
+          ]
+        },
+        "905b4773-0188-484c-ab0d-26a91b19af49": {
+          "id": "905b4773-0188-484c-ab0d-26a91b19af49",
+          "name": "QUERY",
+          "description": "Executes a SOQL query that returns all the results in a single response.",
+          "inputs": [
+            {
+              "id": "17115a5c-efad-4e90-a9da-caf7afbf7690",
+              "name": "salesforceQuery",
+              "description": "Query to be executed. E.g: 'SELECT name from Account'",
+              "type": "string",
+              "required": true
+            }
+          ],
+          "outputs": [
+            {
+              "id": "7d606a26-3b75-4585-ae9c-2b08714e4e46",
+              "name": "salesforceResult",
+              "description": "Query results: totalSize, done and records",
+              "type": "string"
+            },
+            {
+              "id": "131c00ce-5407-4bca-b655-f9c052f1720a",
+              "name": "salesforceStatus",
+              "description": "HTTP status code",
+              "type": "string"
+            }
+          ]
+        },
+        "f168ebcf-131f-4992-b976-7672fe04623e": {
+          "id": "f168ebcf-131f-4992-b976-7672fe04623e",
+          "name": "APPROVAL_LIST",
+          "description": "Gets information about approvals",
+          "outputs": [
+            {
+              "id": "bbd70ac5-85c5-44cb-8867-776a9b9a4414",
+              "name": "salesforceResult",
+              "description": "Object with lists with the type and attributes of the object",
+              "type": "string"
+            },
+            {
+              "id": "e3848eb0-6c84-411d-a627-b9813db95352",
+              "name": "salesforceStatus",
+              "description": "HTTP status code",
+              "type": "string"
+            }
+          ]
+        },
+        "7cc90c0c-9091-40fb-b4cc-a1d230e2d81b": {
+          "id": "7cc90c0c-9091-40fb-b4cc-a1d230e2d81b",
+          "name": "APPROVAL_APPROVE",
+          "description": "Approves a record.",
+          "inputs": [
+            {
+              "id": "db426c04-d199-4ba2-b368-a95c63f141a7",
+              "name": "salesforcePayload",
+              "description": "Map of JSON properties and values to compose the salesforce payload. E.g: {\"Name\":\"Test Account Name\",\"Description\":\"Test Description\"}",
+              "type": "json",
+              "required": true
+            }
+          ],
+          "outputs": [
+            {
+              "id": "f4b8eb3f-0426-4f25-9cf1-567a44fd6e49",
+              "name": "salesforceResult",
+              "description": "Object with a list with the approval results.",
+              "type": "string"
+            },
+            {
+              "id": "1633bf1f-7cac-487c-93de-99a8144d4a43",
+              "name": "salesforceStatus",
+              "description": "HTTP status code",
+              "type": "string"
+            }
+          ]
+        },
+        "054208c5-838f-4af2-8912-1731a040b688": {
+          "id": "054208c5-838f-4af2-8912-1731a040b688",
+          "name": "APPROVAL_REJECT",
+          "description": "Rejects a record.",
+          "outputs": [
+            {
+              "id": "602b775d-971b-4ff9-8e4c-22eeea8a6f2e",
+              "name": "salesforceResult",
+              "description": "Object with a list with the approval results.",
+              "type": "string"
+            },
+            {
+              "id": "e25a8e35-665b-43b7-bf8e-e163111fb1d7",
+              "name": "salesforceStatus",
+              "description": "HTTP status code",
+              "type": "string"
+            }
+          ],
+          "inputs": [
+            {
+              "id": "035dba9e-c74f-47b7-818c-9434f42e9148",
+              "name": "salesforcePayload",
+              "description": "Map of JSON properties and values to compose the salesforce payload. E.g: {\"Name\":\"Test Account Name\",\"Description\":\"Test Description\"}",
+              "type": "json",
+              "required": true
+            }
+          ]
+        }
+    },
+	"errors": [
+		{
+			"name": "MISSING_INPUT",
+            "description": "A mandatory input variable was not provided",
+            "code": "MISSING_INPUT"
+		},
+		{
+			"name": "INVALID_INPUT",
+			"description": "The input variable has an invalid type",
+            "code": "INVALID_INPUT"
+		},
+		{
+			"name": "UNKNOWN_ERROR",
+			"description": "Unexpected runtime error",
+            "code": "UNKNOWN_ERROR"
+		},
+		{
+			"name": "REQUEST_TIMEOUT",
+			"description": "Salesforce request timeout",
+            "code": "REQUEST_TIMEOUT"
+		},
+		{
+			"name": "CIRCUIT_BREAKER_OPEN",
+			"description": "Max number of retries reached without success",
+            "code": "CIRCUIT_BREAKER_OPEN"
+		},
+		{
+      "name": "MISSING_TOKEN",
+      "description": "Salesforce access token could not be obtained"
+    },
+    {
+      "name": "CONNECTION_ERROR",
+      "description": "Salesforce connection error"
+    }
+	],
+    "config": [
+        {
+            "name": "SALESFORCE_CLIENT_ID",
+            "description": "Salesforce client id",
+            "value": "",
+            "required": true
+        },
+        {
+            "name": "SALESFORCE_CLIENT_SECRET",
+            "description": "Salesforce client secret",
+            "value": "",
+            "required": true,
+            "secure": true
+        },
+        {
+            "name": "SALESFORCE_USERNAME",
+            "description": "Salesforce username",
+            "value": "",
+            "required": true
+        },
+        {
+            "name": "SALESFORCE_PASSWORD",
+            "description": "Salesforce password",
+            "value": "",
+            "required": true,
+            "secure": true
+        },
+        {
+            "name": "SALESFORCE_SECURITY_TOKEN",
+            "description": "Salesforce security token",
+            "value": "",
+            "required": true,
+            "secure": true
+        },
+        {
+            "name": "SALESFORCE_URL_LOGIN",
+            "description": "Salesforce REST URL login",
+            "value": "https://login.salesforce.com/services/oauth2/token",
+            "required": true
+        },
+        {
+            "name": "SALESFORCE_SOAP_URL_LOGIN",
+            "description": "Salesforce SOAP URL login",
+            "value": "https://login.salesforce.com/services/Soap/c/45.0",
+            "required": true
+        },
+        {
+            "name": "SALESFORCE_VERSION",
+            "description": "Salesforce version",
+            "value": "45.0",
+            "required": true
+        }
+    ]
+}

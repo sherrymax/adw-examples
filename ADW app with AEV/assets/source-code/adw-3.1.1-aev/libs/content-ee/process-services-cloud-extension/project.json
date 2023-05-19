@@ -1,0 +1,57 @@
+{
+    "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+    "projectType": "library",
+    "sourceRoot": "libs/content-ee/process-services-cloud-extension/src",
+    "prefix": "aps",
+    "targets": {
+        "test": {
+            "executor": "@angular-devkit/build-angular:karma",
+            "options": {
+                "main": "libs/content-ee/process-services-cloud-extension/src/test.ts",
+                "tsConfig": "libs/content-ee/process-services-cloud-extension/tsconfig.spec.json",
+                "karmaConfig": "libs/content-ee/process-services-cloud-extension/karma.conf.js"
+            },
+            "configurations": {
+                "adf": {
+                    "tsConfig": "libs/content-ee/process-services-cloud-extension/tsconfig.spec.adf.json",
+                    "karmaConfig": "libs/content-ee/process-services-cloud-extension/karma.conf.js",
+                    "progress": false,
+                    "codeCoverage": false
+                }
+            },
+            "outputs": [
+                "coverage/libs/content-ee/process-services-cloud-extension"
+            ]
+        },
+        "lint": {
+            "executor": "@nrwl/linter:eslint",
+            "options": {
+                "lintFilePatterns": [
+                    "libs/content-ee/process-services-cloud-extension/src/**/*.ts",
+                    "libs/content-ee/process-services-cloud-extension/src/**/*.html"
+                ]
+            },
+            "outputs": ["{options.outputFile}"]
+        },
+        "stylelint": {
+            "executor": "nx-stylelint:lint",
+            "options": {
+                "config": "libs/content-ee/process-services-cloud-extension/.stylelintrc.json",
+                "lintFilePatterns": [
+                    "libs/content-ee/process-services-cloud-extension/**/*.scss"
+                ]
+            }
+        },
+        "cspell": {
+            "executor": "@alfresco-dbp/monorepo/builders:cspell"
+        },
+        "language-check": {
+            "executor": "@alfresco-dbp/monorepo/builders:language-check"
+        }
+    },
+    "tags": [
+        "scope:content-ee-process-services-cloud-extension",
+        "type:feature",
+        "category:content-ee-apa"
+    ]
+}

@@ -1,0 +1,100 @@
+{
+  "PROCESS-EXTENSION": {
+    "DIALOG": {
+      "NEW_PROCESS": "Nuovo processo",
+      "SELECT_APPLICATION": "Selezionare applicazione",
+      "ERROR": "Impossibile avviare un processo poiché non vi sono definizioni di processo disponibili"
+    },
+    "BREADCRUMB": {
+      "ROOT": "Gestione processi",
+      "PROCESS_LIST": {
+        "PROCESSES": "Processi"
+      },
+      "START_PROCESS": "Avvia processo",
+      "ACTIONS": {
+        "INFO-TOOLTIP": "Visualizza dettagli"
+      }
+    },
+    "MENU": {
+      "PROCESS_MANAGEMENT": "Gestione processi",
+      "CREATE_NEW_PROCESS": "Avvia processo",
+      "CREATE_PROCESS_NOT_ALLOWED": "Impossibile creare nuovo processo"
+    },
+    "PROCESS_SUBMENU": {
+      "MORE": "Altro"
+    },
+    "ERROR": {
+      "NO_FORM": "La definizione del processo non ha un modulo definito",
+      "NO_CONTENT": "Impossibile allegare il file dal proprio dispositivo",
+      "CAN_NOT_ATTACH": "Impossibile allegare il contenuto selezionato",
+      "AUDIT_ERROR": "Visualizza errore compito: {{error}}",
+      "TASK_ACCESS_WARNING": "Non si dispone dei diritti per modificare il compito"
+    },
+    "SNACKBAR": {
+      "PROCESS-CREATED": "Creato il processo '{{ processName }}'",
+      "BACKEND_SERVICE_ERROR": "Errore di rete sconosciuto. Le funzioni relative al servizio del processo sono disabilitate.",
+      "ACTION": "Visualizza processo in esecuzione"
+    },
+    "NO_PROCESS_DEFINITIONS": "Nessuna definizione di processo disponibile",
+    "SIDE_NAV_TITLE": "Gestione processi",
+    "TASK_LIST": {
+      "TASKS": "Compiti",
+      "ACTIONS": {
+        "TASK_DETAILS": "Visualizza"
+      }
+    },
+    "PROCESS_LIST": {
+      "ACTIONS": {
+        "PROCESS_DETAILS": "Visualizza"
+      }
+    },
+    "TASK_FORM": {
+      "FORM_SAVED": "Il modulo è stato salvato correttamente",
+      "FORM_COMPLETED": "Compito completato",
+      "CLOSE_TOOLTIP": "Chiudi",
+      "CLAIM_TASK": "Il compito è stato richiesto",
+      "UNCLAIM_TASK": "Il compito è stato rilasciato",
+      "CLAIM_FAILED": "Impossibile eseguire l'azione"
+    },
+    "TASK_DETAILS": {
+      "ERROR": "Impossibile eseguire l'azione",
+      "FAILED_TO_LOAD": "Impossibile caricare i dettagli del compito. Riprovare più tardi",
+      "UPDATED": "Aggiornamento di {{ property }} completato",
+      "FAILED_TO_UPDATE": "Impossibile aggiornare {{ property }}",
+      "METADATA_TOOLTIP": "Visualizza dettagli",
+      "NO_TASK_NAME": "Nessun nome"
+    }
+  },
+  "SHARED": {
+    "PROCESSES_LIST": {
+      "NO_PROCESS_DEFINITIONS": "Nessuna definizione di processo disponibile"
+    }
+  },
+  "ADF_PROCESS_LIST": {
+    "PROPERTIES": {
+      "CREATED_BY": "Avviato da",
+      "CREATED": "Data di inizio"
+    },
+    "START_PROCESS": {
+      "NO_PROCESS_DEFINITIONS": "Impossibile avviare un processo poiché non vi sono definizioni di processo disponibili",
+      "NO_START_FORM": "Questo processo non richiede configurazioni aggiuntive",
+      "NO_PROCESS_DEF_SELECTED": "Nessuna categoria/processo selezionati",
+      "FORM": {
+        "LABEL": {
+          "SELECT_APPLICATION": "Selezionare applicazione"
+        }
+      }
+    }
+  },
+  "ADF_TASK_LIST": {
+    "PROPERTIES": {
+      "CREATED": "Data di creazione"
+    },
+    "DETAILS": {
+      "BUTTON": {
+        "CLAIM": "Richiedi",
+        "UNCLAIM": "Rilascia"
+      }
+    }
+  }
+}

@@ -1,0 +1,1794 @@
+{
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "version": 2,
+  "projects": {
+    "content-ce": {
+      "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+      "root": "apps/content-ce/app",
+      "sourceRoot": "apps/content-ce/app/src",
+      "projectType": "application",
+      "prefix": "app",
+      "generators": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "targets": {
+        "build": {
+          "executor": "@alfresco-dbp/monorepo/builders:browser",
+          "options": {
+            "baseHref": ".",
+            "allowedCommonJsDependencies": [
+              "minimatch",
+              "minimatch-browser",
+              "moment-es6",
+              "superagent",
+              "event-emitter",
+              "brace-expansion",
+              "d",
+              "moment",
+              "@editorjs/code",
+              "@editorjs/editorjs",
+              "@editorjs/header",
+              "@editorjs/inline-code",
+              "@editorjs/list",
+              "@editorjs/marker",
+              "@editorjs/underline",
+              "@quanzo/change-font-size",
+              "cropperjs",
+              "editorjs-html",
+              "editorjs-text-color-plugin"
+            ],
+            "outputPath": "dist/content-ce",
+            "index": "apps/content-ce/app/src/index.html",
+            "main": "apps/content-ce/app/src/main.ts",
+            "polyfills": "apps/content-ce/app/src/polyfills.ts",
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "apps/content-ce/app/src/app/ui",
+                "node_modules"
+              ]
+            },
+            "tsConfig": "apps/content-ce/app/tsconfig.app.json",
+            "assets": [
+              {
+                "input": "apps/content-ce/app/src/assets",
+                "output": "/assets",
+                "glob": "**/*"
+              },
+              {
+                "input": "apps/content-ce",
+                "output": "/",
+                "glob": "favicon-96x96.png"
+              },
+              {
+                "input": "apps/content-ce/app/.tmp",
+                "output": "/",
+                "glob": "app.config.json"
+              },
+              {
+                "input": ".",
+                "output": "/assets",
+                "glob": "extension.schema.json"
+              },
+              {
+                "input": "apps/content-ce",
+                "output": "/",
+                "glob": "LICENSE"
+              },
+              {
+                "input": "apps/content-ce/projects/adf-office-services-ext/assets",
+                "output": "/assets/adf-office-services-ext",
+                "glob": "**/*"
+              },
+              {
+                "input": "apps/content-ce/projects/adf-office-services-ext/assets",
+                "output": "/assets/plugins",
+                "glob": "aos.plugin.json"
+              },
+              {
+                "input": "apps/content-ce/projects/aca-about/assets",
+                "output": "/assets/plugins",
+                "glob": "about.plugin.json"
+              },
+              {
+                "input": "apps/content-ce/projects/aca-settings/assets",
+                "output": "/assets/plugins",
+                "glob": "settings.plugin.json"
+              },
+              {
+                "input": "apps/content-ce/projects/aca-folder-rules/assets",
+                "output": "/assets/plugins",
+                "glob": "folder-rules.plugin.json"
+              },
+              {
+                "input": "apps/content-ce/projects/aca-folder-rules/assets/i18n",
+                "output": "/assets/aca-folder-rules/i18n",
+                "glob": "**/*"
+              },
+              {
+                "input": "node_modules/@alfresco/adf-core/prebuilt-themes",
+                "output": "/assets/prebuilt-themes",
+                "glob": "**/*"
+              },
+              {
+                "input": "node_modules/@alfresco/adf-core/bundles/assets",
+                "output": "/assets",
+                "glob": "**/*"
+              },
+              {
+                "input": "node_modules/@alfresco/adf-content-services/bundles/assets",
+                "output": "/assets",
+                "glob": "**/*"
+              },
+              {
+                "input": "node_modules/pdfjs-dist/build",
+                "output": "/",
+                "glob": "pdf.worker.min.js"
+              }
+            ],
+            "styles": [
+              "node_modules/cropperjs/dist/cropper.min.css",
+              "apps/content-ce/app/src/assets/fonts/material-icons/material-icons.css",
+              "apps/content-ce/app/src/assets/fonts/muli/muli.css",
+              "apps/content-ce/app/src/styles.scss"
+            ],
+            "scripts": [
+              "node_modules/pdfjs-dist/build/pdf.js",
+              "node_modules/pdfjs-dist/web/pdf_viewer.js",
+              "node_modules/moment/min/moment.min.js"
+            ],
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/content-ce/app/src/environments/environment.ts",
+                  "with": "apps/content-ce/app/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "6mb",
+                  "maximumError": "8mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
+                }
+              ]
+            }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "defaultConfiguration": "",
+          "dependsOn": [
+            "^build"
+          ]
+        },
+        "serve": {
+          "executor": "@alfresco-dbp/monorepo/builders:dev-server",
+          "options": {
+            "browserTarget": "content-ce:build",
+            "port": 4200,
+            "host": "0.0.0.0",
+            "open": true,
+            "proxyConfig": "apps/content-ce/app/proxy.conf.js"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "content-ce:build:production"
+            }
+          }
+        },
+        "lite-serve": {
+          "executor": "@angular-custom-builders/lite-serve:dist-serve",
+          "options": {
+            "publicHost": "http://localhost:4200",
+            "browserTarget": "content-ce:build"
+          },
+          "configurations": {
+            "standalone": {
+              "watch": true
+            }
+          }
+        }
+      },
+      "tags": [
+        "scope:content-ce",
+        "type:app",
+        "category:content-ce"
+      ]
+    },
+    "content-ce-about": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+      "root": "apps/content-ce/projects/aca-about",
+      "sourceRoot": "apps/content-ce/projects/aca-about/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "targets": {},
+      "tags": [
+        "scope:content-ce-about",
+        "type:feature"
+      ]
+    },
+    "content-ce-aca-shared": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+      "root": "apps/content-ce/projects/aca-shared",
+      "sourceRoot": "apps/content-ce/projects/aca-shared/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "targets": {},
+      "tags": [
+        "content-ce-aca-shared",
+        "type:library"
+      ]
+    },
+    "content-ce-adf-office-services-ext": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+      "root": "apps/content-ce/projects/adf-office-services-ext",
+      "sourceRoot": "apps/content-ce/projects/adf-office-services-ext/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "targets": {},
+      "tags": [
+        "scope:content-ce-adf-office-services-ext",
+        "type:feature",
+        "category:content-ce"
+      ]
+    },
+    "content-ce-folder-rules": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+      "root": "apps/content-ce/projects/aca-folder-rules",
+      "sourceRoot": "apps/content-ce/projects/aca-folder-rules/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "targets": {},
+      "tags": [
+        "scope:content-ce-folder-rules",
+        "type:library"
+      ]
+    },
+    "content-ce-settings": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+      "root": "apps/content-ce/projects/aca-settings",
+      "sourceRoot": "apps/content-ce/projects/aca-settings/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "targets": {},
+      "tags": [
+        "scope:content-ce-settings",
+        "type:feature"
+      ]
+    },
+    "content-ce-testing-shared": {
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+      "root": "apps/content-ce/projects/aca-testing-shared",
+      "sourceRoot": "apps/content-ce/projects/aca-testing-shared/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "targets": {},
+      "tags": [
+        "scope:content-ce-testing-shared",
+        "type:library"
+      ]
+    },
+    "content-ee": {
+      "root": "apps/content-ee",
+      "$schema": "../../node_modules/nx/schemas/project-schema.json",
+      "sourceRoot": "apps/content-ee/src",
+      "projectType": "application",
+      "prefix": "app",
+      "generators": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "targets": {
+        "build": {
+          "executor": "@alfresco-dbp/monorepo/builders:browser",
+          "options": {
+            "baseHref": ".",
+            "allowedCommonJsDependencies": [
+              "minimatch",
+              "minimatch-browser",
+              "moment-es6",
+              "superagent",
+              "event-emitter",
+              "brace-expansion",
+              "d",
+              "moment",
+              "cropperjs",
+              "editorjs-html",
+              "editorjs-text-color-plugin",
+              "@quanzo/change-font-size",
+              "@editorjs/underline",
+              "@editorjs/marker",
+              "@editorjs/list",
+              "@editorjs/inline-code",
+              "@editorjs/header",
+              "@editorjs/editorjs",
+              "@editorjs/code"
+            ],
+            "outputPath": "dist/content-ee/adw",
+            "index": "apps/content-ee/src/index.html",
+            "main": "apps/content-ce/app/src/main.ts",
+            "polyfills": "apps/content-ce/app/src/polyfills.ts",
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "apps/content-ce/app/src/app/ui",
+                "node_modules"
+              ]
+            },
+            "tsConfig": "apps/content-ee/tsconfig.app.json",
+            "assets": [
+              {
+                "input": "apps/content-ee/.tmp",
+                "output": "/",
+                "glob": "app.config.json"
+              },
+              {
+                "input": "libs/content-ee/extensions-order-extension/assets",
+                "output": "/assets/plugins/",
+                "glob": "app.actions-order.json"
+              },
+              {
+                "input": "apps/content-ce/app/src/assets",
+                "output": "/assets",
+                "glob": "**/*"
+              },
+              {
+                "input": "apps/content-ce",
+                "output": "/",
+                "glob": "favicon-96x96.png"
+              },
+              {
+                "input": "apps/content-ce/app/src",
+                "output": "/",
+                "glob": "versions.json"
+              },
+              {
+                "input": ".",
+                "output": "/assets",
+                "glob": "extension.schema.json"
+              },
+              {
+                "input": "apps/content-ce",
+                "output": "/",
+                "glob": "LICENSE"
+              },
+              {
+                "input": "apps/content-ce/projects/adf-office-services-ext/assets",
+                "output": "/assets/adf-office-services-ext",
+                "glob": "**/*"
+              },
+              {
+                "input": "apps/content-ce/projects/aca-about/assets",
+                "output": "/assets/plugins",
+                "glob": "about.plugin.json"
+              },
+              {
+                "input": "apps/content-ce/projects/aca-settings/assets",
+                "output": "/assets/plugins",
+                "glob": "settings.plugin.json"
+              },
+              {
+                "input": "apps/content-ce/projects/adf-office-services-ext/assets",
+                "output": "/assets/plugins",
+                "glob": "aos.plugin.json"
+              },
+              {
+                "input": "libs/content-ee/governance/i18n",
+                "output": "/assets/adf-governance/i18n",
+                "glob": "**/*"
+              },
+              {
+                "input": "libs/content-ee/governance/assets/icons",
+                "output": "/assets/images/",
+                "glob": "**/*"
+              },
+              {
+                "input": "libs/content-ee/process-services-extension/i18n",
+                "output": "/assets/adf-process-services-extension/i18n",
+                "glob": "**/*"
+              },
+              {
+                "input": "libs/content-ee/content-services-extension/i18n",
+                "output": "/assets/adf-content-services-extension/i18n",
+                "glob": "**/*"
+              },
+              {
+                "input": "libs/content-ee/content-services-extension/assets/icons",
+                "output": "/assets/icons/",
+                "glob": "**/*"
+              },
+              {
+                "input": "libs/content-ee/microsoft-office-online-integration-extension/assets/blank-documents",
+                "output": "/assets/blank-documents/",
+                "glob": "**/*"
+              },
+              {
+                "input": "node_modules/@alfresco/adf-process-services/bundles/assets",
+                "output": "/assets",
+                "glob": "**/*"
+              },
+              {
+                "input": "node_modules/@alfresco/adf-core/lib/prebuilt-themes",
+                "output": "/assets/prebuilt-themes",
+                "glob": "**/*"
+              },
+              {
+                "input": "node_modules/@alfresco/adf-core/bundles/assets",
+                "output": "/assets",
+                "glob": "**/*"
+              },
+              {
+                "input": "node_modules/@alfresco/adf-content-services/bundles/assets",
+                "output": "/assets",
+                "glob": "**/*"
+              },
+              {
+                "input": "node_modules/pdfjs-dist/build",
+                "output": "/",
+                "glob": "pdf.worker.min.js"
+              },
+              {
+                "input": "libs/content-ee/adf-ai-extension/assets",
+                "output": "/assets/plugins",
+                "glob": "ai-view-extension.json"
+              },
+              {
+                "input": "libs/content-ee/adf-ai-extension/i18n",
+                "output": "/assets/adf-ai-extension/i18n",
+                "glob": "**/*"
+              },
+              {
+                "input": "libs/content-ee/governance/assets",
+                "output": "/assets/plugins",
+                "glob": "*.json"
+              },
+              {
+                "input": "libs/content-ee/process-services-extension/assets",
+                "output": "/assets/plugins",
+                "glob": "*.json"
+              },
+              {
+                "input": "libs/content-ee/content-services-extension/assets",
+                "output": "/assets/plugins",
+                "glob": "*.json"
+              },
+              {
+                "input": "apps/content-ce/projects/aca-about/assets",
+                "output": "/assets/plugins",
+                "glob": "about.plugin.json"
+              },
+              {
+                "input": "apps/content-ce/projects/aca-settings/assets",
+                "output": "/assets/plugins",
+                "glob": "settings.plugin.json"
+              },
+              {
+                "input": "apps/content-ce/projects/aca-folder-rules/assets",
+                "output": "/assets/plugins",
+                "glob": "folder-rules.plugin.json"
+              },
+              {
+                "input": "apps/content-ce/projects/aca-folder-rules/assets/i18n",
+                "output": "/assets/aca-folder-rules/i18n",
+                "glob": "**/*"
+              },
+              {
+                "input": "libs/content-ee/microsoft-office-online-integration-extension/i18n",
+                "output": "/assets/adf-microsoft-office-online-integration-extension/i18n",
+                "glob": "**/*"
+              },
+              {
+                "input": "libs/content-ee/microsoft-office-online-integration-extension/assets/icons",
+                "output": "/assets/icons/",
+                "glob": "**/*"
+              },
+              {
+                "input": "libs/content-ee/microsoft-office-online-integration-extension/assets",
+                "output": "/assets/plugins",
+                "glob": "*.json"
+              }
+            ],
+            "styles": [
+              "node_modules/cropperjs/dist/cropper.min.css",
+              "apps/content-ce/app/src/assets/fonts/material-icons/material-icons.css",
+              "apps/content-ce/app/src/assets/fonts/muli/muli.css",
+              "apps/content-ee/src/styles.scss"
+            ],
+            "scripts": [
+              "node_modules/pdfjs-dist/build/pdf.js",
+              "node_modules/pdfjs-dist/web/pdf_viewer.js",
+              "node_modules/moment/min/moment.min.js"
+            ],
+            "fileReplacements": [
+              {
+                "replace": "apps/content-ce/app/src/app/extensions.module.ts",
+                "with": "apps/content-ee/src/overrides/app/extensions.module.ts"
+              },
+              {
+                "replace": "apps/content-ce/package.json",
+                "with": "package.json"
+              }
+            ]
+          },
+          "configurations": {
+            "adf": {
+              "tsConfig": "apps/content-ee/tsconfig.app.adf.json",
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "buildOptimizer": false,
+              "sourceMap": true,
+              "optimization": false,
+              "namedChunks": true
+            },
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/content-ce/app/src/environments/environment.ts",
+                  "with": "apps/content-ce/app/src/environments/environment.prod.ts"
+                },
+                {
+                  "replace": "apps/content-ce/app/src/app/extensions.module.ts",
+                  "with": "apps/content-ee/src/overrides/app/extensions.module.ts"
+                },
+                {
+                  "replace": "apps/content-ce/package.json",
+                  "with": "package.json"
+                }
+              ],
+              "outputHashing": "all",
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "6mb",
+                  "maximumError": "8mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
+                }
+              ]
+            },
+            "adfprod": {
+              "tsConfig": "apps/content-ee/tsconfig.app.adf.json",
+              "fileReplacements": [
+                {
+                  "replace": "apps/content-ce/app/src/environments/environment.ts",
+                  "with": "apps/content-ce/app/src/environments/environment.prod.ts"
+                },
+                {
+                  "replace": "apps/content-ce/app/src/app/extensions.module.ts",
+                  "with": "apps/content-ee/src/overrides/app/extensions.module.ts"
+                },
+                {
+                  "replace": "apps/content-ce/package.json",
+                  "with": "package.json"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "release": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/content-ce/app/src/environments/environment.ts",
+                  "with": "apps/content-ce/app/src/environments/environment.release.ts"
+                },
+                {
+                  "replace": "apps/content-ce/app/src/app/extensions.module.ts",
+                  "with": "apps/content-ee/src/overrides/app/extensions.module.ts"
+                },
+                {
+                  "replace": "apps/content-ce/package.json",
+                  "with": "package.json"
+                }
+              ],
+              "outputHashing": "all",
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "6mb",
+                  "maximumError": "8mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
+                }
+              ]
+            },
+            "development": {
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "buildOptimizer": false,
+              "sourceMap": true,
+              "optimization": false,
+              "namedChunks": true
+            }
+          },
+          "dependsOn": [],
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "defaultConfiguration": "development"
+        },
+        "serve": {
+          "executor": "@alfresco-dbp/monorepo/builders:dev-server",
+          "options": {
+            "port": 4200,
+            "host": "0.0.0.0",
+            "open": true,
+            "proxyConfig": "apps/content-ee/proxy.conf.js"
+          },
+          "configurations": {
+            "adf": {
+              "browserTarget": "content-ee:build:adf"
+            },
+            "production": {
+              "browserTarget": "content-ee:build:production"
+            },
+            "release": {
+              "browserTarget": "content-ee:build:release"
+            },
+            "development": {
+              "browserTarget": "content-ee:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "lite-serve": {
+          "executor": "@angular-custom-builders/lite-serve:dist-serve",
+          "options": {
+            "publicHost": "http://localhost:4200",
+            "browserTarget": "content-ee:build"
+          },
+          "configurations": {
+            "standalone": {
+              "watch": true
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/content-ee/src/**/*.ts",
+              "apps/content-ee/src/**/*.html"
+            ]
+          },
+          "outputs": [
+            "{options.outputFile}"
+          ]
+        }
+      },
+      "tags": [
+        "scope:content-ee",
+        "type:app",
+        "category:content-ee"
+      ],
+      "implicitDependencies": [
+        "content-ce"
+      ]
+    },
+    "content-ee-ai-extension": {
+      "root": "libs/content-ee/adf-ai-extension",
+      "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+      "sourceRoot": "libs/content-ee/adf-ai-extension/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "targets": {
+        "test": {
+          "executor": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/content-ee/adf-ai-extension/src/test.ts",
+            "tsConfig": "libs/content-ee/adf-ai-extension/tsconfig.spec.json",
+            "karmaConfig": "libs/content-ee/adf-ai-extension/karma.conf.js"
+          },
+          "configurations": {
+            "adf": {
+              "tsConfig": "libs/content-ee/adf-ai-extension/tsconfig.spec.adf.json",
+              "karmaConfig": "libs/content-ee/adf-ai-extension/karma.conf.js",
+              "progress": false,
+              "codeCoverage": false
+            }
+          },
+          "outputs": [
+            "coverage/libs/content-ee/adf-ai-extension"
+          ],
+          "dependsOn": [
+            "pretest"
+          ]
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/content-ee/adf-ai-extension/src/**/*.ts",
+              "libs/content-ee/adf-ai-extension/src/**/*.html"
+            ]
+          },
+          "outputs": [
+            "{options.outputFile}"
+          ]
+        }
+      },
+      "tags": [
+        "scope:content-ee-ai-extension",
+        "type:feature",
+        "category:adf-ai-extension"
+      ]
+    },
+    "content-ee-apa": {
+      "root": "apps/content-ee-apa",
+      "$schema": "../../node_modules/nx/schemas/project-schema.json",
+      "sourceRoot": "apps/content-ee-apa/src",
+      "projectType": "application",
+      "prefix": "app",
+      "generators": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "targets": {
+        "build": {
+          "executor": "@alfresco-dbp/monorepo/builders:browser",
+          "options": {
+            "baseHref": ".",
+            "allowedCommonJsDependencies": [
+              "minimatch",
+              "minimatch-browser",
+              "moment-es6",
+              "superagent",
+              "event-emitter",
+              "brace-expansion",
+              "d",
+              "zen-observable",
+              "symbol-observable"
+            ],
+            "outputPath": "dist/content-ee/apa",
+            "index": "apps/content-ee-apa/src/index.html",
+            "main": "apps/content-ce/app/src/main.ts",
+            "polyfills": "apps/content-ce/app/src/polyfills.ts",
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "apps/content-ce/app/src/app/ui",
+                "node_modules"
+              ]
+            },
+            "tsConfig": "apps/content-ee-apa/tsconfig.app.json",
+            "assets": [
+              {
+                "input": "apps/content-ee-apa/.tmp",
+                "output": "/",
+                "glob": "app.config.json"
+              },
+              {
+                "input": "libs/content-ee/extensions-order-extension/assets",
+                "output": "/assets/plugins/",
+                "glob": "app.actions-order.json"
+              },
+              {
+                "input": "apps/content-ce/app/src/assets",
+                "output": "/assets",
+                "glob": "**/*"
+              },
+              {
+                "input": "apps/content-ce",
+                "output": "/",
+                "glob": "favicon-96x96.png"
+              },
+              {
+                "input": "apps/content-ce/app/src",
+                "output": "/",
+                "glob": "versions.json"
+              },
+              {
+                "input": ".",
+                "output": "/assets",
+                "glob": "extension.schema.json"
+              },
+              {
+                "input": "apps/content-ce",
+                "output": "/",
+                "glob": "LICENSE"
+              },
+              {
+                "input": "apps/content-ce/projects/adf-office-services-ext/assets",
+                "output": "/assets/adf-office-services-ext",
+                "glob": "**/*"
+              },
+              {
+                "input": "apps/content-ce/projects/aca-about/assets",
+                "output": "/assets/plugins",
+                "glob": "about.plugin.json"
+              },
+              {
+                "input": "apps/content-ce/projects/aca-settings/assets",
+                "output": "/assets/plugins",
+                "glob": "settings.plugin.json"
+              },
+              {
+                "input": "apps/content-ce/projects/adf-office-services-ext/assets",
+                "output": "/assets/plugins",
+                "glob": "aos.plugin.json"
+              },
+              {
+                "input": "libs/content-ee/governance/i18n",
+                "output": "/assets/adf-governance/i18n",
+                "glob": "**/*"
+              },
+              {
+                "input": "libs/content-ee/governance/assets/icons",
+                "output": "/assets/images/",
+                "glob": "**/*"
+              },
+              {
+                "input": "libs/content-ee/content-services-extension/i18n",
+                "output": "/assets/adf-content-services-extension/i18n",
+                "glob": "**/*"
+              },
+              {
+                "input": "libs/content-ee/process-services-cloud-extension/i18n",
+                "output": "/assets/adf-process-services-cloud-extension/i18n",
+                "glob": "**/*"
+              },
+              {
+                "input": "libs/content-ee/custom-modeled-extension/i18n",
+                "output": "/assets/custom-modeled-extension/i18n",
+                "glob": "**/*"
+              },
+              {
+                "input": "node_modules/@alfresco/adf-process-services-cloud/bundles/assets",
+                "output": "/assets",
+                "glob": "**/*"
+              },
+              {
+                "input": "node_modules/@alfresco/adf-core/lib/prebuilt-themes",
+                "output": "/assets/prebuilt-themes",
+                "glob": "**/*"
+              },
+              {
+                "input": "node_modules/@alfresco/adf-core/bundles/assets",
+                "output": "/assets",
+                "glob": "**/*"
+              },
+              {
+                "input": "node_modules/@alfresco/adf-content-services/bundles/assets",
+                "output": "/assets",
+                "glob": "**/*"
+              },
+              {
+                "input": "node_modules/pdfjs-dist/build",
+                "output": "/",
+                "glob": "pdf.worker.min.js"
+              },
+              {
+                "input": "libs/content-ee/adf-ai-extension/assets",
+                "output": "/assets/plugins",
+                "glob": "ai-view-extension.json"
+              },
+              {
+                "input": "libs/content-ee/adf-ai-extension/i18n",
+                "output": "/assets/adf-ai-extension/i18n",
+                "glob": "**/*"
+              },
+              {
+                "input": "libs/content-ee/governance/assets",
+                "output": "/assets/plugins",
+                "glob": "*.json"
+              },
+              {
+                "input": "libs/content-ee/content-services-extension/assets",
+                "output": "/assets/plugins",
+                "glob": "*.json"
+              },
+              {
+                "input": "libs/content-ee/process-services-cloud-extension/assets",
+                "output": "/assets/plugins",
+                "glob": "*.json"
+              },
+              {
+                "input": "libs/content-ee/microsoft-office-online-integration-extension/i18n",
+                "output": "/assets/adf-microsoft-office-online-integration-extension/i18n",
+                "glob": "**/*"
+              },
+              {
+                "input": "libs/content-ee/microsoft-office-online-integration-extension/assets/icons",
+                "output": "/assets/icons/",
+                "glob": "**/*"
+              },
+              {
+                "input": "libs/content-ee/microsoft-office-online-integration-extension/assets",
+                "output": "/assets/plugins",
+                "glob": "*.json"
+              }
+            ],
+            "styles": [
+              "node_modules/cropperjs/dist/cropper.min.css",
+              "apps/content-ce/app/src/assets/fonts/material-icons/material-icons.css",
+              "apps/content-ce/app/src/assets/fonts/muli/muli.css",
+              "apps/content-ee-apa/src/styles.scss"
+            ],
+            "scripts": [
+              "node_modules/pdfjs-dist/build/pdf.js",
+              "node_modules/pdfjs-dist/web/pdf_viewer.js",
+              "node_modules/moment/min/moment.min.js"
+            ],
+            "fileReplacements": [
+              {
+                "replace": "apps/content-ce/app/src/app/extensions.module.ts",
+                "with": "apps/content-ee-apa/src/overrides/app/extensions.module.ts"
+              },
+              {
+                "replace": "apps/content-ce/package.json",
+                "with": "package.json"
+              }
+            ]
+          },
+          "configurations": {
+            "adf": {
+              "tsConfig": "apps/content-ee-apa/tsconfig.app.adf.json",
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "buildOptimizer": false,
+              "sourceMap": true,
+              "optimization": false,
+              "namedChunks": true
+            },
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/content-ce/app/src/environments/environment.ts",
+                  "with": "apps/content-ce/app/src/environments/environment.prod.ts"
+                },
+                {
+                  "replace": "apps/content-ce/app/src/app/extensions.module.ts",
+                  "with": "apps/content-ee-apa/src/overrides/app/extensions.module.ts"
+                },
+                {
+                  "replace": "apps/content-ce/package.json",
+                  "with": "package.json"
+                }
+              ],
+              "outputHashing": "all",
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "6mb",
+                  "maximumError": "8mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
+                }
+              ]
+            },
+            "adfprod": {
+              "tsConfig": "apps/content-ee-apa/tsconfig.app.adf.json",
+              "fileReplacements": [
+                {
+                  "replace": "apps/content-ce/app/src/environments/environment.ts",
+                  "with": "apps/content-ce/app/src/environments/environment.prod.ts"
+                },
+                {
+                  "replace": "apps/content-ce/app/src/app/extensions.module.ts",
+                  "with": "apps/content-ee-apa/src/overrides/app/extensions.module.ts"
+                },
+                {
+                  "replace": "apps/content-ce/package.json",
+                  "with": "package.json"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "release": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/content-ce/app/src/environments/environment.ts",
+                  "with": "apps/content-ce/app/src/environments/environment.release.ts"
+                },
+                {
+                  "replace": "apps/content-ce/app/src/app/extensions.module.ts",
+                  "with": "apps/content-ee-apa/src/overrides/app/extensions.module.ts"
+                },
+                {
+                  "replace": "apps/content-ce/package.json",
+                  "with": "package.json"
+                }
+              ],
+              "outputHashing": "all",
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "6mb",
+                  "maximumError": "8mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
+                }
+              ]
+            },
+            "development": {
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "buildOptimizer": false,
+              "sourceMap": true,
+              "optimization": false,
+              "namedChunks": true
+            }
+          },
+          "dependsOn": [],
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "defaultConfiguration": "development"
+        },
+        "serve": {
+          "executor": "@alfresco-dbp/monorepo/builders:dev-server",
+          "options": {
+            "port": 4200,
+            "host": "0.0.0.0",
+            "open": true,
+            "proxyConfig": "apps/content-ee-apa/proxy.conf.js"
+          },
+          "configurations": {
+            "adf": {
+              "browserTarget": "content-ee-apa:build:adf"
+            },
+            "production": {
+              "browserTarget": "content-ee-apa:build:production"
+            },
+            "release": {
+              "browserTarget": "content-ee-apa:build:release"
+            },
+            "development": {
+              "browserTarget": "content-ee-apa:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "lite-serve": {
+          "executor": "@angular-custom-builders/lite-serve:dist-serve",
+          "options": {
+            "publicHost": "http://localhost:4200",
+            "browserTarget": "content-ee-apa:build"
+          },
+          "configurations": {
+            "standalone": {
+              "watch": true
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/content-ee-apa/src/**/*.ts",
+              "apps/content-ee-apa/src/**/*.html"
+            ]
+          },
+          "outputs": [
+            "{options.outputFile}"
+          ]
+        }
+      },
+      "tags": [
+        "scope:content-ee-apa",
+        "type:app",
+        "category:content-ee-apa"
+      ],
+      "implicitDependencies": [
+        "content-ce"
+      ]
+    },
+    "content-ee-content-services-extension": {
+      "root": "libs/content-ee/content-services-extension",
+      "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+      "projectType": "library",
+      "sourceRoot": "libs/content-ee/content-services-extension/src",
+      "prefix": "acs",
+      "targets": {
+        "test": {
+          "executor": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/content-ee/content-services-extension/src/test.ts",
+            "tsConfig": "libs/content-ee/content-services-extension/tsconfig.spec.json",
+            "karmaConfig": "libs/content-ee/content-services-extension/karma.conf.js"
+          },
+          "configurations": {
+            "adf": {
+              "tsConfig": "libs/content-ee/content-services-extension/tsconfig.spec.adf.json",
+              "karmaConfig": "libs/content-ee/content-services-extension/karma.conf.js",
+              "progress": false,
+              "codeCoverage": false
+            }
+          },
+          "outputs": [
+            "coverage/libs/content-ee/content-services-extension"
+          ],
+          "dependsOn": [
+            "pretest"
+          ]
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/content-ee/content-services-extension/src/**/*.ts",
+              "libs/content-ee/content-services-extension/src/**/*.html"
+            ]
+          },
+          "outputs": [
+            "{options.outputFile}"
+          ]
+        }
+      },
+      "tags": [
+        "scope:content-ee-content-services-extension",
+        "type:feature",
+        "category:content-ee-apa"
+      ]
+    },
+    "content-ee-custom-modeled-extension": {
+      "root": "libs/content-ee/custom-modeled-extension",
+      "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+      "projectType": "library",
+      "sourceRoot": "libs/content-ee/custom-modeled-extension/src",
+      "targets": {
+        "test": {
+          "executor": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/content-ee/custom-modeled-extension/src/test.ts",
+            "tsConfig": "libs/content-ee/custom-modeled-extension/tsconfig.spec.json",
+            "karmaConfig": "libs/content-ee/custom-modeled-extension/karma.conf.js"
+          },
+          "configurations": {
+            "adf": {
+              "tsConfig": "libs/content-ee/custom-modeled-extension/tsconfig.spec.adf.json",
+              "karmaConfig": "libs/content-ee/custom-modeled-extension/karma.conf.js",
+              "progress": false,
+              "codeCoverage": false
+            }
+          },
+          "outputs": [
+            "coverage/libs/content-ee/custom-modeled-extension"
+          ],
+          "dependsOn": [
+            "pretest"
+          ]
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/content-ee/custom-modeled-extension/src/**/*.ts",
+              "libs/content-ee/custom-modeled-extension/src/**/*.html"
+            ]
+          },
+          "outputs": [
+            "{options.outputFile}"
+          ]
+        }
+      },
+      "tags": [
+        "scope:content-ee-custom-modeled-extension",
+        "type:feature",
+        "category:content-ee-apa"
+      ]
+    },
+    "content-ee-extensions-order-extension": {
+      "root": "libs/content-ee/extensions-order-extension",
+      "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+      "sourceRoot": "libs/content-ee/extensions-order-extension/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "targets": {},
+      "tags": [
+        "scope:content-ee-extensions-order-extension",
+        "type:feature",
+        "category:extensions-order-extension"
+      ]
+    },
+    "content-ee-governance": {
+      "root": "libs/content-ee/governance",
+      "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+      "sourceRoot": "libs/content-ee/governance/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "targets": {
+        "test": {
+          "executor": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/content-ee/governance/src/test.ts",
+            "tsConfig": "libs/content-ee/governance/tsconfig.spec.json",
+            "karmaConfig": "libs/content-ee/governance/karma.conf.js"
+          },
+          "configurations": {
+            "adf": {
+              "tsConfig": "libs/content-ee/governance/tsconfig.spec.adf.json",
+              "karmaConfig": "libs/content-ee/governance/karma.conf.js",
+              "progress": false,
+              "codeCoverage": false
+            }
+          },
+          "outputs": [
+            "coverage/libs/content-ee/governance"
+          ],
+          "dependsOn": [
+            "pretest"
+          ]
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/content-ee/governance/src/**/*.ts",
+              "libs/content-ee/governance/src/**/*.html"
+            ]
+          },
+          "outputs": [
+            "{options.outputFile}"
+          ]
+        }
+      },
+      "tags": [
+        "scope:content-ee-governance",
+        "type:feature",
+        "category:content-ee"
+      ]
+    },
+    "content-ee-microsoft-office-online-integration-extension": {
+      "root": "libs/content-ee/microsoft-office-online-integration-extension",
+      "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+      "projectType": "library",
+      "sourceRoot": "libs/content-ee/microsoft-office-online-integration-extension/src",
+      "prefix": "ooi",
+      "targets": {
+        "test": {
+          "executor": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/content-ee/microsoft-office-online-integration-extension/src/test.ts",
+            "tsConfig": "libs/content-ee/microsoft-office-online-integration-extension/tsconfig.spec.json",
+            "karmaConfig": "libs/content-ee/microsoft-office-online-integration-extension/karma.conf.js"
+          },
+          "configurations": {
+            "adf": {
+              "tsConfig": "libs/content-ee/microsoft-office-online-integration-extension/tsconfig.spec.adf.json",
+              "karmaConfig": "libs/content-ee/microsoft-office-online-integration-extension/karma.conf.js",
+              "progress": false,
+              "codeCoverage": false
+            }
+          },
+          "outputs": [
+            "coverage/libs/content-ee/microsoft-office-online-integration-extension"
+          ],
+          "dependsOn": [
+            "pretest"
+          ]
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/content-ee/microsoft-office-online-integration-extension/src/**/*.ts",
+              "libs/content-ee/microsoft-office-online-integration-extension/src/**/*.html"
+            ]
+          },
+          "outputs": [
+            "{options.outputFile}"
+          ]
+        }
+      },
+      "tags": [
+        "scope:content-ee-microsoft-office-online-integration-extension",
+        "type:feature",
+        "category:content-ee-apa"
+      ]
+    },
+    "content-ee-process-services-cloud-extension": {
+      "root": "libs/content-ee/process-services-cloud-extension",
+      "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+      "projectType": "library",
+      "sourceRoot": "libs/content-ee/process-services-cloud-extension/src",
+      "prefix": "aps",
+      "targets": {
+        "test": {
+          "executor": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/content-ee/process-services-cloud-extension/src/test.ts",
+            "tsConfig": "libs/content-ee/process-services-cloud-extension/tsconfig.spec.json",
+            "karmaConfig": "libs/content-ee/process-services-cloud-extension/karma.conf.js"
+          },
+          "configurations": {
+            "adf": {
+              "tsConfig": "libs/content-ee/process-services-cloud-extension/tsconfig.spec.adf.json",
+              "karmaConfig": "libs/content-ee/process-services-cloud-extension/karma.conf.js",
+              "progress": false,
+              "codeCoverage": false
+            }
+          },
+          "outputs": [
+            "coverage/libs/content-ee/process-services-cloud-extension"
+          ],
+          "dependsOn": [
+            "pretest"
+          ]
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/content-ee/process-services-cloud-extension/src/**/*.ts",
+              "libs/content-ee/process-services-cloud-extension/src/**/*.html"
+            ]
+          },
+          "outputs": [
+            "{options.outputFile}"
+          ]
+        }
+      },
+      "tags": [
+        "scope:content-ee-process-services-cloud-extension",
+        "type:feature",
+        "category:content-ee-apa"
+      ]
+    },
+    "content-ee-process-services-extension": {
+      "root": "libs/content-ee/process-services-extension",
+      "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+      "projectType": "library",
+      "sourceRoot": "libs/content-ee/process-services-extension/src",
+      "prefix": "aps",
+      "targets": {
+        "test": {
+          "executor": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/content-ee/process-services-extension/src/test.ts",
+            "tsConfig": "libs/content-ee/process-services-extension/tsconfig.spec.json",
+            "karmaConfig": "libs/content-ee/process-services-extension/karma.conf.js"
+          },
+          "configurations": {
+            "adf": {
+              "tsConfig": "libs/content-ee/process-services-extension/tsconfig.spec.adf.json",
+              "karmaConfig": "libs/content-ee/process-services-extension/karma.conf.js",
+              "progress": false,
+              "codeCoverage": false
+            }
+          },
+          "outputs": [
+            "coverage/libs/content-ee/process-services-extension"
+          ],
+          "dependsOn": [
+            "pretest"
+          ]
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/content-ee/process-services-extension/src/**/*.ts",
+              "libs/content-ee/process-services-extension/src/**/*.html"
+            ]
+          },
+          "outputs": [
+            "{options.outputFile}"
+          ]
+        }
+      },
+      "tags": [
+        "scope:content-ee-process-services-extension",
+        "type:feature",
+        "category:content-ee"
+      ]
+    },
+    "content-ee-shared-playwright": {
+      "root": "libs/content-ee/shared/playwright",
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+      "projectType": "library",
+      "sourceRoot": "libs/content-ee/shared/playwright/src",
+      "prefix": "alfresco-dbp",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/content-ee/shared/playwright/src/**/*.ts",
+              "libs/content-ee/shared/playwright/src/**/*.html"
+            ]
+          },
+          "outputs": [
+            "{options.outputFile}"
+          ]
+        }
+      },
+      "tags": [
+        "scope:content-shared-playwright",
+        "type:e2e"
+      ]
+    },
+    "content-ee-shared-testing": {
+      "root": "libs/content-ee/shared/testing",
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+      "projectType": "library",
+      "sourceRoot": "libs/content-ee/shared/testing/src",
+      "prefix": "alfresco-dbp",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/content-ee/shared/testing/src/**/*.ts",
+              "libs/content-ee/shared/testing/src/**/*.html"
+            ]
+          },
+          "outputs": [
+            "{options.outputFile}"
+          ]
+        }
+      },
+      "tags": [
+        "scope:content-ee-shared-testing",
+        "type:library"
+      ]
+    },
+    "content-ee-shared-ui": {
+      "root": "libs/content-ee/shared/ui",
+      "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+      "projectType": "library",
+      "sourceRoot": "libs/content-ee/shared/ui/src",
+      "prefix": "alfresco-dbp",
+      "targets": {
+        "test": {
+          "executor": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/content-ee/shared/ui/src/test.ts",
+            "tsConfig": "libs/content-ee/shared/ui/tsconfig.spec.json",
+            "karmaConfig": "libs/content-ee/shared/ui/karma.conf.js"
+          },
+          "configurations": {
+            "adf": {
+              "tsConfig": "libs/content-ee/shared/ui/tsconfig.spec.adf.json",
+              "karmaConfig": "libs/content-ee/shared/ui/karma.conf.js",
+              "progress": false,
+              "codeCoverage": false
+            }
+          },
+          "outputs": [
+            "coverage/libs/content-ee/shared/ui"
+          ],
+          "dependsOn": [
+            "pretest"
+          ]
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/content-ee/shared/ui/src/**/*.ts",
+              "libs/content-ee/shared/ui/src/**/*.html"
+            ]
+          },
+          "outputs": [
+            "{options.outputFile}"
+          ]
+        }
+      },
+      "tags": [
+        "scope:content-ee-shared-ui",
+        "type:library"
+      ]
+    },
+    "monorepo-builders": {
+      "root": "libs/monorepo/builders",
+      "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+      "projectType": "library",
+      "sourceRoot": "libs/monorepo/builders/src",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/js:tsc",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "node_modules/@alfresco-dbp/monorepo/builders",
+            "tsConfig": "libs/monorepo/builders/tsconfig.lib.json",
+            "packageJson": "libs/monorepo/builders/package.json",
+            "main": "libs/monorepo/builders/src/index.ts",
+            "assets": [
+              "libs/monorepo/builders/*.md",
+              {
+                "input": "./libs/monorepo/builders/src",
+                "glob": "**/*.!(ts)",
+                "output": "./src"
+              },
+              {
+                "input": "./libs/monorepo/builders",
+                "glob": "generators.json",
+                "output": "."
+              },
+              {
+                "input": "./libs/monorepo/builders",
+                "glob": "builders.json",
+                "output": "."
+              }
+            ]
+          },
+          "dependsOn": [
+            {
+              "target": "build",
+              "projects": "dependencies"
+            }
+          ]
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/monorepo/builders/jest.config.ts",
+            "passWithNoTests": true,
+            "runInBand": true
+          },
+          "dependsOn": [
+            {
+              "target": "test",
+              "projects": "dependencies"
+            }
+          ],
+          "outputs": [
+            "coverage/libs/monorepo/builders"
+          ]
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/monorepo/builders/src/**/*.ts",
+              "libs/monorepo/builders/src/**/*.html"
+            ]
+          },
+          "outputs": [
+            "{options.outputFile}"
+          ]
+        }
+      },
+      "tags": [
+        "scope:monorepo-builders",
+        "category:tooling"
+      ],
+      "implicitDependencies": [
+        "monorepo-core"
+      ]
+    },
+    "monorepo-core": {
+      "root": "libs/monorepo/core",
+      "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+      "projectType": "library",
+      "sourceRoot": "libs/monorepo/core/src",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/js:tsc",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "node_modules/@alfresco-dbp/monorepo/core",
+            "tsConfig": "libs/monorepo/core/tsconfig.lib.json",
+            "packageJson": "libs/monorepo/core/package.json",
+            "main": "libs/monorepo/core/src/index.ts",
+            "assets": [
+              "libs/monorepo/core/*.md"
+            ]
+          },
+          "dependsOn": [
+            {
+              "target": "build",
+              "projects": "dependencies"
+            }
+          ]
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/monorepo/core/jest.config.ts",
+            "passWithNoTests": true,
+            "runInBand": true
+          },
+          "dependsOn": [
+            {
+              "target": "test",
+              "projects": "dependencies"
+            }
+          ],
+          "outputs": [
+            "coverage/libs/monorepo/core"
+          ]
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/monorepo/core/src/**/*.ts",
+              "libs/monorepo/core/src/**/*.html"
+            ]
+          },
+          "outputs": [
+            "{options.outputFile}"
+          ]
+        }
+      },
+      "tags": [
+        "scope:monorepo-core",
+        "category:tooling"
+      ],
+      "implicitDependencies": [
+        "monorepo-utils"
+      ]
+    },
+    "monorepo-utils": {
+      "root": "libs/monorepo/utils",
+      "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+      "projectType": "library",
+      "sourceRoot": "libs/monorepo/utils/src",
+      "prefix": "alfresco-dbp",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/js:tsc",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "node_modules/@alfresco-dbp/monorepo/utils",
+            "tsConfig": "libs/monorepo/utils/tsconfig.lib.json",
+            "packageJson": "libs/monorepo/utils/package.json",
+            "main": "libs/monorepo/utils/src/index.ts",
+            "assets": [
+              "libs/monorepo/utils/*.md"
+            ]
+          },
+          "dependsOn": [
+            "^build"
+          ]
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/monorepo/utils/src/**/*.ts",
+              "libs/monorepo/utils/src/**/*.html"
+            ]
+          },
+          "outputs": [
+            "{options.outputFile}"
+          ]
+        }
+      },
+      "tags": [
+        "scope:monorepo-utils",
+        "category:tooling"
+      ]
+    },
+    "shared": {
+      "root": "libs/shared/lib",
+      "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+      "sourceRoot": "libs/shared/lib/src",
+      "projectType": "library",
+      "generators": {},
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared/lib/jest.config.ts",
+            "runInBand": true
+          },
+          "configurations": {
+            "adf": {
+              "jestConfig": "libs/shared/lib/jest.adf.config.ts",
+              "codeCoverage": false,
+              "silent": true
+            }
+          },
+          "outputs": [
+            "coverage/libs/shared/lib"
+          ],
+          "dependsOn": [
+            "pretest"
+          ]
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/lib/src/**/*.ts",
+              "libs/shared/lib/src/**/*.html"
+            ]
+          },
+          "outputs": [
+            "{options.outputFile}"
+          ]
+        }
+      },
+      "tags": [
+        "scope:shared"
+      ]
+    },
+    "tools": {
+      "$schema": "../node_modules/nx/schemas/project-schema.json",
+      "root": "tools",
+      "sourceRoot": "tools",
+      "projectType": "library",
+      "generators": {},
+      "targets": {
+        "build": {
+          "executor": "@nrwl/js:tsc",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/tools",
+            "tsConfig": "tools/tsconfig.lib.json",
+            "packageJson": "tools/package.json",
+            "main": "tools/index.ts",
+            "assets": [
+              "tools/*.md",
+              {
+                "input": "./libs/tools",
+                "glob": "**/*.!(ts)",
+                "output": "./src"
+              }
+            ]
+          },
+          "dependsOn": [
+            "^build"
+          ]
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "tools/jest.config.ts",
+            "passWithNoTests": false,
+            "runInBand": true
+          },
+          "outputs": [
+            "coverage/tools"
+          ],
+          "dependsOn": [
+            "pretest"
+          ]
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "tools/**/*.ts",
+              "tools/**/*.html"
+            ]
+          },
+          "outputs": [
+            "{options.outputFile}"
+          ]
+        }
+      },
+      "tags": [
+        "scope:tooling",
+        "category:tooling"
+      ]
+    }
+  }
+}

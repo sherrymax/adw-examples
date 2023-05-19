@@ -1,0 +1,208 @@
+{
+    "name": "transcribeConnector",
+    "description": "APA Connector that provides integration with aws transcribe",
+    "actions": {
+        "c9d78074-3b7e-4d5f-a0f0-400367c74dc4": {
+            "id": "c9d78074-3b7e-4d5f-a0f0-400367c74dc4",
+            "name": "TRANSCRIBE",
+            "description": "The transcribe connector is designed to provide a standard mechanism in AAE to perform either to transcribe the voice data into text from audio files. By default, it uses AWS Transcribe.",
+            "inputs": [
+                {
+                    "id": "cda1a28a-ee86-4a2f-bccc-fb5bb2d7c9fc",
+                    "name": "file",
+                    "description": "File to be transcribed. If multiple files are passed, only the first one will be processed.",
+                    "type": "file"
+                },
+                {
+                    "id": "93ae429a-cdac-43b4-b1e6-3469f3957146",
+                    "name": "timeout",
+                    "description": "Timeout for the remote call to Transcribe service in milliseconds. Defaults to ${aws.transcribe.asynchTimeout}",
+                    "type": "integer",
+                    "required": false
+                },
+                {
+                    "id": "d7e50964-a147-4c20-a28f-ca8b9ce9ba5d",
+                    "name": "generateWebVTT",
+                    "description": "The output webVTT is only populated if generateWebVTT is true.",
+                    "type": "boolean",
+                    "required": false
+                }
+            ],
+            "outputs": [
+                {
+                    "id": "cb69303b-ae0b-4b85-9f73-e2498a7599d9",
+                    "name": "awsResult",
+                    "description": "Result of the AWS Transcribe speech to text process",
+                    "type": "json"
+                },
+                {
+                    "id": "f5aec150-4ea3-457c-915a-0a84932d8c1c",
+                    "name": "transcription",
+                    "description": "Transcription result ",
+                    "type": "string"
+                },
+                {
+                    "id": "245594a7-52ce-4a64-a58a-c3af2bd7eb67",
+                    "name": "webVTT",
+                    "description": "Subtitles result in Web Video Text Tracks Format",
+                    "type": "string"
+                }
+            ]
+        }
+    },
+    "errors": [
+        {
+            "name": "MISSING_INPUT",
+            "description": "A mandatory input variable was not provided",
+            "code": "MISSING_INPUT"
+        },
+        {
+            "name": "INVALID_INPUT",
+            "description": "The input variable has an invalid type",
+            "code": "INVALID_INPUT"
+        },
+        {
+            "name": "INVALID_RESULT_FORMAT",
+            "description": "The REST service result payload cannot be parsed",
+            "code": "INVALID_RESULT_FORMAT"
+        },
+        {
+            "name": "LIMIT_EXCEEDED",
+            "description": "The number of requests exceeded your limit or yout input file is too long",
+            "code": "LIMIT_EXCEEDED"
+        },
+        {
+            "name": "ACCESS_DENIED",
+            "description": "The user is not authorized to perform the action",
+            "code": "ACCESS_DENIED"
+        },
+        {
+            "name": "INTERNAL_FAILURE",
+            "description": "An internal Amazon Lex error occurred",
+            "code": "INTERNAL_FAILURE"
+        },
+        {
+            "name": "UNKNOWN_ERROR",
+            "description": "Unexpected runtime error",
+            "code": "UNKNOWN_ERROR"
+        },
+        {
+            "name": "BAD_REQUEST",
+            "description": "The server could not understand the request due to invalid syntax",
+            "code": "BAD_REQUEST"
+        },
+        {
+            "name": "UNAUTHORIZED",
+            "description": "The request has not been applied because it lacks valid authentication",
+            "code": "UNAUTHORIZED"
+        },
+        {
+            "name": "FORBIDDEN",
+            "description": "The server understood the request but refuses to authorize it",
+            "code": "FORBIDDEN"
+        },
+        {
+            "name": "NOT_FOUND",
+            "description": "The server could not find what was requested",
+            "code": "NOT_FOUND"
+        },
+        {
+            "name": "METHOD_NOT_ALLOWED",
+            "description": "The request method is known by the server but is not supported",
+            "code": "METHOD_NOT_ALLOWED"
+        },
+        {
+            "name": "NOT_ACCEPTABLE",
+            "description": "The server cannot produce a response matching the list of acceptable values",
+            "code": "NOT_ACCEPTABLE"
+        },
+        {
+            "name": "REQUEST_TIMEOUT",
+            "description": "The server would like to shut down this unused connection",
+            "code": "REQUEST_TIMEOUT"
+        },
+        {
+            "name": "CONFLICT",
+            "description": "The request conflicts with current state of the server",
+            "code": "CONFLICT"
+        },
+        {
+            "name": "GONE",
+            "description": "No longer available",
+            "code": "GONE"
+        },
+        {
+            "name": "UNPROCESSABLE_ENTITY",
+            "description": "The server understands the content type of the request entity, and the syntax of the request entity is correct, but it was unable to process the contained instructions",
+            "code": "UNPROCESSABLE_ENTITY"
+        },
+        {
+            "name": "LOCKED",
+            "description": "The resource that is being accessed is locked",
+            "code": "LOCKED"
+        },
+        {
+            "name": "FAILED_DEPENDENCY",
+            "description": "The request failed due to failure of a previous request",
+            "code": "FAILED_DEPENDENCY"
+        },
+        {
+            "name": "INTERNAL_SERVER_ERROR",
+            "description": "The server has encountered a situation it doesn't know how to handle",
+            "code": "INTERNAL_SERVER_ERROR"
+        },
+        {
+            "name": "NOT_IMPLEMENTED",
+            "description": "The request method is not supported by the server and cannot be handled",
+            "code": "NOT_IMPLEMENTED"
+        },
+        {
+            "name": "BAD_GATEWAY",
+            "description": "The server got an invalid response",
+            "code": "BAD_GATEWAY"
+        },
+        {
+            "name": "SERVICE_UNAVAILABLE",
+            "description": "The server is not ready to handle the request",
+            "code": "SERVICE_UNAVAILABLE"
+        },
+        {
+            "name": "GATEWAY_TIMEOUT",
+            "description": "The server is acting as a gateway and cannot get a response in time",
+            "code": "GATEWAY_TIMEOUT"
+        }
+    ],
+    "config": [
+        {
+            "name": "AWS_ACCESS_KEY_ID",
+            "description": "AWS Access Key ID",
+            "value": "",
+            "required": true,
+            "secure": true
+        },
+        {
+            "name": "AWS_SECRET_KEY",
+            "description": "AWS Secret key",
+            "value": "",
+            "required": true,
+            "secure": true
+        },
+        {
+            "name": "AWS_S3_BUCKET",
+            "description": "AWS S3 Bucket",
+            "value": "",
+            "required": true
+        },
+        {
+            "name": "AWS_REGION",
+            "description": "AWS Region",
+            "value": "eu-west-1",
+            "required": true
+        },
+        {
+            "name": "AWS_TRANSCRIBE_LANGUAGES",
+            "description": "List of the languages (comma-separated) that are spoken in the audio file",
+            "value": ""
+        }
+    ]
+}

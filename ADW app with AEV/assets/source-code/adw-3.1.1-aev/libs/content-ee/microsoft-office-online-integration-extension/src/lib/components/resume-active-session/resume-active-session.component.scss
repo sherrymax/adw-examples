@@ -1,0 +1,10 @@
+.adw-microsoft-online-resume-session {
+    &-icon {
+        display: block;
+    }
+
+    &-cell.adf-datatable-cell, &-cell.adf-datatable-cell-header {
+        min-width: 60px;
+        max-width: 60px;
+    }
+}

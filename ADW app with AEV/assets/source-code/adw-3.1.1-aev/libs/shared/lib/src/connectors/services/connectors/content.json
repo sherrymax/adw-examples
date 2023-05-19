@@ -1,0 +1,1560 @@
+{
+    "name": "contentConnector",
+    "description": "The following functions can be associated to a service task and use the Content Connector to execute actions on ACS.",
+    "actions": {
+        "38ea5b8b-fdee-4c44-a604-40446f46a568": {
+            "id": "38ea5b8b-fdee-4c44-a604-40446f46a568",
+            "name": "EXECUTE_ACTION",
+            "description": "Executes an action. An action may be executed against a file or a folder. In the future, actions may be executed against different entity types or\nexecuted without the need for the context of an entity. Actions are executed asynchronously. The response contains an id that can be tracked ",
+            "inputs": [{
+              "id": "8eb60819-2e62-4b57-b11f-fee08c1ffe4b",
+              "name": "actionDefinitionId",
+              "description": "ID of the action to be executed. E.g: \"copy\".",
+              "type": "string",
+              "required": true
+            }, {
+              "id": "32ae3989-2584-48ca-bc7d-2a2ccb734221",
+              "name": "file",
+              "description": "ACS file that the action is executed against. File variables are initialised by content actions or content events in triggers. E.g: 'Initialise a file variable by mapping it to the output of the generate document task.'",
+              "type": "file"
+            }, {
+              "id": "1d4cde29-150d-4b42-b0c0-42b025739b0b",
+              "name": "folder",
+              "description": "ACS folder that the action is executed against. Folder variables are initialised by content actions or content events in triggers.",
+              "type": "folder"
+            }, {
+              "id": "672611b1-d80b-4d28-b1cb-8e5a5b7a16a8",
+              "name": "path",
+              "description": "Path of the node in ACS. E.g: '/User Homes/hruser/invoices'",
+              "type": "string",
+              "required": false
+            }, {
+              "id": "469edb38-2387-4cfc-82c1-61b60805509a",
+              "name": "nodeId",
+              "description": "Node ID of the file or folder in ACS. Example:\n'a6a977a6-c728-4038-8dbc-d914c4d8cfb3'",
+              "type": "string",
+              "required": false
+            }, {
+              "id": "96c0d5ad-c406-4f41-9176-c2eeea16f618",
+              "name": "params",
+              "description": "Parameters to be passed to the action. Key-Value pair map.",
+              "type": "key-value",
+              "required": false
+            }],
+            "outputs": [{
+              "id": "59bf525a-90ef-4b65-993e-df6ce20d9859",
+              "name": "actionExecutionId",
+              "description": "Identifier of the action execution.",
+              "type": "string"
+            }]
+          },
+        "63fa0f9d-e055-42ee-9db6-59ba5c04c67d": {
+            "id": "63fa0f9d-e055-42ee-9db6-59ba5c04c67d",
+            "name": "ADD_SECURITY_MARKS",
+            "description": "Add security marks to a node",
+            "inputs": [
+                {
+                    "id": "4e1e38f6-039b-44d4-b43e-a8b4fb73d338",
+                    "name": "file",
+                    "description": "ACS file to be updated. File variables are initialised by content actions or content events in triggers. E.g: 'Initialise a file variable by mapping it to the output of the generate document task.'",
+                    "type": "file"
+                },
+                {
+                    "id": "35766ec6-6003-42b8-97b9-1eef2b73e44b",
+                    "name": "folder",
+                    "description": "ACS folder to be updated. Folder variables are initialised by content actions or content events in triggers.",
+                    "type": "folder"
+                },
+                {
+                    "id": "9b021c88-6a6a-4cb6-8609-f5a1b3928aee",
+                    "name": "path",
+                    "description": "Path of the node in ACS. E.g: '/User Homes/hruser/invoices'",
+                    "type": "string"
+                },
+                {
+                    "id": "ffa00adb-c4f4-44e7-ab39-60958f77f0ff",
+                    "name": "nodeId",
+                    "description": "Node ID of the file or folder in ACS. Example:\n'a6a977a6-c728-4038-8dbc-d914c4d8cfb3'",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "8de7d959-b10d-4bb1-aecc-ff685a53f2a7",
+                    "name": "securityGroupName",
+                    "description": "Security group that contains the security marks to be assigned. E.g: 'PII'",
+                    "type": "string",
+                    "required": true
+                },
+                {
+                    "id": "73210e5b-6b61-433a-8f6e-7ceb59a7bad3",
+                    "name": "securityMarks",
+                    "description": "Array including the name of the security marks to be added.",
+                    "type": "array"
+                }
+            ],
+            "outputs": [
+                {
+                    "id": "7d2515d1-a986-453a-8cc3-e820fe69dcc2",
+                    "name": "response",
+                    "description": "HTTP response returned by ACS",
+                    "type": "json",
+                    "required": true
+                }
+            ]
+        },
+        "fec2f0a3-2af5-4940-9293-1b9d50a7586d": {
+            "id": "fec2f0a3-2af5-4940-9293-1b9d50a7586d",
+            "name": "GET_SECURITY_MARKS",
+            "description": "Get security marks of a node",
+            "inputs": [
+                {
+                    "id": "8f380a54-8139-42d1-a2f4-612367cc2f9a",
+                    "name": "file",
+                    "description": "ACS file from which security maks are retrieved. File variables are initialised by content actions or content events in triggers. E.g: 'Initialise a file variable by mapping it to the output of the generate document task.'",
+                    "type": "file"
+                },
+                {
+                    "id": "25109806-c79a-4f0b-9dba-1396dd5caac2",
+                    "name": "folder",
+                    "description": "ACS folder from which security maks are retrieved. Folder variables are initialised by content actions or content events in triggers.",
+                    "type": "folder"
+                },
+                {
+                    "id": "03722238-a68e-41b8-870b-98be4e94910b",
+                    "name": "path",
+                    "description": "Path of the node in ACS. E.g: '/User Homes/hruser/invoices'",
+                    "type": "string"
+                },
+                {
+                    "id": "59025e95-0add-4b9d-8566-af57a66973de",
+                    "name": "nodeId",
+                    "description": "Node ID of the file or folder in ACS. Example:\n'a6a977a6-c728-4038-8dbc-d914c4d8cfb3'",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "786f65d6-3bf3-40ca-aea8-75cbcbd5fe77",
+                    "name": "securityGroupName",
+                    "description": "Security group that contains the security marks to be retrieved. E.g: 'PII'",
+                    "type": "string",
+                    "required": true
+                }
+            ],
+            "outputs": [
+                {
+                    "id": "b5258e2b-d356-4ce6-8c4a-677cebc50257",
+                    "name": "response",
+                    "description": "Response for the call",
+                    "type": "json",
+                    "required": true
+                },
+                {
+                    "id": "ddc993eb-50f4-4e4f-8acd-22e7a3a4253e",
+                    "name": "securityMarks",
+                    "description": "Array including security marks of the node for the provided security group.",
+                    "type": "array"
+                }
+            ]
+        },
+        "97397ded-50bd-4b40-8032-b48b77d41dcb": {
+            "id": "97397ded-50bd-4b40-8032-b48b77d41dcb",
+            "name": "DECLARE_RECORD",
+            "description": "Declare file as record",
+            "inputs": [
+            {
+                "id": "ac71b6ae-927a-47ab-a1f5-61db29219272",
+                "name": "file",
+                "description": "ACS file to be declared as record. File variables are initialised by content actions or content events in triggers. E.g: 'Initialise a file variable by mapping it to the output of the generate document task.'",
+                "type": "file"
+            },
+            {
+                "id": "47b7812a-ee29-4730-9b0f-c5f627a267a3",
+                "name": "fileId",
+                "description": "Node ID of the folder in ACS. Example: 'a6a977a6-c728-4038-8dbc-d914c4d8cfb3'",
+                "type": "string"
+            },
+            {
+                "id": "40105015-facc-4406-9ee2-d02a086b65c2",
+                "name": "filePath",
+                "description": "Path of the node in ACS. E.g: '/User Homes/hruser/invoices'",
+                "type": "string"
+            },
+            {
+                "id": "7dd90572-ae4e-4e25-84e1-514c61c79957",
+                "name": "targetFolder",
+                "description": "Destination record folder in which to store the result. Folder variables are initialised by content actions or content events in triggers.",
+                "type": "folder",
+                "required": false
+            },
+            {
+                "id": "89db8455-5c2b-4aec-861c-09545731c642",
+                "name": "targetFolderPath",
+                "description": "Path of the destination record folder to use to store the result. E.g. '/User Homes/hruser'",
+                "type": "string",
+                "required": false
+            },
+            {
+                "id": "763ccefa-475a-4e7c-bba3-69408a233e64",
+                "name": "targetFolderId",
+                "description": "ACS node id of the destination record folder to use to store the result. E.g: '775a8f2d-8123-49a7-ae1f-f3f49d4eae20'",
+                "type": "string",
+                "required": false
+            },
+            {
+                "id": "0e97c0bf-5f0e-46c8-b865-90f6a058750a",
+                "name": "hideRecord",
+                "description": "Flag to indicate whether the record should be hidden from the current parent folder.",
+                "type": "boolean",
+                "required": false
+            }
+            ],
+            "outputs": [
+            {
+                "id": "5ba176f8-8858-4f6d-8cad-7adbd159ceff",
+                "name": "response",
+                "description": "Response for the call",
+                "type": "json",
+                "required": true
+            }
+            ]
+        },
+        "30975ddc-e0f1-4fff-a550-39fd12797efb": {
+            "id": "30975ddc-e0f1-4fff-a550-39fd12797efb",
+            "name": "SET_PERMISSIONS",
+            "description": "Set Permissions",
+            "inputs": [
+                {
+                    "id": "1d182241-bcd9-42c6-a862-e89fe3a7b927",
+                    "name": "file",
+                    "description": "ACS file to be updated. File variables are initialised by content actions or content events in triggers. E.g: 'Initialise a file variable by mapping it to the output of the generate document task.'",
+                    "type": "file"
+                },
+                {
+                    "id": "ca2b9b50-1b35-4565-9ab2-f0f141bb31ef",
+                    "name": "folder",
+                    "description": "ACS folder to be updated. Folder variables are initialised by content actions or content events in triggers.",
+                    "type": "folder"
+                },
+                {
+                    "id": "8347013f-bbc3-4f71-a65f-6a5d0226537d",
+                    "name": "path",
+                    "description": "Path of the node in ACS. E.g: '/User Homes/hruser/invoices'",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "5dbdfe26-55a0-4752-a44e-00db28a0db4b",
+                    "name": "nodeId",
+                    "description": "Node ID of the file or folder in ACS. Example:\n'a6a977a6-c728-4038-8dbc-d914c4d8cfb3'",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "a5699da0-85ff-4134-857a-bcfa501c1fff",
+                    "name": "users",
+                    "description": "Array of user names. E.g. 'hruser'",
+                    "type": "array",
+                    "required": true
+                },
+                {
+                    "id": "0e6b60be-2101-484e-8a30-f3760a1523f2",
+                    "name": "role",
+                    "description": "Role of the user. E.g. 'Coordinator'",
+                    "type": "string",
+                    "required": true
+                }
+            ],
+            "outputs": [
+                {
+                    "id": "311124ef-c500-49d6-ab0a-add38fa49930",
+                    "name": "response",
+                    "description": "Response for the call",
+                    "type": "json",
+                    "required": true
+                }
+            ]
+        },
+        "5749f1f3-9c27-4983-a47d-2ae7d8e5f0bf": {
+            "id": "5749f1f3-9c27-4983-a47d-2ae7d8e5f0bf",
+            "name": "REMOVE_ASPECT",
+            "description": "Remove aspect from a node",
+            "inputs": [
+                {
+                    "id": "ed77977b-a98d-450a-9729-9aa62efcbb84",
+                    "name": "file",
+                    "description": "ACS file to be updated. File variables are initialised by content actions or content events in triggers. E.g: 'Initialise a file variable by mapping it to the output of the generate document task.'",
+                    "type": "file"
+                },
+                {
+                    "id": "5d48d7ab-da5a-419d-8e0b-0733dd4b3f4d",
+                    "name": "folder",
+                    "description": "ACS folder to be updated. Folder variables are initialised by content actions or content events in triggers.",
+                    "type": "folder"
+                },
+                {
+                    "id": "fcd56b53-a4e1-447d-b66e-abdb19c7e911",
+                    "name": "path",
+                    "description": "Path of the node in ACS. E.g: '/User Homes/hruser/invoices'",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "e8c15282-f18e-4546-8aef-c118e9769543",
+                    "name": "nodeId",
+                    "description": "Node ID of the file or folder in ACS. Example:\n'a6a977a6-c728-4038-8dbc-d914c4d8cfb3'",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "d32ee82b-9aa8-440b-8b01-681d09d7624c",
+                    "name": "aspect",
+                    "description": "Aspect to be removed from the node. E.g: 'rv:reviewable'",
+                    "type": "content-aspect-selector",
+                    "required": false
+                }
+            ],
+            "outputs": [
+                {
+                    "id": "30c7145a-f206-48b9-9fad-4f3e32adaaf2",
+                    "name": "response",
+                    "description": "Response for the call",
+                    "type": "json",
+                    "required": true
+                }
+            ]
+        },
+        "7d4fb571-5950-4792-8df9-61813436aa37": {
+            "id": "7d4fb571-5950-4792-8df9-61813436aa37",
+            "name": "ADD_ASPECT",
+            "description": "Add aspect to a node",
+            "inputs": [
+                {
+                    "id": "ca5b7c59-c148-433e-b3e4-549756da95ae",
+                    "name": "file",
+                    "description": "ACS file to be updated. File variables are initialised by content actions or content events in triggers. E.g: 'Initialise a file variable by mapping it to the output of the generate document task.'",
+                    "type": "file"
+                },
+                {
+                    "id": "e5fb348c-fc2a-41ab-98ce-6ca3aa82be65",
+                    "name": "folder",
+                    "description": "ACS folder to be updated. Folder variables are initialised by content actions or content events in triggers.",
+                    "type": "folder"
+                },
+                {
+                    "id": "ec085eaf-5ad1-4710-9085-e6e06201db64",
+                    "name": "path",
+                    "description": "Path of the node in ACS. E.g: '/User Homes/hruser/invoices'",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "f4481ec4-4da2-4fbc-9bbe-22db94d3eeee",
+                    "name": "nodeId",
+                    "description": "Node ID of the file or folder in ACS. Example:\n'a6a977a6-c728-4038-8dbc-d914c4d8cfb3'",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "6b4a71bd-66fa-43d6-a072-aed23dfdc40a",
+                    "name": "aspect",
+                    "description": "Aspect to be assigned to the node. E.g: 'rv:reviewable'",
+                    "type": "content-aspect-selector",
+                    "required": false
+                },
+                {
+                    "id": "96a45101-a1ab-4408-94f3-73d83eaaf44d",
+                    "name": "nodeMetadata",
+                    "description": "Metadata to be set to the node in ACS. Metadata is a JSON object that contains key-value pairs, each of them holding a property name (e.g. 'cm:title') and a property value (e.g: 'Introduction to AWS')",
+                    "type": "content-metadata"
+                },
+                {
+                    "id": "565ce41b-c91d-4797-a0f8-d590aebd6acf",
+                    "name": "underscoreMetadata",
+                    "description": "If underscoreMetadata is true, the received prefixed properties names contain underscore (_) instead of colon (:) for separating the namespace prefix from the property name. E.g. 'cm_title' instead of 'cm:title'.",
+                    "type": "boolean",
+                    "required": false
+                }
+            ],
+            "outputs": [
+                {
+                    "id": "ff7ddc2b-2ce7-4869-bee9-2c0d1596c45f",
+                    "name": "response",
+                    "description": "Response for the call",
+                    "type": "json",
+                    "required": true
+                }
+            ]
+        },
+        "8ee36fb4-07a6-4953-b939-0005b5d8f63a": {
+            "id": "8ee36fb4-07a6-4953-b939-0005b5d8f63a",
+            "name": "UNLOCK_NODE",
+            "description": "Unlock a node",
+            "inputs": [
+                {
+                    "id": "32ae3989-2584-48ca-bc7d-2a2ccb734221",
+                    "name": "file",
+                    "description": "ACS file to be unlocked. File variables are initialised by content actions or content events in triggers. E.g: 'Initialise a file variable by mapping it to the output of the generate document task.'",
+                    "type": "file"
+                },
+                {
+                    "id": "1d4cde29-150d-4b42-b0c0-42b025739b0b",
+                    "name": "folder",
+                    "description": "ACS folder to be unlocked. Folder variables are initialised by content actions or content events in triggers.",
+                    "type": "folder"
+                },
+                {
+                    "id": "672611b1-d80b-4d28-b1cb-8e5a5b7a16a8",
+                    "name": "path",
+                    "description": "Path of the node in ACS. E.g: '/User Homes/hruser/invoices'",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "469edb38-2387-4cfc-82c1-61b60805509a",
+                    "name": "nodeId",
+                    "description": "Node ID of the file or folder in ACS. Example:\n'a6a977a6-c728-4038-8dbc-d914c4d8cfb3'",
+                    "type": "string",
+                    "required": false
+                }
+            ],
+            "outputs": [
+                {
+                    "id": "0ceb9d79-cdfc-4767-8c07-43f4a4f223d7",
+                    "name": "response",
+                    "description": "Response for the call",
+                    "type": "json"
+                }
+            ]
+        },
+        "e3860986-2d60-42a5-85e2-aaedf3415a35": {
+            "id": "e3860986-2d60-42a5-85e2-aaedf3415a35",
+            "name": "LOCK_NODE",
+            "description": "Lock a node",
+            "inputs": [
+                {
+                    "id": "f2e72f59-3ae4-4f43-b760-8f6103644546",
+                    "name": "file",
+                    "description": "ACS file to be locked. File variables are initialised by content actions or content events in triggers. E.g: 'Initialise a file variable by mapping it to the output of the generate document task.'",
+                    "type": "file"
+                },
+                {
+                    "id": "a5900aa7-9f51-49a1-9b30-d7e8e82f6399",
+                    "name": "folder",
+                    "description": "ACS folder to be locked. Folder variables are initialised by content actions or content events in triggers.",
+                    "type": "folder"
+                },
+                {
+                    "id": "cbf83244-34dd-4148-a94d-f98402e81118",
+                    "name": "path",
+                    "description": "Path of the node in ACS. E.g: '/User Homes/hruser/invoices'",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "004af8fa-424b-4494-8b94-f2433beab81c",
+                    "name": "nodeId",
+                    "description": "Node ID of the file or folder in ACS. Example:\n'a6a977a6-c728-4038-8dbc-d914c4d8cfb3'",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "7dec8823-8b50-4014-9f5f-7752e3eb326e",
+                    "name": "lockType",
+                    "description": "Lock type. Valid values are 'FULL', 'ALLOW_OWNER_CHANGES' or 'ALLOW_ADD_CHILDREN'",
+                    "type": "string",
+                    "required": true
+                },
+                {
+                    "id": "2c1e5310-c9f1-4318-a709-b43d1ab2a04f",
+                    "name": "lifetime",
+                    "description": "Lifetime of the lock. Valid values are 'EPHEMERAL' or 'PERSISTENT'",
+                    "type": "string",
+                    "required": true
+                },
+                {
+                    "id": "0ab9d12e-6407-44dc-b32a-b95691e8b689",
+                    "name": "timeToExpire",
+                    "description": "Time (in second) after which the lock is expired. E.g. '1200'",
+                    "type": "integer",
+                    "required": true
+                }
+            ],
+            "outputs": [
+                {
+                    "id": "ccc0ee4a-6bca-4237-b056-ede19bdeb6ce",
+                    "name": "response",
+                    "description": "Response for the call",
+                    "type": "json",
+                    "required": true
+                }
+            ]
+        },
+        "0b6c5bb0-65b4-46bf-805c-d5b99035180d": {
+            "id": "0b6c5bb0-65b4-46bf-805c-d5b99035180d",
+            "name": "UPDATE_TAG",
+            "description": "Update or add tags",
+            "inputs": [
+                {
+                    "id": "b1050210-ee49-471d-99b7-10f31c5f9fc6",
+                    "name": "file",
+                    "description": "ACS file to be updated. File variables are initialised by content actions or content events in triggers. E.g: 'Initialise a file variable by mapping it to the output of the generate document task.'",
+                    "type": "file"
+                },
+                {
+                    "id": "1ca2eae9-8d3e-4074-ad4b-789187deba80",
+                    "name": "folder",
+                    "description": "ACS folder to be updated. Folder variables are initialised by content actions or content events in triggers.",
+                    "type": "folder"
+                },
+                {
+                    "id": "fd58cf71-e9b1-46bf-a4e0-2724c7c981cb",
+                    "name": "path",
+                    "description": "Path of the node in ACS. E.g: '/User Homes/hruser/invoices'",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "2e7d956d-88e4-46f6-8bf7-70629c8b0f45",
+                    "name": "nodeId",
+                    "description": "Node ID of the file or folder in ACS. Example:\n'a6a977a6-c728-4038-8dbc-d914c4d8cfb3'",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "5d522070-3a2b-496b-ae69-2500307927db",
+                    "name": "tags",
+                    "description": "Tags to be updated or added.",
+                    "type": "array",
+                    "required": true
+                }
+            ],
+            "outputs": [
+                {
+                    "id": "950685b1-1268-493d-ae6d-3b10c5c11aec",
+                    "name": "response",
+                    "description": "Response for the call",
+                    "type": "json",
+                    "required": true
+                }
+            ]
+        },
+        "a6aba47d-eb37-4abf-bd1f-a062c3f82ea4": {
+            "id": "a6aba47d-eb37-4abf-bd1f-a062c3f82ea4",
+            "name": "DELETE_FOLDER",
+            "description": "Delete folder",
+            "inputs": [
+                {
+                    "id": "14a4a43b-e04d-4ce5-ab69-13097942f90d",
+                    "name": "folder",
+                    "description": "ACS folder to be deleted. Folder variables are initialised by content actions or content events in triggers.",
+                    "type": "folder"
+                },
+                {
+                    "id": "2ed830ff-032a-4c07-bf35-69796ffba071",
+                    "name": "folderId",
+                    "description": "Node ID of the folder in ACS. Example:\n'a6a977a6-c728-4038-8dbc-d914c4d8cfb3'",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "1ae5fd79-5c17-4c22-b49c-3a980aa7e2e4",
+                    "name": "permanent",
+                    "description": "If **true** then the node is deleted permanently, without moving to the trashcan.",
+                    "type": "boolean",
+                    "required": false
+                }
+            ],
+            "outputs": [
+                {
+                    "id": "ea5f0a8b-c2e3-45ad-b4c7-ad5cfdd5947c",
+                    "name": "response",
+                    "description": "Response for the call",
+                    "type": "json",
+                    "required": true
+                }
+            ]
+        },
+        "bf15dac8-6beb-42dd-8f89-455d53c23fb7": {
+            "id": "bf15dac8-6beb-42dd-8f89-455d53c23fb7",
+            "name": "DELETE_FILE",
+            "description": "Delete file",
+            "inputs": [
+                {
+                    "id": "6fc82326-db6a-4b38-9e08-bc54d2ec6542",
+                    "name": "file",
+                    "description": "ACS file to be deleted. File variables are initialised by content actions or content events in triggers. E.g: 'Initialise a file variable by mapping it to the output of the generate document task.'",
+                    "type": "file",
+                    "required": false
+                },
+                {
+                    "id": "9e6fdb18-9eee-4a8c-9623-db5e08539e48",
+                    "name": "fileId",
+                    "description": "Node ID of the file in ACS. Example:\n'a6a977a6-c728-4038-8dbc-d914c4d8cfb3'",
+                    "type": "string"
+                },
+                {
+                    "id": "07715de9-3ed0-453b-9eba-093275a2e76d",
+                    "name": "permanent",
+                    "description": "If **true** then the node is deleted permanently, without moving to the trashcan",
+                    "type": "boolean"
+                }
+            ],
+            "outputs": [
+                {
+                    "id": "09b76184-6610-414f-890b-36e1b35016c5",
+                    "name": "response",
+                    "description": "Response for the call",
+                    "type": "json",
+                    "required": true
+                }
+            ]
+        },
+        "46294ba6-2c7f-4320-ae90-7df47d3707ce": {
+            "id": "46294ba6-2c7f-4320-ae90-7df47d3707ce",
+            "name": "MOVE_FOLDER",
+            "description": "Move folder",
+            "inputs": [
+                {
+                    "id": "a9e73ce3-c1cd-489e-ac34-e7d8a3ac97aa",
+                    "name": "sourceFolder",
+                    "description": "ACS folder to be moved. Folder variables are initialised by content actions or content events in triggers.",
+                    "type": "folder",
+                    "required": false
+                },
+                {
+                    "id": "279153e3-d012-434f-a017-aa1947c8bb8d",
+                    "name": "sourcePath",
+                    "description": "Path of the node to be moved. E.g: '/User Homes/hruser/invoices/invoice.txt'",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "899ef9b1-6069-438a-8ad9-73d752f2bfa6",
+                    "name": "sourceId",
+                    "description": "ACS node id of the node to be moved. E.g: '775a8f2d-8123-49a7-ae1f-f3f49d4eae20'",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "4dee11f2-d40f-4979-b83b-39204280be85",
+                    "name": "targetFolder",
+                    "description": "Folder in which to store the result moved. Folder variables are initialised by content actions or content events in triggers.",
+                    "type": "folder",
+                    "required": false
+                },
+                {
+                    "id": "ac54917b-ec5f-4287-91ae-4835f0a60018",
+                    "name": "targetFolderPath",
+                    "description": "Path of the folder to use to store  the result moved. E.g. '/User Homes/hruser'",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "2f00243a-6c52-4dc2-bedb-fbf1c7a9d049",
+                    "name": "targetFolderId",
+                    "description": "ACS node id of the folder to use to store the result moved. E.g: '775a8f2d-8123-49a7-ae1f-f3f49d4eae20'",
+                    "type": "string",
+                    "required": false
+                }
+            ],
+            "outputs": [
+                {
+                    "id": "988fa0d2-fdc7-4828-837d-a17af6dd9157",
+                    "name": "response",
+                    "description": "Response for the call",
+                    "type": "json"
+                },
+                {
+                    "id": "1315ee57-eff8-499c-8af4-64b3b40eeb21",
+                    "name": "folder",
+                    "description": "Moved file",
+                    "type": "folder"
+                }
+            ]
+        },
+        "f94b19bd-4ced-4b47-ac9c-2e4562566b57": {
+            "id": "f94b19bd-4ced-4b47-ac9c-2e4562566b57",
+            "name": "MOVE_FILE",
+            "description": "Move file",
+            "inputs": [
+                {
+                    "id": "f42c4ee7-bebe-49d1-acb9-e6f3ebc2d017",
+                    "name": "sourceFile",
+                    "description": "ACS file to be moved. File variables are initialised by content actions or content events in triggers.",
+                    "type": "file"
+                },
+                {
+                    "id": "a5bbc926-c21c-42e3-913b-3f72dbe06489",
+                    "name": "sourcePath",
+                    "description": "Path of the node to be moved. E.g: '/User Homes/hruser/invoices/invoice.txt'",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "3c02c622-2240-4be1-ba24-6286b60df496",
+                    "name": "sourceId",
+                    "description": "ACS node id of the node to be moved. E.g: '775a8f2d-8123-49a7-ae1f-f3f49d4eae20'",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "0ab650e8-d47f-4b01-a88c-e9dc0c496424",
+                    "name": "targetFolder",
+                    "description": "Folder in which to store the result moved. Folder variables are initialised by content actions or content events in triggers.",
+                    "type": "folder",
+                    "required": false
+                },
+                {
+                    "id": "0d47f990-ffcd-4b14-8754-63a4ab750328",
+                    "name": "targetFolderPath",
+                    "description": "Path of the folder to use to store  the result moved. E.g. '/User Homes/hruser'",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "8d49c5b9-3e41-4b7a-9534-5f913f5a3f8b",
+                    "name": "targetFolderId",
+                    "description": "ACS node id of the folder to use to store the result moved. E.g: '775a8f2d-8123-49a7-ae1f-f3f49d4eae20'",
+                    "type": "string"
+                }
+            ],
+            "outputs": [
+                {
+                    "id": "507dc93e-55fb-4bda-9044-4c6a2b687e33",
+                    "name": "response",
+                    "description": "Response for the call",
+                    "type": "json",
+                    "required": true
+                },
+                {
+                    "id": "19145acf-16b9-4d04-91d0-3ce90a0e9acb",
+                    "name": "file",
+                    "description": "Moved file",
+                    "type": "file"
+                }
+            ]
+        },
+        "bf867ae6-5ee5-4c00-9750-427e07780db4": {
+            "id": "bf867ae6-5ee5-4c00-9750-427e07780db4",
+            "name": "COPY_FOLDER",
+            "description": "Copy folder",
+            "inputs": [
+                {
+                    "id": "4c221040-846d-43c8-9050-c34c371d7b75",
+                    "name": "sourceFolder",
+                    "description": "ACS folder to be copied. Folder variables are initialised by content actions or content events in triggers.",
+                    "type": "folder"
+                },
+                {
+                    "id": "f3037707-fa25-4764-bd49-eb21a8aab1c5",
+                    "name": "sourcePath",
+                    "description": "Path of the node to be copied. E.g: '/User Homes/hruser/invoices/invoice.txt'",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "97ed836e-8af1-4c90-bb43-f0b7c1744b39",
+                    "name": "sourceId",
+                    "description": "ACS node id of the node to be copied. E.g: '775a8f2d-8123-49a7-ae1f-f3f49d4eae20'",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "099e9b42-4496-4c96-8fa9-599d633886df",
+                    "name": "targetFolder",
+                    "description": "Folder in which to store the result copied. Folder variables are initialised by content actions or content events in triggers.",
+                    "type": "folder",
+                    "required": false
+                },
+                {
+                    "id": "77492c19-ffa1-4ba8-9566-3c8858f6d830",
+                    "name": "targetFolderPath",
+                    "description": "Path of the folder to use to store  the result copied. E.g. '/User Homes/hruser'",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "e6bc8a52-2374-477d-88fd-241fa4956a14",
+                    "name": "targetFolderId",
+                    "description": "ACS node id of the folder to use to store the result copied. E.g: '775a8f2d-8123-49a7-ae1f-f3f49d4eae20'",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                  "id": "c8ef5a06-3e2c-43b0-b9f6-e3145b61aac2",
+                  "name": "name",
+                  "description": "Name of the copied node.",
+                  "type": "string",
+                  "required": false
+                }
+            ],
+            "outputs": [
+                {
+                    "id": "fa6e8c10-589d-42f2-b257-c6520a08701c",
+                    "name": "response",
+                    "description": "Response for the call",
+                    "type": "json",
+                    "required": true
+                },
+                {
+                    "id": "4d1de9a5-236c-40fd-a63c-58c783aa78e4",
+                    "name": "folder",
+                    "description": "Copied folder",
+                    "type": "folder"
+                }
+            ]
+        },
+        "bb7e2cf0-b93c-4f2c-8a65-9c0fed616de9": {
+            "id": "bb7e2cf0-b93c-4f2c-8a65-9c0fed616de9",
+            "name": "COPY_FILE",
+            "description": "Copy file",
+            "inputs": [
+                {
+                    "id": "dfd251f2-f0fd-45cc-a02a-ddd70c0498eb",
+                    "name": "sourceFile",
+                    "description": "ACS file to be copied. File variables are initialised by content actions or content events in triggers.",
+                    "type": "file"
+                },
+                {
+                    "id": "94eb7bcd-24aa-44d7-8b1e-eb154bde367c",
+                    "name": "sourcePath",
+                    "description": "Path of the node to be copied. E.g: '/User Homes/hruser/invoices/invoice.txt'",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "eb6a4482-c71d-49e5-8b48-c8f6a51f4baa",
+                    "name": "sourceId",
+                    "description": "ACS node id of the node to be copied. E.g: '775a8f2d-8123-49a7-ae1f-f3f49d4eae20'",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "1c55cf5d-4324-49dd-b439-5138cd347571",
+                    "name": "targetFolder",
+                    "description": "Folder in which to store the result copied. Folder variables are initialised by content actions or content events in triggers.",
+                    "type": "folder",
+                    "required": false
+                },
+                {
+                    "id": "4dbd08f3-0bac-4a32-b3fa-50f5dd4d7e37",
+                    "name": "targetFolderPath",
+                    "description": "Path of the folder to use to store  the result copied. E.g. '/User Homes/hruser'",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "379cb95b-799d-4678-bb7f-ae9f6ba55781",
+                    "name": "targetFolderId",
+                    "description": "ACS node id of the folder to use to store the result copied. E.g: '775a8f2d-8123-49a7-ae1f-f3f49d4eae20'",
+                    "type": "string"
+                },
+                {
+                  "id": "971c69f0-7cec-4459-8a74-3a7796e92a01",
+                  "name": "name",
+                  "description": "Name of the copied node.",
+                  "type": "string",
+                  "required": false
+                }
+            ],
+            "outputs": [
+                {
+                    "id": "8c07de24-bcbf-4053-944d-4a6ab2a12b2b",
+                    "name": "response",
+                    "description": "Response for the call",
+                    "type": "json",
+                    "required": true
+                },
+                {
+                    "id": "4ea82296-af44-4fb7-bdce-b4708ada5987",
+                    "name": "file",
+                    "description": "Copied file",
+                    "type": "file"
+                }
+            ]
+        },
+        "e358632d-ffe4-422c-940a-d4b4b444076c": {
+            "id": "e358632d-ffe4-422c-940a-d4b4b444076c",
+            "name": "UPDATE_FILE_CONTENT",
+            "description": "Update content",
+            "inputs": [
+                {
+                    "id": "a122fcfa-76e0-4bbf-b892-35956517fbe3",
+                    "name": "sourceFile",
+                    "description": "ACS file to be included as node content. File variables are initialised by content actions or content events in triggers.",
+                    "type": "file",
+                    "required": false
+                },
+                {
+                    "id": "69e3f4bd-59b0-4498-97c8-7a95acab35aa",
+                    "name": "sourceText",
+                    "description": "Source text to be included as node content.",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "a122fcfa-76e0-4bbf-b892-35956517fbe3",
+                    "name": "sourceJson",
+                    "description": "Source json to be included as node content.",
+                    "type": "json",
+                    "required": false
+                },
+                {
+                    "id": "1eb525f1-7161-4845-86c6-7cafbd63a551",
+                    "name": "targetFile",
+                    "description": "ACS file to be overwritten after the action. File variables are initialised by content actions or content events.",
+                    "type": "file",
+                    "required": false
+                },
+                {
+                    "id": "0f1357ff-0326-439b-a763-00859ed272ec",
+                    "name": "targetFileId",
+                    "description": "Node ID of the file to be updated in ACS. E.g:\n'a6a977a6-c728-4038-8dbc-d914c4d8cfb3'",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "e7824f09-5810-4e3e-89ec-9f4f6f06a353",
+                    "name": "targetFilePath",
+                    "description": "Path of the node to be updated in ACS. E.g: '/User Homes/hruser/invoices/invoice.txt'",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "237c72a0-12b4-4c32-85d1-b90dbbd141c1",
+                    "name": "versionComment",
+                    "description": "Version comment to appear in the version history. E.g: 'Minor changes after final review by Management'",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "3b55f198-5ad1-4f67-b4e1-22e8f1e9139a",
+                    "name": "majorVersion",
+                    "description": "If **true**, create a major version.",
+                    "type": "boolean",
+                    "required": false
+                },
+                {
+                    "id": "9aa665e3-83b1-4a6f-ae9f-9ddc85c078e0",
+                    "name": "newName",
+                    "description": "Optional new name of the file to be updated. It shall include the file extension. E.g: 'newName.txt'",
+                    "type": "string"
+                }
+            ],
+            "outputs": [
+                {
+                    "id": "541384a4-a836-489d-9e38-01fb219a0784",
+                    "name": "response",
+                    "description": "Response for the call",
+                    "type": "json",
+                    "required": true
+                }
+            ]
+        },
+        "52211b25-f36d-4e2b-be36-18e43d72da15": {
+            "id": "52211b25-f36d-4e2b-be36-18e43d72da15",
+            "name": "READ_FILE_CONTENT",
+            "description": "Read a file",
+            "inputs": [
+                {
+                    "id": "4b187208-c5ad-4740-ac73-28a37b4721eb",
+                    "name": "file",
+                    "description": "ACS file to be read. File variables are initialised by content actions or content events in triggers. E.g: 'Initialise a file variable by mapping it to the output of the generate document task.'",
+                    "type": "file"
+                },
+                {
+                    "id": "34a4d91c-b970-4e96-ab71-8ed18dcb3c79",
+                    "name": "path",
+                    "description": "Path of the node in ACS. E.g: '/User Homes/hruser/invoices'",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "d277b58f-a70d-4067-8908-26a67da85136",
+                    "name": "nodeId",
+                    "description": "Node ID of the file or folder in ACS. Example:\n'a6a977a6-c728-4038-8dbc-d914c4d8cfb3'",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "ca9b6417-cb5d-4b22-b3f9-4a55d969c0ed",
+                    "name": "contentType",
+                    "description": "Type of the content to be returned. Valid values are: 'JSON' or ' TXT'",
+                    "type": "string",
+                    "required": false
+                }
+            ],
+            "outputs": [
+                {
+                    "id": "768d7d95-f103-4584-8d08-dd1d3cf8eaec",
+                    "name": "jsonContent",
+                    "description": "The JSON Content",
+                    "type": "json"
+                },
+                {
+                    "id": "3ca66c33-35e6-4443-aa53-778914cbdef8",
+                    "name": "textContent",
+                    "description": "The Text Content",
+                    "type": "string"
+                }
+            ]
+        },
+        "36e29465-1e90-4889-ad95-ba9d20b907e3": {
+            "id": "36e29465-1e90-4889-ad95-ba9d20b907e3",
+            "name": "UPDATE_METADATA",
+            "description": "Update or add metadata to a node",
+            "inputs": [
+                {
+                    "id": "08978d60-b6d4-4452-b477-3e38a93adea1",
+                    "name": "file",
+                    "description": "ACS file to be updated. File variables are initialised by content actions or content events in triggers. E.g: 'Initialise a file variable by mapping it to the output of the generate document task.'",
+                    "type": "file",
+                    "required": false
+                },
+                {
+                    "id": "d2f5e01f-4aa8-4a01-aeee-c6d92361bdab",
+                    "name": "folder",
+                    "description": "ACS folder to be updated. Folder variables are initialised by content actions or content events in triggers.",
+                    "type": "folder"
+                },
+                {
+                    "id": "e08c09ba-fa50-48ba-b4dc-c681802fd481",
+                    "name": "path",
+                    "description": "Path of the node in ACS. E.g: '/User Homes/hruser/invoices'",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "61b5d064-c593-48e0-a19e-611c3fce0af5",
+                    "name": "nodeId",
+                    "description": "Node ID of the file or folder in ACS. Example:\n'a6a977a6-c728-4038-8dbc-d914c4d8cfb3'",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "cc98af30-326b-4ec7-8ad5-1e4abd825634",
+                    "name": "metadata",
+                    "description": "Metadata to be set to the node in ACS. Metadata is a JSON object that contains key-value pairs, each of them holding a property name (e.g. 'cm:title') and a property value (e.g: 'Introduction to AWS')",
+                    "type": "content-metadata",
+                    "required": true
+                },
+                {
+                    "id": "f5096c43-f520-44df-a87d-64f29a47969f",
+                    "name": "underscoreMetadata",
+                    "description": "If underscoreMetadata is true, the received prefixed properties names contain underscore (_) instead of colon (:) for separating the namespace prefix from the property name. E.g. 'cm_title' instead of 'cm:title'.",
+                    "type": "boolean"
+                }
+            ],
+            "outputs": [
+                {
+                    "id": "0484c421-f899-45ec-bd23-f4819d7b012a",
+                    "name": "response",
+                    "description": "Response for the call",
+                    "type": "json",
+                    "required": true
+                }
+            ]
+        },
+        "377e3bb7-1de2-4583-af48-ce8c79c20221": {
+            "id": "377e3bb7-1de2-4583-af48-ce8c79c20221",
+            "name": "SELECT_METADATA",
+            "description": "Retrieve metadata from content",
+            "inputs": [
+                {
+                    "id": "9c227fbe-5e4a-467c-a076-2654b64594cb",
+                    "name": "file",
+                    "description": "ACS file to select its metadata. File variables are initialised by content actions or content events in triggers. E.g: 'Initialise a file variable by mapping it to the output of the generate document task.'",
+                    "type": "file"
+                },
+                {
+                    "id": "4ea0eced-8fc4-46d3-b3ff-aaf6e66c9525",
+                    "name": "folder",
+                    "description": "ACS folder to its metadata. Folder variables are initialised by content actions or content events in triggers.",
+                    "type": "folder",
+                    "required": false
+                },
+                {
+                    "id": "274caeb0-2b62-41c4-9b6b-99d28c493da0",
+                    "name": "path",
+                    "description": "Path of the node in ACS. E.g: '/User Homes/hruser/invoices'",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "bb631ef5-107a-468e-be00-0ce7f618c00d",
+                    "name": "nodeId",
+                    "description": "Node ID of the file or folder in ACS. Example:\n'a6a977a6-c728-4038-8dbc-d914c4d8cfb3'",
+                    "type": "string"
+                },
+                {
+                    "id": "a7175022-fb14-4e49-ad40-40381f5a559e",
+                    "name": "underscoreMetadata",
+                    "description": "If underscoreMetadata is true, the prefixed properties names contain underscore (_) instead of colon (:) for separating the namespace prefix from the property name. E.g. 'cm_title' instead of 'cm:title'.",
+                    "type": "boolean"
+                }
+            ],
+            "outputs": [
+                {
+                    "id": "9b2c205e-42d2-4beb-a16b-89272b0351aa",
+                    "name": "response",
+                    "description": "Response for the call",
+                    "type": "json",
+                    "required": true
+                },
+                {
+                    "id": "c5ba923b-38ca-4263-8abd-05eaacd548f3",
+                    "name": "metadata",
+                    "description": "Metadata of the selected node",
+                    "type": "json"
+                }
+            ]
+        },
+        "63229f04-e94c-11ea-adc1-0242ac120002": {
+            "id": "63229f04-e94c-11ea-adc1-0242ac120002",
+            "name": "SET_TYPE",
+            "description": "Set type",
+            "inputs": [
+                {
+                    "id": "53778e1c-c77f-4854-978f-fab09cbc0a1a",
+                    "name": "file",
+                    "description": "ACS file to be set. File variables are initialised by content actions or content events in triggers. E.g: 'Initialise a file variable by mapping it to the output of the generate document task.'",
+                    "type": "file"
+                },
+                {
+                    "id": "f735ff74-33cb-40a1-b36a-c5d369e30b2d",
+                    "name": "folder",
+                    "description": "ACS folder to be set. Folder variables are initialised by content actions or content events in triggers.",
+                    "type": "folder"
+                },
+                {
+                    "id": "05704f28-284f-4a1f-ac93-3b388b561038",
+                    "name": "path",
+                    "description": "Path of the node in ACS. E.g: '/User Homes/hruser/invoices'",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "0420ddf7-21af-4487-9a74-54ad62bafa05",
+                    "name": "nodeId",
+                    "description": "Node ID of the file or folder in ACS. Example:\n'a6a977a6-c728-4038-8dbc-d914c4d8cfb3'",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "e6be6934-0b4d-46fc-be58-005354bc3eac",
+                    "name": "nodeType",
+                    "description": "ACS content type of the file to be stored in ACS. E.g. 'fin:invoice'.",
+                    "type": "content-type-selector",
+                    "required": true
+                },
+                {
+                    "id": "23404854-31a3-416b-805d-5b4f82e3845e",
+                    "name": "nodeMetadata",
+                    "description": "Metadata to be set to the node in ACS. Metadata is a JSON object that contains key-value pairs, each of them holding a property name (e.g. 'cm:title') and a property value (e.g: 'Introduction to AWS')",
+                    "type": "content-metadata"
+                },
+                {
+                    "id": "a864ba3d-8866-4670-ae7b-630955cffa1a",
+                    "name": "underscoreMetadata",
+                    "description": "If underscoreMetadata is true, the received prefixed properties names contain underscore (_) instead of colon (:) for separating the namespace prefix from the property name. E.g. 'cm_title' instead of 'cm:title'.",
+                    "type": "boolean",
+                    "required": false
+                }
+            ],
+            "outputs": [
+                {
+                    "id": "950685b1-1268-493d-ae6d-3b10c5c11aec",
+                    "name": "response",
+                    "description": "Response for the call",
+                    "type": "json",
+                    "required": true
+                }
+            ]
+        },
+        "c228cc69-8001-4bf0-a101-9089f87e48c7": {
+            "id": "c228cc69-8001-4bf0-a101-9089f87e48c7",
+            "name": "CREATE_FOLDER",
+            "description": "Create a content folder",
+            "inputs": [
+                {
+                    "id": "eb66aac6-2082-4b1c-9621-f771e078b513",
+                    "name": "folderName",
+                    "description": "Name of the folder to be created.",
+                    "type": "string",
+                    "required": true
+                },
+                {
+                    "id": "10824eb1-0eab-4c52-bd47-297f174c9de6",
+                    "name": "targetFolder",
+                    "description": "Folder in which to store the result created. Folder variables are initialised by content actions or content events in triggers.",
+                    "type": "folder"
+                },
+                {
+                    "id": "9eaf8db0-ff2b-4b3a-ac81-43036ad2d519",
+                    "name": "targetFolderId",
+                    "description": "ACS node id of the folder to use to store the result created. E.g: '775a8f2d-8123-49a7-ae1f-f3f49d4eae20'",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "ef577661-41be-475f-991d-73a469c867cd",
+                    "name": "targetFolderPath",
+                    "description": "Path of the folder to use to store  the result created. E.g. '/User Homes/hruser'",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "0e474049-27a6-42da-9349-402925b89945",
+                    "name": "autorename",
+                    "description": "If true, then a name clash will cause an attempt to auto rename by finding a unique name using an integer suffix.",
+                    "type": "boolean",
+                    "required": false
+                },
+                {
+                    "id": "125a7192-4ccd-4cfc-b0af-41e8a65221ee",
+                    "name": "targetFolderType",
+                    "description": "ACS content type of the folder to be stored in ACS. E.g. 'fin:account'. By default, 'cm:folder'.",
+                    "type": "content-type"
+                },
+                {
+                    "id": "93eb2105-020b-4ec7-9f66-fbd4b6596d76",
+                    "name": "targetFolderMetadata",
+                    "description": "Metadata to be set to the folder in ACS. Metadata is a JSON object that contains key-value pairs, each of them holding a property name (e.g. 'cm:title') and a property value (e.g: 'Introduction to AWS')",
+                    "type": "content-metadata"
+                },
+                {
+                    "id": "5531214b-e86b-4d54-948e-56c2123f95f4",
+                    "name": "underscoreMetadata",
+                    "description": "If underscoreMetadata is true, the received prefixed properties names contain underscore (_) instead of colon (:) for separating the namespace prefix from the property name. E.g. 'cm_title' instead of 'cm:title'.",
+                    "type": "boolean",
+                    "required": false
+                }
+            ],
+            "outputs": [
+                {
+                    "id": "dc1a6f22-a6dc-496e-aab9-5941a2488aab",
+                    "name": "response",
+                    "description": "Response for the call",
+                    "type": "json",
+                    "required": true
+                },
+                {
+                    "id": "71ea7239-afb2-47ec-9a4b-cc3657f39a66",
+                    "name": "folder",
+                    "description": "Created folder in ACS",
+                    "type": "folder"
+                }
+            ]
+        },
+        "8f5f088f-8ded-410d-b22d-3009d7f43701": {
+            "id": "8f5f088f-8ded-410d-b22d-3009d7f43701",
+            "name": "CREATE_FILE",
+            "description": "Create a node",
+            "inputs": [
+                {
+                    "id": "eb66aac6-2082-4b1c-9621-f771e078b513",
+                    "name": "fileName",
+                    "description": "Name of the file to be created.",
+                    "type": "string",
+                    "required": true
+                },
+                {
+                    "id": "cc2dbadc-6fbb-436f-beae-13f697671996",
+                    "name": "targetFolder",
+                    "description": "Folder in which to store the result created. Folder variables are initialised by content actions or content events in triggers.",
+                    "type": "folder"
+                },
+                {
+                    "id": "9eaf8db0-ff2b-4b3a-ac81-43036ad2d519",
+                    "name": "targetFolderId",
+                    "description": "ACS node id of the folder to use to store the result created. E.g: '775a8f2d-8123-49a7-ae1f-f3f49d4eae20'",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "ef577661-41be-475f-991d-73a469c867cd",
+                    "name": "targetFolderPath",
+                    "description": "Path of the folder to use to store  the result created. E.g. '/User Homes/hruser'",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "0e474049-27a6-42da-9349-402925b89945",
+                    "name": "autorename",
+                    "description": "If true, then a name clash will cause an attempt to auto rename by finding a unique name using an integer suffix.",
+                    "type": "boolean",
+                    "required": false
+                },
+                {
+                    "id": "125a7192-4ccd-4cfc-b0af-41e8a65221ee",
+                    "name": "targetFileType",
+                    "description": "ACS content type of the file to be stored in ACS. E.g. 'fin:invoice'. By default, 'cm:content'",
+                    "type": "content-type"
+                },
+                {
+                    "id": "17d6239b-8b1a-44e5-81ec-229b2d5db826",
+                    "name": "targetFileMetadata",
+                    "description": "Metadata to be set to the file in ACS. Metadata is a JSON object that contains key-value pairs, each of them holding a property name (e.g. 'cm:title') and a property value (e.g: 'Introduction to AWS')",
+                    "type": "content-metadata"
+                },
+                {
+                    "id": "e7fbe46c-8d00-44d9-9c42-98c281e1c132",
+                    "name": "underscoreMetadata",
+                    "description": "If underscoreMetadata is true, the received prefixed properties names contain underscore (_) instead of colon (:) for separating the namespace prefix from the property name. E.g. 'cm_title' instead of 'cm:title'.",
+                    "type": "boolean",
+                    "required": false
+                }
+            ],
+            "outputs": [
+                {
+                    "id": "dc1a6f22-a6dc-496e-aab9-5941a2488aab",
+                    "name": "response",
+                    "description": "Response for the call",
+                    "type": "json",
+                    "required": true
+                },
+                {
+                    "id": "71ea7239-afb2-47ec-9a4b-cc3657f39a66",
+                    "name": "file",
+                    "description": "Created file in ACS",
+                    "type": "file"
+                }
+            ]
+        },
+        "a96a5e6a-54ad-493a-8812-cb44293b2e2c": {
+            "id": "a96a5e6a-54ad-493a-8812-cb44293b2e2c",
+            "name": "SELECT_FOLDER",
+            "description": "Select folder",
+            "inputs": [
+                {
+                    "id": "a73cdce8-463a-4140-948c-85ae085446f5",
+                    "name": "folder",
+                    "description": "ACS folder to be selected. Folder variables are initialised by content actions or content events in triggers.",
+                    "type": "folder"
+                },
+                {
+                    "id": "3696acdf-d8ac-46fe-907d-bc980e826689",
+                    "name": "path",
+                    "description": "Path of the folder in ACS. E.g: '/User Homes/hruser/invoices'",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "be4f4f09-ef53-4f93-bb4f-722e319ccbab",
+                    "name": "nodeId",
+                    "description": "Node ID of the file or folder in ACS. Example:\n'a6a977a6-c728-4038-8dbc-d914c4d8cfb3'",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "07104631-4e2d-4b77-b3c5-711655646ba3",
+                    "name": "searchQuery",
+                    "description": "Search query, in AFTS format, to find the resource. E.g 'cm:title:test'",
+                    "type": "string"
+                },
+                {
+                    "id": "cd77da4f-a253-478b-b8c9-8d785c386c67",
+                    "name": "searchMaxItems",
+                    "description": "Maximum number of items to be returned by the search query. By default, results are limited to 100.",
+                    "type": "integer",
+                    "required": false
+                },
+                {
+                    "id": "71d2468b-4291-43e9-b37c-c98197288b4d",
+                    "name": "searchSkipCount",
+                    "description": "Number of items to be skipped before returning the search result. By default, it is set to 0.",
+                    "type": "integer",
+                    "required": false
+                }
+            ],
+            "outputs": [
+                {
+                    "id": "2e847f38-0629-40f4-a10b-3d0e8cc48c7b",
+                    "name": "response",
+                    "description": "Response for the call",
+                    "type": "json",
+                    "required": true
+                },
+                {
+                    "id": "4da6433c-6625-40cc-b9e1-1824399be533",
+                    "name": "folder",
+                    "description": "Selected folder",
+                    "type": "folder"
+                }
+            ]
+        },
+        "b0aeddcf-4a62-40e1-b1f0-c9ce7db8148d": {
+            "id": "b0aeddcf-4a62-40e1-b1f0-c9ce7db8148d",
+            "name": "SELECT_FILE",
+            "description": "Select file",
+            "inputs": [
+                {
+                    "id": "10aa3c7d-bcb9-4318-9d4a-888a271203a0",
+                    "name": "file",
+                    "description": "ACS file to be selected. File variables are initialised by content actions or content events in triggers. E.g: 'Initialise a file variable by mapping it to the output of the generate document task.'",
+                    "type": "file"
+                },
+                {
+                    "id": "99ef7ad0-d162-4b16-b9f7-adc0eb7e6bee",
+                    "name": "path",
+                    "description": "Path of the file in ACS. E.g: '/User Homes/hruser/invoices'",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "4ff8ab3e-707c-4054-bf91-64a91644ac99",
+                    "name": "nodeId",
+                    "description": "Node ID of the file or folder in ACS. Example:\n'a6a977a6-c728-4038-8dbc-d914c4d8cfb3'",
+                    "type": "string"
+                },
+                {
+                    "id": "69b6c244-ffbb-4007-9e55-bbb0391ccb9b",
+                    "name": "searchQuery",
+                    "description": "Search query, in AFTS format, to find the resource. E.g 'cm:title:test'",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "cd77da4f-a253-478b-b8c9-8d785c386c67",
+                    "name": "searchMaxItems",
+                    "description": "Maximum number of items to be returned by the search query. By default, results are limited to 100.",
+                    "type": "integer",
+                    "required": false
+                },
+                {
+                    "id": "15bfc139-994d-4a51-a359-8efd548d7eef",
+                    "name": "searchSkipCount",
+                    "description": "Number of items to be skipped before returning the search result. By default, it is set to 0.",
+                    "type": "integer"
+                }
+            ],
+            "outputs": [
+                {
+                    "id": "4f369386-2d7d-437c-a3f1-9c1b95a4c6d7",
+                    "name": "response",
+                    "description": "Response for the call",
+                    "type": "json",
+                    "required": true
+                },
+                {
+                    "id": "f1b5025d-fee1-4d89-ab4e-e9e4de6f2145",
+                    "name": "file",
+                    "description": "Selected file",
+                    "type": "file"
+                }
+            ]
+        }
+    },
+    "errors": [
+        {
+          "name": "MISSING_INPUT",
+          "description": "A mandatory input variable was not provided",
+          "code": "MISSING_INPUT"
+        },
+        {
+          "name": "INVALID_INPUT",
+          "description": "The input variable has an invalid type",
+          "code": "INVALID_INPUT"
+        },
+        {
+          "name": "INVALID_RESULT_FORMAT",
+          "description": "The service result payload cannot be parsed",
+          "code": "INVALID_RESULT_FORMAT"
+        },
+        {
+          "name": "UNKNOWN_ERROR",
+          "description": "Unexpected runtime error",
+          "code": "UNKNOWN_ERROR"
+        },
+        {
+          "name": "BAD_REQUEST",
+          "description": "The server could not understand the request due to invalid syntax",
+          "code": "BAD_REQUEST"
+        },
+        {
+          "name": "UNAUTHORIZED",
+          "description": "The request has not been applied because it lacks valid authentication",
+          "code": "UNAUTHORIZED"
+        },
+        {
+          "name": "FORBIDDEN",
+          "description": "The server understood the request but refuses to authorize it",
+          "code": "FORBIDDEN"
+        },
+        {
+          "name": "NOT_FOUND",
+          "description": "The server could not find what was requested",
+          "code": "NOT_FOUND"
+        },
+        {
+          "name": "METHOD_NOT_ALLOWED",
+          "description": "The request method is known by the server but is not supported",
+          "code": "METHOD_NOT_ALLOWED"
+        },
+        {
+          "name": "NOT_ACCEPTABLE",
+          "description": "The server cannot produce a response matching the list of acceptable values",
+          "code": "NOT_ACCEPTABLE"
+        },
+        {
+          "name": "REQUEST_TIMEOUT",
+          "description": "The server would like to shut down this unused connection",
+          "code": "REQUEST_TIMEOUT"
+        },
+        {
+          "name": "CONFLICT",
+          "description": "The request conflicts with current state of the server",
+          "code": "CONFLICT"
+        },
+        {
+          "name": "GONE",
+          "description": "No longer available",
+          "code": "GONE"
+        },
+        {
+          "name": "UNPROCESSABLE_ENTITY",
+          "description": "The server understands the content type of the request entity, and the syntax of the request entity is correct, but it was unable to process the contained instructions",
+          "code": "UNPROCESSABLE_ENTITY"
+        },
+        {
+          "name": "LOCKED",
+          "description": "The resource that is being accessed is locked",
+          "code": "LOCKED"
+        },
+        {
+          "name": "FAILED_DEPENDENCY",
+          "description": "The request failed due to failure of a previous request",
+          "code": "FAILED_DEPENDENCY"
+        },
+        {
+          "name": "INTERNAL_SERVER_ERROR",
+          "description": "The server has encountered a situation it doesn't know how to handle",
+          "code": "INTERNAL_SERVER_ERROR"
+        },
+        {
+          "name": "NOT_IMPLEMENTED",
+          "description": "The request method is not supported by the server and cannot be handled",
+          "code": "NOT_IMPLEMENTED"
+        },
+        {
+          "name": "BAD_GATEWAY",
+          "description": "The server got an invalid response",
+          "code": "BAD_GATEWAY"
+        },
+        {
+          "name": "SERVICE_UNAVAILABLE",
+          "description": "The server is not ready to handle the request",
+          "code": "SERVICE_UNAVAILABLE"
+        },
+        {
+          "name": "GATEWAY_TIMEOUT",
+          "description": "The server is acting as a gateway and cannot get a response in time",
+          "code": "GATEWAY_TIMEOUT"
+        },
+        {
+          "name": "INVALID_SECURITY_MARK",
+          "description": "The security mark is not visible to the user or it doesn't exist",
+          "code": "INVALID_SECURITY_MARK"
+        }
+      ]
+}

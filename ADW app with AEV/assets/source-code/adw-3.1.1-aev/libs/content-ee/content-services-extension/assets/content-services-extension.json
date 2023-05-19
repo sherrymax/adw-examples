@@ -1,0 +1,240 @@
+{
+    "$version": "1.0.0",
+    "$id": "content-services.plugin",
+    "$name": "adf content services extension",
+    "$description": "adf content services plugin",
+    "$vendor": "Alfresco",
+    "$license": "Apache-2.0",
+    "settings": [
+        {
+            "id": "app.extensions.content-service.settings",
+            "name": "Extensions: Content Services",
+            "provider": "ECM",
+            "parameters": [
+                {
+                    "name": "Enable Content Services Extensions",
+                    "key": "contentServices",
+                    "type": "boolean",
+                    "value": false
+                }
+            ]
+        }
+    ],
+    "actions": [
+        {
+            "id": "app.action.info-drawer.execute",
+            "type": "MANAGE_MEMBERS",
+            "payload": "$(context.selection.library)"
+        },
+        {
+            "id": "app.action.add-user.execute",
+            "type": "ADD_MEMBER",
+            "payload": "$(context.selection.library)"
+        },
+        {
+            "id": "app.action.manage-members.execute",
+            "type": "MANAGE_MEMBERS",
+            "payload": "$(context.selection.library)"
+        }
+    ],
+    "rules": [
+        {
+            "id": "app.toolbar.showMemberManagement",
+            "type": "core.every",
+            "parameters": [
+                {
+                    "type": "rule",
+                    "value": "isLibraryManager"
+                },
+                {
+                    "type": "rule",
+                    "value": "!app.content-services.isMemberManagement"
+                }
+            ]
+        }
+    ],
+    "features": {
+        "navbar": [
+            {
+                "id": "app.navbar.primary",
+                "items": [
+                    {
+                        "id": "app.navbar.libraries.menu",
+                        "children": [
+                            {
+                                "id": "app.navbar.libraries.all-libraries",
+                                "title": "SIDEBAR.ALL_LIBRARIES",
+                                "description": "All Libraries",
+                                "order": 300,
+                                "route": "all/libraries",
+                                "rules": {
+                                    "visible": "app.content-services.isEnabled"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "contextMenu": [
+            {
+                "id": "app.context.menu.deleteLibrary",
+                "rules": {
+                    "visible": "app.selection.library"
+                }
+            },
+            {
+                "id": "app.context.members.add-user",
+                "order": 100,
+                "title": "ADD_MEMBER.TITLE",
+                "icon": "person_add",
+                "actions": {
+                    "click": "app.action.add-user.execute"
+                },
+                "rules": {
+                    "visible": "isLibraryManager"
+                }
+            },
+            {
+                "id": "app.context.menu.manage-members",
+                "order": 150,
+                "title": "MEMBER_MANAGER.TITLE",
+                "icon": "people_alt",
+                "actions": {
+                    "click": "app.action.manage-members.execute"
+                },
+                "rules": {
+                    "visible": "app.toolbar.showMemberManagement"
+                }
+            }
+        ],
+        "toolbar": [
+            {
+                "id": "app.toolbar.members.add-user",
+                "order": 100,
+                "title": "ADD_MEMBER.TITLE",
+                "icon": "person_add",
+                "actions": {
+                    "click": "app.action.add-user.execute"
+                },
+                "rules": {
+                    "visible": "isLibraryManager"
+                }
+            },
+            {
+                "id": "app.toolbar.members.manage-members",
+                "order": 200,
+                "title": "MEMBER_MANAGER.TITLE",
+                "icon": "people_alt",
+                "actions": {
+                    "click": "app.action.manage-members.execute"
+                },
+                "rules": {
+                    "visible": "app.toolbar.showMemberManagement"
+                }
+            },
+            {
+                "id": "app.libraries.toolbar.infoDrawer",
+                "type": "custom",
+                "order": 800,
+                "component": "app.toolbar.toggleInfoDrawer",
+                "rules": {
+                    "visible": "app.selection.library"
+                }
+            },
+            {
+                "id": "app.toolbar.more",
+                "children": [
+                    {
+                        "id": "app.toolbar.deleteLibrary",
+                        "rules": {
+                            "visible": "app.selection.library"
+                        }
+                    }
+                ]
+            }
+        ],
+        "sidebar": {
+            "toolbar": [
+                {
+                    "id": "app.sidebar.expand",
+                    "order": 100,
+                    "title": "Expand",
+                    "icon": "chevron_left",
+                    "rules": {
+                        "visible": "isLibraryManager"
+                    },
+                    "actions": {
+                        "click": "app.action.info-drawer.execute"
+                    }
+                },
+                {
+                    "id": "app.sidebar.expand-files",
+                    "order": 200,
+                    "title": "APP.INFO_DRAWER.TABS.EXPAND",
+                    "icon": "chevron_left",
+                    "actions": {
+                        "click": "EXPAND_INFO_DRAWER"
+                    },
+                    "rules": {
+                        "visible": "app.navigation.isNotLibraries"
+                    }
+                }
+            ],
+            "tabs": [
+                {
+                    "id": "app.sidebar.library.properties",
+                    "order": 500,
+                    "rules": {
+                        "visible": "app.selection.library"
+                    }
+                },
+                {
+                    "id": "app.sidebar.members",
+                    "order": 600,
+                    "title": "SIDEBAR.MEMBERS",
+                    "component": "content-services.components.members",
+                    "rules": {
+                        "visible": "app.selection.library"
+                    }
+                }
+            ]
+        },
+        "header": [
+            {
+                "id": "app.header.library-notifications",
+                "order": 50,
+                "type": "custom",
+                "component": "content-services.components.library-requests-notification",
+                "rules": {
+                    "visible": "app.content-services.isEnabled"
+                }
+            }
+        ]
+    },
+    "routes": [
+        {
+            "id": "app.route.all-libraries",
+            "parentRoute": "",
+            "path": "all/libraries",
+            "layout": "app.layout.main",
+            "component": "content-services.components.library-list",
+            "data": {
+                "sortingPreferenceKey": "all-libraries"
+            },
+            "auth": [
+                "content-services.auth"
+            ]
+        },
+        {
+            "id": "app.route.member-manager",
+            "parentRoute": "",
+            "path": ":siteId/members/libraries",
+            "layout": "app.layout.main",
+            "component": "content-services.components.member-manager",
+            "auth": [
+                "content-services.auth"
+            ]
+        }
+    ]
+}

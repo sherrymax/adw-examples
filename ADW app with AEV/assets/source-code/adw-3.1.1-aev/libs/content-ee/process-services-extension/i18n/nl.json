@@ -1,0 +1,100 @@
+{
+  "PROCESS-EXTENSION": {
+    "DIALOG": {
+      "NEW_PROCESS": "Nieuw proces",
+      "SELECT_APPLICATION": "Toepassing selecteren",
+      "ERROR": "U kunt geen proces starten omdat er geen procesdefinities beschikbaar zijn"
+    },
+    "BREADCRUMB": {
+      "ROOT": "Procesbeheer",
+      "PROCESS_LIST": {
+        "PROCESSES": "Processen"
+      },
+      "START_PROCESS": "Proces starten",
+      "ACTIONS": {
+        "INFO-TOOLTIP": "Gegevens weergeven"
+      }
+    },
+    "MENU": {
+      "PROCESS_MANAGEMENT": "Procesbeheer",
+      "CREATE_NEW_PROCESS": "Proces starten",
+      "CREATE_PROCESS_NOT_ALLOWED": "Nieuw proces kan niet worden gemaakt"
+    },
+    "PROCESS_SUBMENU": {
+      "MORE": "Meer weergeven"
+    },
+    "ERROR": {
+      "NO_FORM": "Voor de procesdefinitie is geen formulier gedefinieerd",
+      "NO_CONTENT": "Kan het bestand niet bijvoegen vanaf uw apparaat",
+      "CAN_NOT_ATTACH": "Kan de geselecteerde content niet bijvoegen",
+      "AUDIT_ERROR": "Taakfout weergeven: {{error}}",
+      "TASK_ACCESS_WARNING": "U hebt geen recht om de taak te wijzigen"
+    },
+    "SNACKBAR": {
+      "PROCESS-CREATED": "Proces gemaakt '{{ processName }}'",
+      "BACKEND_SERVICE_ERROR": "Er is een onbekende netwerkfout opgetreden. Aan de processervice gerelateerde functies zijn uitgeschakeld.",
+      "ACTION": "Actief proces weergeven"
+    },
+    "NO_PROCESS_DEFINITIONS": "Geen procesdefinities beschikbaar",
+    "SIDE_NAV_TITLE": "Procesbeheer",
+    "TASK_LIST": {
+      "TASKS": "Taken",
+      "ACTIONS": {
+        "TASK_DETAILS": "Weergeven"
+      }
+    },
+    "PROCESS_LIST": {
+      "ACTIONS": {
+        "PROCESS_DETAILS": "Weergeven"
+      }
+    },
+    "TASK_FORM": {
+      "FORM_SAVED": "Formulier is opgeslagen",
+      "FORM_COMPLETED": "De taak is voltooid",
+      "CLOSE_TOOLTIP": "Sluiten",
+      "CLAIM_TASK": "Taak is geclaimd",
+      "UNCLAIM_TASK": "Taak is vrijgegeven",
+      "CLAIM_FAILED": "Kan de actie niet uitvoeren"
+    },
+    "TASK_DETAILS": {
+      "ERROR": "Kan de actie niet uitvoeren",
+      "FAILED_TO_LOAD": "Kan taakgegevens niet laden, probeer het later opnieuw",
+      "UPDATED": "{{ property }} is bijgewerkt",
+      "FAILED_TO_UPDATE": "Kan {{ property }} niet bijwerken",
+      "METADATA_TOOLTIP": "Gegevens weergeven",
+      "NO_TASK_NAME": "Geen naam"
+    }
+  },
+  "SHARED": {
+    "PROCESSES_LIST": {
+      "NO_PROCESS_DEFINITIONS": "Geen procesdefinities beschikbaar"
+    }
+  },
+  "ADF_PROCESS_LIST": {
+    "PROPERTIES": {
+      "CREATED_BY": "Gestart door",
+      "CREATED": "Begindatum"
+    },
+    "START_PROCESS": {
+      "NO_PROCESS_DEFINITIONS": "U kunt geen proces starten omdat er geen procesdefinities beschikbaar zijn",
+      "NO_START_FORM": "Voor dit proces zijn geen extra configuraties nodig",
+      "NO_PROCESS_DEF_SELECTED": "Geen categorie/proces geselecteerd",
+      "FORM": {
+        "LABEL": {
+          "SELECT_APPLICATION": "Toepassing selecteren"
+        }
+      }
+    }
+  },
+  "ADF_TASK_LIST": {
+    "PROPERTIES": {
+      "CREATED": "Datum gemaakt"
+    },
+    "DETAILS": {
+      "BUTTON": {
+        "CLAIM": "Claimen",
+        "UNCLAIM": "Vrijgeven"
+      }
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+    "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+    "projectType": "library",
+    "sourceRoot": "libs/content-ee/shared/ui/src",
+    "prefix": "alfresco-dbp",
+    "targets": {
+        "lint": {
+            "executor": "@nrwl/linter:eslint",
+            "options": {
+                "lintFilePatterns": [
+                    "libs/content-ee/shared/ui/src/**/*.ts",
+                    "libs/content-ee/shared/ui/src/**/*.html"
+                ]
+            },
+            "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+            "executor": "@angular-devkit/build-angular:karma",
+            "options": {
+                "main": "libs/content-ee/shared/ui/src/test.ts",
+                "tsConfig": "libs/content-ee/shared/ui/tsconfig.spec.json",
+                "karmaConfig": "libs/content-ee/shared/ui/karma.conf.js"
+            },
+            "configurations": {
+                "adf": {
+                    "tsConfig": "libs/content-ee/shared/ui/tsconfig.spec.adf.json",
+                    "karmaConfig": "libs/content-ee/shared/ui/karma.conf.js",
+                    "progress": false,
+                    "codeCoverage": false
+                }
+            },
+            "outputs": ["coverage/libs/content-ee/shared/ui"]
+        }
+    },
+    "tags": ["scope:content-ee-shared-ui", "type:library"]
+}

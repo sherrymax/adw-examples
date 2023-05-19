@@ -1,0 +1,12 @@
+.adw-role-cell .adf-cell-value {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.adw-library-list-visibility-column {
+    text-transform: lowercase;
+}
+
+.adw-library-list-visibility-column .adf-datatable-cell-value::first-letter {
+    text-transform: uppercase;
+}

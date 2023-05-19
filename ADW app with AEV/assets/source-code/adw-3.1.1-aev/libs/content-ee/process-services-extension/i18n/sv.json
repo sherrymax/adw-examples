@@ -1,0 +1,100 @@
+{
+  "PROCESS-EXTENSION": {
+    "DIALOG": {
+      "NEW_PROCESS": "Ny process",
+      "SELECT_APPLICATION": "Välj program",
+      "ERROR": "Du kan inte starta en process eftersom inga processdefinitioner är tillgängliga"
+    },
+    "BREADCRUMB": {
+      "ROOT": "Processhantering",
+      "PROCESS_LIST": {
+        "PROCESSES": "Processer"
+      },
+      "START_PROCESS": "Starta process",
+      "ACTIONS": {
+        "INFO-TOOLTIP": "Visa detaljer"
+      }
+    },
+    "MENU": {
+      "PROCESS_MANAGEMENT": "Processhantering",
+      "CREATE_NEW_PROCESS": "Starta process",
+      "CREATE_PROCESS_NOT_ALLOWED": "Ny process kan inte skapas"
+    },
+    "PROCESS_SUBMENU": {
+      "MORE": "Visa mer"
+    },
+    "ERROR": {
+      "NO_FORM": "Processdefinitionen har inte ett definierat formulär",
+      "NO_CONTENT": "Kan inte bifoga filen från din enhet",
+      "CAN_NOT_ATTACH": "Kunde inte bifoga valt innehåll",
+      "AUDIT_ERROR": "Visa uppgiftsfel: {{error}}",
+      "TASK_ACCESS_WARNING": "Du har inte rätt att ändra uppgiften"
+    },
+    "SNACKBAR": {
+      "PROCESS-CREATED": "Process skapad '{{ processName }}'",
+      "BACKEND_SERVICE_ERROR": "Okänt nätverksfel inträffade. Funktioner relaterade till processtjänsten har avaktiverats.",
+      "ACTION": "Visa process som körs"
+    },
+    "NO_PROCESS_DEFINITIONS": "Inga processdefinitioner tillgängliga",
+    "SIDE_NAV_TITLE": "Processhantering",
+    "TASK_LIST": {
+      "TASKS": "Uppgifter",
+      "ACTIONS": {
+        "TASK_DETAILS": "Visa"
+      }
+    },
+    "PROCESS_LIST": {
+      "ACTIONS": {
+        "PROCESS_DETAILS": "Visa"
+      }
+    },
+    "TASK_FORM": {
+      "FORM_SAVED": "Formuläret sparades",
+      "FORM_COMPLETED": "Uppgiften har slutförts",
+      "CLOSE_TOOLTIP": "Stäng",
+      "CLAIM_TASK": "Uppgiften har accepterats",
+      "UNCLAIM_TASK": "Uppgiften har frigivits",
+      "CLAIM_FAILED": "Det gick inte att utföra åtgärden"
+    },
+    "TASK_DETAILS": {
+      "ERROR": "Det gick inte att utföra åtgärden",
+      "FAILED_TO_LOAD": "Det gick inte att läsa in uppgiftsinformation, försök igen om en stund",
+      "UPDATED": "Uppdaterade {{ property }} utan problem",
+      "FAILED_TO_UPDATE": "Det gick inte att uppdatera {{ property }}",
+      "METADATA_TOOLTIP": "Visa detaljer",
+      "NO_TASK_NAME": "Inget namn"
+    }
+  },
+  "SHARED": {
+    "PROCESSES_LIST": {
+      "NO_PROCESS_DEFINITIONS": "Inga processdefinitioner tillgängliga"
+    }
+  },
+  "ADF_PROCESS_LIST": {
+    "PROPERTIES": {
+      "CREATED_BY": "Startad av",
+      "CREATED": "Startdatum"
+    },
+    "START_PROCESS": {
+      "NO_PROCESS_DEFINITIONS": "Du kan inte starta en process eftersom inga processdefinitioner är tillgängliga",
+      "NO_START_FORM": "Den här processen kräver inte några ytterligare konfigurationer",
+      "NO_PROCESS_DEF_SELECTED": "Ingen kategori/process vald",
+      "FORM": {
+        "LABEL": {
+          "SELECT_APPLICATION": "Välj program"
+        }
+      }
+    }
+  },
+  "ADF_TASK_LIST": {
+    "PROPERTIES": {
+      "CREATED": "Skapad datum"
+    },
+    "DETAILS": {
+      "BUTTON": {
+        "CLAIM": "Anta",
+        "UNCLAIM": "Avsäga"
+      }
+    }
+  }
+}

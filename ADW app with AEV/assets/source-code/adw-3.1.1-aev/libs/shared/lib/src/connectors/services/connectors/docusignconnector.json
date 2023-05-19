@@ -1,0 +1,1136 @@
+{
+    "name": "docusignConnector",
+    "description": "DocuSign API connector",
+    "actions": {
+        "982dbece-3e00-49cd-a071-e1da4aa4d88c": {
+            "id": "982dbece-3e00-49cd-a071-e1da4aa4d88c",
+            "name": "SEND_FOR_SIGNATURE",
+            "description": "Send document for signature in DocuSign",
+            "inputs": [
+                {
+                    "id": "2603224e-7116-4734-8722-e3adf18e550b",
+                    "name": "signers",
+                    "description": "List of signers that shall sign the document.",
+                    "type": "array",
+                    "required": false,
+                    "model": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "recipientEmail": {
+                                    "description": "The email address of the recipient",
+                                    "type": "string"
+                                },
+                                "recipientName": {
+                                    "description": "The name of the recipient",
+                                    "type": "string"
+                                },
+                                "signHerePage": {
+                                    "description": "The page where the signature will be displayed",
+                                    "type": "integer",
+                                    "default": 1
+                                },
+                                "signHereX": {
+                                    "description": "The X coordinate in the page for the signature",
+                                    "type": "integer",
+                                    "default": 1
+                                },
+                                "signHereY": {
+                                    "description": "The Y coordinate in the page for the signature",
+                                    "type": "integer",
+                                    "default": 1
+                                },
+                                "signHereTabLabel": {
+                                    "description": "The label to display to the recipient in the signing area",
+                                    "type": "string",
+                                    "default": "Sign Here"
+                                }
+                            },
+                            "required": [
+                                "recipientEmail"
+                            ]
+                        }
+                    }
+                },
+                {
+                  "id": "be24ac53-4071-462d-ba63-d5fecc7f5c33",
+                  "name": "agents",
+                  "description": "List of agents on the document.",
+                  "type": "array",
+                  "required": false,
+                  "model": {
+                      "type": "array",
+                      "items": {
+                          "type": "object",
+                          "properties": {
+                              "recipientEmail": {
+                                  "description": "The email address of the recipient",
+                                  "type": "string"
+                              },
+                              "recipientName": {
+                                  "description": "The name of the recipient",
+                                  "type": "string"
+                              }
+                          },
+                          "required": [
+                              "recipientEmail"
+                          ]
+                        }
+                    }
+                },
+                {
+                  "id": "38a02499-120b-4a92-a2d6-9bbbe5ce2d36",
+                  "name": "carbonCopies",
+                  "description": "List of carbon copies on the document.",
+                  "type": "json",
+                  "required": false,
+                  "model": {
+                      "type": "array",
+                      "items": {
+                          "type": "object",
+                          "properties": {
+                              "recipientEmail": {
+                                  "description": "The email address of the recipient",
+                                  "type": "string"
+                              },
+                              "recipientName": {
+                                  "description": "The name of the recipient",
+                                  "type": "string"
+                              },
+                              "signHerePage": {
+                                  "description": "The page where the signature will be displayed",
+                                  "type": "integer",
+                                  "default": 1
+                              },
+                              "signHereX": {
+                                  "description": "The X coordinate in the page for the signature",
+                                  "type": "integer",
+                                  "default": 1
+                              },
+                              "signHereY": {
+                                  "description": "The Y coordinate in the page for the signature",
+                                  "type": "integer",
+                                  "default": 1
+                              },
+                              "signHereTabLabel": {
+                                  "description": "The label to display to the recipient in the signing area",
+                                  "type": "string",
+                                  "default": "Sign Here"
+                              }
+                          },
+                          "required": [
+                              "recipientEmail"
+                          ]
+                      }
+                  }
+                },
+                {
+                  "id": "093684b1-7d10-4584-b8c1-f3b204575077",
+                  "name": "certifiedDeliveries",
+                  "description": "List of certified deliveries on the document.",
+                  "type": "json",
+                  "required": false,
+                  "model": {
+                      "type": "array",
+                      "items": {
+                          "type": "object",
+                          "properties": {
+                              "recipientEmail": {
+                                  "description": "The email address of the recipient",
+                                  "type": "string"
+                              },
+                              "recipientName": {
+                                  "description": "The name of the recipient",
+                                  "type": "string"
+                              }
+                          },
+                          "required": [
+                              "recipientEmail"
+                          ]
+                      }
+                  }
+                },
+                {
+                  "id": "38a02499-120b-4a92-a2d6-9bbbe5ce2d36",
+                  "name": "editors",
+                  "description": "List of editors on the document.",
+                  "type": "json",
+                  "required": false,
+                  "model": {
+                      "type": "array",
+                      "items": {
+                          "type": "object",
+                          "properties": {
+                              "recipientEmail": {
+                                  "description": "The email address of the recipient",
+                                  "type": "string"
+                              },
+                              "recipientName": {
+                                  "description": "The name of the recipient",
+                                  "type": "string"
+                              }
+                          },
+                          "required": [
+                              "recipientEmail"
+                          ]
+                      }
+                  }
+                },
+                {
+                  "id": "2363c6d1-f6e2-408b-9954-c5006dcbabc2",
+                  "name": "inPersonSigners",
+                  "description": "List of in person signers on the document.",
+                  "type": "json",
+                  "required": false,
+                  "model": {
+                      "type": "array",
+                      "items": {
+                          "type": "object",
+                          "properties": {
+                              "recipientEmail": {
+                                  "description": "The email address of the recipient",
+                                  "type": "string"
+                              },
+                              "recipientName": {
+                                  "description": "The name of the recipient",
+                                  "type": "string"
+                              },
+                              "signHerePage": {
+                                  "description": "The page where the signature will be displayed",
+                                  "type": "integer",
+                                  "default": 1
+                              },
+                              "signHereX": {
+                                  "description": "The X coordinate in the page for the signature",
+                                  "type": "integer",
+                                  "default": 1
+                              },
+                              "signHereY": {
+                                  "description": "The Y coordinate in the page for the signature",
+                                  "type": "integer",
+                                  "default": 1
+                              },
+                              "signHereTabLabel": {
+                                  "description": "The label to display to the recipient in the signing area",
+                                  "type": "string",
+                                  "default": "Sign Here"
+                              }
+                          },
+                          "required": [
+                              "recipientEmail"
+                          ]
+                      }
+                  }
+                },
+                {
+                  "id": "623ed9b2-706a-47ae-83c3-58205a054b37",
+                  "name": "intermediaries",
+                  "description": "List of intermediaries on the document.",
+                  "type": "json",
+                  "required": false,
+                  "model": {
+                      "type": "array",
+                      "items": {
+                          "type": "object",
+                          "properties": {
+                              "recipientEmail": {
+                                  "description": "The email address of the recipient",
+                                  "type": "string"
+                              },
+                              "recipientName": {
+                                  "description": "The name of the recipient",
+                                  "type": "string"
+                              }
+                          },
+                          "required": [
+                              "recipientEmail"
+                          ]
+                      }
+                  }
+                },
+                {
+                  "id": "cff4b53e-acb1-4038-9df7-ae8f520259a0",
+                  "name": "notaries",
+                  "description": "List of notaries on the document.",
+                  "type": "json",
+                  "required": false,
+                  "model": {
+                      "type": "array",
+                      "items": {
+                          "type": "object",
+                          "properties": {
+                              "recipientEmail": {
+                                  "description": "The email address of the recipient",
+                                  "type": "string"
+                              },
+                              "recipientName": {
+                                  "description": "The name of the recipient",
+                                  "type": "string"
+                              },
+                              "signHerePage": {
+                                  "description": "The page where the signature will be displayed",
+                                  "type": "integer",
+                                  "default": 1
+                              },
+                              "signHereX": {
+                                  "description": "The X coordinate in the page for the signature",
+                                  "type": "integer",
+                                  "default": 1
+                              },
+                              "signHereY": {
+                                  "description": "The Y coordinate in the page for the signature",
+                                  "type": "integer",
+                                  "default": 1
+                              },
+                              "signHereTabLabel": {
+                                  "description": "The label to display to the recipient in the signing area",
+                                  "type": "string",
+                                  "default": "Sign Here"
+                              }
+                          },
+                          "required": [
+                              "recipientEmail"
+                          ]
+                      }
+                  }
+                },
+                {
+                  "id": "a986c2ca-59f8-4944-a99a-c2bee6f8c3df",
+                  "name": "witnesses",
+                  "description": "List of witnesses on the document.",
+                  "type": "json",
+                  "required": false,
+                  "model": {
+                      "type": "array",
+                      "items": {
+                          "type": "object",
+                          "properties": {
+                              "recipientEmail": {
+                                  "description": "The email address of the recipient",
+                                  "type": "string"
+                              },
+                              "recipientName": {
+                                  "description": "The name of the recipient",
+                                  "type": "string"
+                              },
+                              "signHerePage": {
+                                  "description": "The page where the signature will be displayed",
+                                  "type": "integer",
+                                  "default": 1
+                              },
+                              "signHereX": {
+                                  "description": "The X coordinate in the page for the signature",
+                                  "type": "integer",
+                                  "default": 1
+                              },
+                              "signHereY": {
+                                  "description": "The Y coordinate in the page for the signature",
+                                  "type": "integer",
+                                  "default": 1
+                              },
+                              "signHereTabLabel": {
+                                  "description": "The label to display to the recipient in the signing area",
+                                  "type": "string",
+                                  "default": "Sign Here"
+                              }
+                          },
+                          "required": [
+                              "recipientEmail"
+                          ]
+                      }
+                  }
+                },
+                {
+                    "id": "5479d730-68b5-4579-b826-986f1fa567a9",
+                    "name": "outputFileName",
+                    "description": "Name of the file to be created. E.g: 'invoice.pdf'",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "664031c3-f1ad-4f03-a603-3a062d5f342c",
+                    "name": "nodeFormat",
+                    "description": "Format of the document to be signed. Allowed values are 'docx' or 'pdf'.",
+                    "type": "enum",
+                    "required": false,
+                    "model": {
+                        "enum": [
+                            "docx",
+                            "pdf"
+                        ],
+                        "title": "nodeFormat",
+                        "description": "Node document format for DocuSign API"
+                    }
+                },
+                {
+                    "id": "b3838243-2984-4a47-9b57-b31782f4bc4b",
+                    "name": "recipientEmail",
+                    "description": "Email address of the person that shall sign the document. E.g. 'jon.doe@alfresco.com'",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "0b15a750-0b83-4993-987b-cbed7ee7d5e8",
+                    "name": "recipientName",
+                    "description": "Name of the person that shall sign the document. E.g. 'Jon Doe'",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "2b3ce501-e177-4e5c-9636-e32fe830ba20",
+                    "name": "signHerePage",
+                    "description": "Page in the document on which the signature shall be placed. E.g 12",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "867c439d-a308-4ea2-9164-6a920f3f5b6c",
+                    "name": "signHereX",
+                    "description": "Horizontal position in the document on which the signature shall be placed. E.g. '200'.",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "b170a6fa-7816-4ed3-ae25-029723c41712",
+                    "name": "signHereY",
+                    "description": "Vertical position in the document on which the signature shall be placed. E.g. '400'.",
+                    "type": "string"
+                },
+                {
+                    "id": "c8d8bf9e-4061-4e1a-8af0-31632384f6f1",
+                    "name": "emailSubject",
+                    "description": "Subject of the email that Docusign sends to the person that shall sign the document",
+                    "type": "string"
+                },
+                {
+                    "id": "05d05b06-7752-47f3-8e49-f13578ecb826",
+                    "name": "documentId",
+                    "description": "Correlation ID of the Docusign document. E.g. 200",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "345674d4-d3a8-48c0-be25-a755814a9bda",
+                    "name": "file",
+                    "description": "ACS file to be signed. File variables are initialised by content actions or content events in triggers. E.g: 'Initialise a file variable by mapping it to the output of the generate document task.'",
+                    "type": "file",
+                    "required": true
+                },
+                {
+                    "id": "966d944c-b326-4c79-acb5-f02bd0e1acbc",
+                    "name": "timeout",
+                    "description": "Timeout (seconds) to wait for the document to be signed. E.g: 910000",
+                    "type": "integer"
+                },
+                {
+                    "id": "e0372b59-d251-4426-972d-a9c70dcb8fd1",
+                    "name": "allowMarkup",
+                    "description": "Allow recipients to make changes (markup) to your documents by covering up existing text and adding new text. Recipients can choose to use a special markup text field, which they can place anywhere on the documents, scale it and, if desired, fill it in. All changes must be reviewed and approved by all signers.",
+                    "type": "boolean"
+                }
+            ],
+            "outputs": [
+                {
+                    "id": "34369a03-a75d-4783-9ce6-ca3b0ce702df",
+                    "name": "envelopeId",
+                    "description": "Envelope ID of the document",
+                    "type": "string"
+                },
+                {
+                    "id": "b4abd46c-3b0b-45d5-8cb7-7dbe0608d290",
+                    "name": "status",
+                    "description": "Status related to the envelope",
+                    "type": "string"
+                },
+                {
+                    "id": "fe47d47f-5517-4759-9a0b-25d119ceed03",
+                    "name": "uri",
+                    "description": "URI related to the envelope",
+                    "type": "string"
+                },
+                {
+                    "id": "d6b45196-826f-495c-811d-63aaecd59987",
+                    "name": "docusignOutput",
+                    "description": "DocuSign output after sending document for signature",
+                    "type": "json"
+                }
+            ]
+        },
+        "86bcc8da-8240-48ab-b2ad-b9a79940b077": {
+            "id": "86bcc8da-8240-48ab-b2ad-b9a79940b077",
+            "name": "DOWNLOAD_DOCUMENT",
+            "description": "Download envelope from DocuSign",
+            "inputs": [
+                {
+                    "id": "f4ce4b3e-e170-46e0-969f-0e71b79cb989",
+                    "name": "envelopeId",
+                    "description": "UUID of the Docusign envelope.",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "1f7af1a3-ca69-4524-a5aa-7c9f66865253",
+                    "name": "outputFileName",
+                    "description": "Name of the file to be created. E.g: 'invoice.pdf'",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "bedbede5-9a28-4519-aec7-f08c070600c6",
+                    "name": "targetFileType",
+                    "description": "Node type for the result",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "86f818ae-7e37-442e-a497-edbf296e6d49",
+                    "name": "targetFolder",
+                    "description": "Parent Folder in which the document will be stored (the service task folder will be used by default)",
+                    "type": "folder",
+                    "required": false
+                },
+                {
+                    "id": "7dd774ed-6d7c-418d-bfc5-bf805fdb749b",
+                    "name": "targetFolderId",
+                    "description": "Node Id of the parent folder in which the document will be stored (the service task folder will be used by default)",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "a95b3b7e-e9c9-4890-9e24-bc39504fcf3f",
+                    "name": "targetFolderPath",
+                    "description": "Location path or relative path of the parent folder in which the document will be stored (the service task folder will be used by default)",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "d018003f-9d9d-4ff0-8da1-fbb2cfebad1e",
+                    "name": "targetFile",
+                    "description": "The node id to save the document in ACS",
+                    "type": "file"
+                },
+                {
+                    "id": "e4014c49-a999-409a-9101-74f88037ebf3",
+                    "name": "targetFileMetadata",
+                    "description": "Metadata to assign to the result node in ACS",
+                    "type": "content-metadata"
+                },
+                {
+                    "id": "55c72d96-20a8-4a8f-aa01-60888b43b307",
+                    "name": "underscoreMetadata",
+                    "description": "If underscoreMetadata is true, the received prefixed properties names contain underscore (_) instead of colon (:) for separating the namespace prefix from the property name.",
+                    "type": "boolean"
+                }
+            ],
+            "outputs": [
+                {
+                    "id": "02f6c26c-dd6d-4cee-824a-69039b0da4b6",
+                    "name": "file",
+                    "description": "The document stored in ACS",
+                    "type": "file"
+                }
+            ]
+        }
+    },
+    "events": {
+        "866dea16-8421-4304-a91f-f6f8fff8616a": {
+            "id": "866dea16-8421-4304-a91f-f6f8fff8616a",
+            "name": "ENVELOPE_VOIDED",
+            "description": "Event that is dispatched when a envelope is voided",
+            "inputs": [
+                {
+                    "id": "18eaa2b5-bc37-42ac-afb5-1ed491526fa3",
+                    "name": "condition",
+                    "description": "Expression that shall be true in order to trigger an action. Event and payload can be used in variables.",
+                    "type": "predicate",
+                    "required": false
+                }
+            ],
+            "outputs": [
+                {
+                    "id": "43e65b27-5bfb-416a-80f6-a4265f805146",
+                    "name": "envelopeId",
+                    "description": "Envelope ID",
+                    "type": "string"
+                },
+                {
+                    "id": "19cd385c-33a1-4605-b8bc-245dd336a0cd",
+                    "name": "documents",
+                    "description": "Documents related to the envelope and data related to them like uri, id, etc.",
+                    "type": "array"
+                }
+            ],
+            "model": {
+                "$schema": "https://json-schema.org/draft/2019-09/schema",
+                "$defs": {
+                    "Document": {
+                        "type": "object",
+                        "properties": {
+                            "documentId": {
+                                "type": "string"
+                            },
+                            "documentIdGuid": {
+                                "type": "string"
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "type": {
+                                "type": "string"
+                            },
+                            "uri": {
+                                "type": "string"
+                            },
+                            "order": {
+                                "type": "string"
+                            },
+                            "pages": {
+                                "type": "array"
+                            },
+                            "display": {
+                                "type": "string"
+                            },
+                            "includeInDownload": {
+                                "type": "boolean"
+                            },
+                            "signerMustAcknowledge": {
+                                "type": "string"
+                            },
+                            "templateRequired": {
+                                "type": "boolean"
+                            },
+                            "authoritativeCopy": {
+                                "type": "boolean"
+                            }
+                        }
+                    }
+                },
+                "type": "object",
+                "properties": {
+                    "envelopeId": {
+                        "type": "string"
+                    },
+                    "documents": {
+                        "type": "array",
+                        "items": {
+                            "ref": "#/$defs/Document"
+                        }
+                    }
+                },
+                "required": [
+                    "envelopeId"
+                ]
+            }
+        },
+        "225e43c7-278c-4d71-8665-e8a3f886681c": {
+            "id": "225e43c7-278c-4d71-8665-e8a3f886681c",
+            "name": "ENVELOPE_DECLINED",
+            "description": "Event that is dispatched when a envelope is declined",
+            "inputs": [
+                {
+                    "id": "b2beb91c-dd22-4afc-a865-dc91df93c717",
+                    "name": "condition",
+                    "description": "Expression that shall be true in order to trigger an action. Event and payload can be used in variables.",
+                    "type": "predicate",
+                    "required": false
+                }
+            ],
+            "outputs": [
+                {
+                    "id": "30969acb-7668-40ff-acd3-750ed24a02e1",
+                    "name": "envelopeId",
+                    "description": "Envelope ID",
+                    "type": "string"
+                },
+                {
+                    "id": "eef0f3c7-180a-426c-af7f-8cb4ed880a79",
+                    "name": "documents",
+                    "description": "Documents related to the envelope and data related to them like uri, id, etc.",
+                    "type": "array"
+                }
+            ],
+            "model": {
+                "$schema": "https://json-schema.org/draft/2019-09/schema",
+                "$defs": {
+                    "Document": {
+                        "type": "object",
+                        "properties": {
+                            "documentId": {
+                                "type": "string"
+                            },
+                            "documentIdGuid": {
+                                "type": "string"
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "type": {
+                                "type": "string"
+                            },
+                            "uri": {
+                                "type": "string"
+                            },
+                            "order": {
+                                "type": "string"
+                            },
+                            "pages": {
+                                "type": "array"
+                            },
+                            "display": {
+                                "type": "string"
+                            },
+                            "includeInDownload": {
+                                "type": "boolean"
+                            },
+                            "signerMustAcknowledge": {
+                                "type": "string"
+                            },
+                            "templateRequired": {
+                                "type": "boolean"
+                            },
+                            "authoritativeCopy": {
+                                "type": "boolean"
+                            }
+                        }
+                    }
+                },
+                "type": "object",
+                "properties": {
+                    "envelopeId": {
+                        "type": "string"
+                    },
+                    "documents": {
+                        "type": "array",
+                        "items": {
+                            "ref": "#/$defs/Document"
+                        }
+                    }
+                },
+                "required": [
+                    "envelopeId"
+                ]
+            }
+        },
+        "29d70965-8c29-4006-990a-658848a8ca64": {
+            "id": "29d70965-8c29-4006-990a-658848a8ca64",
+            "name": "ENVELOPE_COMPLETED",
+            "description": "Event that is dispatched when a envelope is completed",
+            "inputs": [
+                {
+                    "id": "bf3f403d-5b04-4b55-98a3-c9506221b79a",
+                    "name": "condition",
+                    "description": "Expression that shall be true in order to trigger an action. Event and payload can be used in variables.",
+                    "type": "predicate",
+                    "required": false
+                }
+            ],
+            "outputs": [
+                {
+                    "id": "b9229d31-b26a-4e46-ad65-0e580a039781",
+                    "name": "envelopeId",
+                    "description": "Envelope ID",
+                    "type": "string"
+                },
+                {
+                    "id": "7dc37514-f472-4cd6-9687-7a64eeb415f4",
+                    "name": "documents",
+                    "description": "Documents related to the envelope and data related to them like uri, id, etc.",
+                    "type": "array"
+                }
+            ],
+            "model": {
+                "$schema": "https://json-schema.org/draft/2019-09/schema",
+                "$defs": {
+                    "Document": {
+                        "type": "object",
+                        "properties": {
+                            "documentId": {
+                                "type": "string"
+                            },
+                            "documentIdGuid": {
+                                "type": "string"
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "type": {
+                                "type": "string"
+                            },
+                            "uri": {
+                                "type": "string"
+                            },
+                            "order": {
+                                "type": "string"
+                            },
+                            "pages": {
+                                "type": "array"
+                            },
+                            "display": {
+                                "type": "string"
+                            },
+                            "includeInDownload": {
+                                "type": "boolean"
+                            },
+                            "signerMustAcknowledge": {
+                                "type": "string"
+                            },
+                            "templateRequired": {
+                                "type": "boolean"
+                            },
+                            "authoritativeCopy": {
+                                "type": "boolean"
+                            }
+                        }
+                    }
+                },
+                "type": "object",
+                "properties": {
+                    "envelopeId": {
+                        "type": "string"
+                    },
+                    "documents": {
+                        "type": "array",
+                        "items": {
+                            "ref": "#/$defs/Document"
+                        }
+                    }
+                },
+                "required": [
+                    "envelopeId"
+                ]
+            }
+        },
+        "c4a6ee5e-8a85-4881-975d-3d9826a2b93a": {
+            "id": "c4a6ee5e-8a85-4881-975d-3d9826a2b93a",
+            "name": "ENVELOPE_DELIVERED",
+            "description": "Event that is dispatched when a envelope is delivered",
+            "inputs": [
+                {
+                    "id": "7618a378-5669-4e6c-9f3b-40337245c011",
+                    "name": "condition",
+                    "description": "Expression that shall be true in order to trigger an action. Event and payload can be used in variables.",
+                    "type": "predicate",
+                    "required": false
+                }
+            ],
+            "outputs": [
+                {
+                    "id": "f326ca97-ec93-4798-bff9-e719d1f3034b",
+                    "name": "envelopeId",
+                    "description": "Envelope ID",
+                    "type": "string"
+                },
+                {
+                    "id": "b3a466d8-6d39-49fc-abff-f1aed0b6dd49",
+                    "name": "documents",
+                    "description": "Documents related to the envelope and data related to them like uri, id, etc.",
+                    "type": "array"
+                }
+            ],
+            "model": {
+                "$schema": "https://json-schema.org/draft/2019-09/schema",
+                "$defs": {
+                    "Document": {
+                        "type": "object",
+                        "properties": {
+                            "documentId": {
+                                "type": "string"
+                            },
+                            "documentIdGuid": {
+                                "type": "string"
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "type": {
+                                "type": "string"
+                            },
+                            "uri": {
+                                "type": "string"
+                            },
+                            "order": {
+                                "type": "string"
+                            },
+                            "pages": {
+                                "type": "array"
+                            },
+                            "display": {
+                                "type": "string"
+                            },
+                            "includeInDownload": {
+                                "type": "boolean"
+                            },
+                            "signerMustAcknowledge": {
+                                "type": "string"
+                            },
+                            "templateRequired": {
+                                "type": "boolean"
+                            },
+                            "authoritativeCopy": {
+                                "type": "boolean"
+                            }
+                        }
+                    }
+                },
+                "type": "object",
+                "properties": {
+                    "envelopeId": {
+                        "type": "string"
+                    },
+                    "documents": {
+                        "type": "array",
+                        "items": {
+                            "ref": "#/$defs/Document"
+                        }
+                    }
+                },
+                "required": [
+                    "envelopeId"
+                ]
+            }
+        },
+        "e9c30cf0-2c56-4271-8974-711d5778747b": {
+            "id": "e9c30cf0-2c56-4271-8974-711d5778747b",
+            "name": "ENVELOPE_SENT",
+            "description": "Event that is dispatched when a envelope is sent",
+            "inputs": [
+                {
+                    "id": "9959abcc-98cb-48e9-b3e4-fccf0d7d90d6",
+                    "name": "condition",
+                    "description": "Expression that shall be true in order to trigger an action. Event and payload can be used in variables.",
+                    "type": "predicate",
+                    "required": false
+                }
+            ],
+            "outputs": [
+                {
+                    "id": "f426f110-4119-4341-ae87-74b5e7f169db",
+                    "name": "envelopeId",
+                    "description": "Envelope ID",
+                    "type": "string"
+                },
+                {
+                    "id": "bf4e6d80-4079-49a2-98b4-12622375845f",
+                    "name": "documents",
+                    "description": "Documents related to the envelope and data related to them like uri, id, etc.",
+                    "type": "array"
+                }
+            ],
+            "model": {
+                "$schema": "https://json-schema.org/draft/2019-09/schema",
+                "$defs": {
+                    "Document": {
+                        "type": "object",
+                        "properties": {
+                            "documentId": {
+                                "type": "string"
+                            },
+                            "documentIdGuid": {
+                                "type": "string"
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "type": {
+                                "type": "string"
+                            },
+                            "uri": {
+                                "type": "string"
+                            },
+                            "order": {
+                                "type": "string"
+                            },
+                            "pages": {
+                                "type": "array"
+                            },
+                            "display": {
+                                "type": "string"
+                            },
+                            "includeInDownload": {
+                                "type": "boolean"
+                            },
+                            "signerMustAcknowledge": {
+                                "type": "string"
+                            },
+                            "templateRequired": {
+                                "type": "boolean"
+                            },
+                            "authoritativeCopy": {
+                                "type": "boolean"
+                            }
+                        }
+                    }
+                },
+                "type": "object",
+                "properties": {
+                    "envelopeId": {
+                        "type": "string"
+                    },
+                    "documents": {
+                        "type": "array",
+                        "items": {
+                            "ref": "#/$defs/Document"
+                        }
+                    }
+                },
+                "required": [
+                    "envelopeId"
+                ]
+            }
+        }
+    },
+    "errors": [
+        {
+            "name": "MISSING_INPUT",
+            "description": "A mandatory input variable was not provided",
+            "code": "MISSING_INPUT"
+        },
+        {
+            "name": "INVALID_INPUT",
+            "description": "The input variable has an invalid type",
+            "code": "INVALID_INPUT"
+        },
+        {
+            "name": "UNKNOWN_ERROR",
+            "description": "Unexpected runtime error",
+            "code": "UNKNOWN_ERROR"
+        },
+        {
+            "name": "MISSING_SOURCE_FILE",
+            "description": "Input file not found",
+            "code": "MISSING_SOURCE_FILE"
+        },
+        {
+            "name": "MISSING_TARGET_FILE",
+            "description": "Target file and folder not found",
+            "code": "MISSING_TARGET_FILE"
+        },
+        {
+            "name": "SIGNING_TIMEOUT",
+            "description": "Signing document timeout",
+            "code": "SIGNING_TIMEOUT"
+        },
+        {
+            "name": "STATUS_NOT_FOUND",
+            "description": "Error polling DocuSign for status",
+            "code": "STATUS_NOT_FOUND"
+        },
+        {
+            "name": "MISSING_TOKEN",
+            "description": "Could not update or obtain token",
+            "code": "MISSING_TOKEN"
+        },
+        {
+            "name": "ERROR_READING_FILE",
+            "description": "Error reading input file",
+            "code": "ERROR_READING_FILE"
+        },
+        {
+            "name": "ENVELOPE_NOT_CREATED",
+            "description": "Could not create envelope in DocuSign",
+            "code": "ENVELOPE_NOT_CREATED"
+        },
+        {
+            "name": "ERROR_WRITING_FILE",
+            "description": "Could not create or write result node",
+            "code": "ERROR_WRITING_FILE"
+        },
+        {
+            "name": "ERROR_RETRIEVING_FILE",
+            "description": "Could not retrieve document from DocuSign",
+            "code": "ERROR_RETRIEVING_FILE"
+        }
+    ],
+    "config": [
+        {
+            "name": "DOCUSIGN_APILOCATION",
+            "description": "The DocuSign REST API location",
+            "value": "",
+            "required": true,
+            "secure": true
+        },
+        {
+            "name": "DOCUSIGN_ACCOUNT_ID",
+            "description": "The DocuSign account ID under which the app operates",
+            "value": "",
+            "required": true,
+            "secure": true
+        },
+        {
+            "name": "DOCUSIGN_CLIENT_ID",
+            "description": "The App Integration Key from DocuSign (Admin > API & Keys)",
+            "value": "",
+            "required": true,
+            "secure": true
+        },
+        {
+            "name": "DOCUSIGN_IMPERSONATED_USER_ID",
+            "description": "The DocuSign User GUID whom the app impersonates (Admin > Users)",
+            "value": "",
+            "required": true
+        },
+        {
+            "name": "DOCUSIGN_AUTH_SERVER",
+            "description": "The DocuSign OAuth server location, exp: account-d.docusign.com",
+            "value": "account-d.docusign.com",
+            "required": true,
+            "secure": true
+        },
+        {
+            "name": "DOCUSIGN_JWT_LIFETIME",
+            "description": "DocuSign JWT token lifetime",
+            "value": "3600",
+            "required": true
+        },
+        {
+            "name": "DOCUSIGN_RSA_KEY",
+            "description": "Private RSA key of the DocuSign App for JWT authentication",
+            "value": "",
+            "required": true,
+            "secure": true
+        },
+        {
+            "name": "DOCUSIGN_DEFAULT_EMAIL_SUBJECT",
+            "description": "Default email subject (of email that DocuSign sends to signer)",
+            "value": "Please sign this document",
+            "required": true
+        },
+        {
+            "name": "DOCUSIGN_DEFAULT_SIGNHERE_LABEL",
+            "description": "DocuSign Sign Here box - an invisible tab label",
+            "value": "SignHereTab",
+            "required": true
+        },
+        {
+            "name": "DOCUSIGN_DEFAULT_SIGNHERE_PAGE",
+            "description": "Default page in document where DocuSign Sign Here box should go",
+            "value": "1",
+            "required": true
+        },
+        {
+            "name": "DOCUSIGN_DEFAULT_SIGNHERE_POSX",
+            "description": "Default X position in page for Sign Here",
+            "value": "1",
+            "required": true
+        },
+        {
+            "name": "DOCUSIGN_DEFAULT_SIGNHERE_POSY",
+            "description": "Default Y position in page for Sign Here",
+            "value": "1",
+            "required": true
+        },
+        {
+            "name": "DOCUSIGN_DEFAULT_TIMEOUT",
+            "description": "Timeout (seconds) for polling waits the document to be signed",
+            "value": "3600",
+            "required": true
+        },
+        {
+            "name": "DOCUSIGN_POLL_SLEEP",
+            "description": "Time between polling (milliseconds)",
+            "value": "60000",
+            "required": true
+        }
+    ]
+}

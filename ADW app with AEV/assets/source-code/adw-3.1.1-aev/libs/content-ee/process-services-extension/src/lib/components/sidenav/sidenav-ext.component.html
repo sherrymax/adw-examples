@@ -1,0 +1,79 @@
+<ng-container *ngIf="isExpanded(); else iconMenu">
+    <mat-accordion>
+        <mat-expansion-panel id="processmanagement"
+            [expanded]="processManagementExpanded$ | async"
+            (expandedChange)="toggleProcessManagement($event)"
+        >
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    <div class="item">
+                        <button
+                            mat-button
+                            class="action-button full-width"
+                            [class.action-button--active]="currentFilter"
+                            [attr.data-automation-id]="
+                                'aps-process-management-button'
+                            "
+                        >
+                            <adf-icon
+                                value="adf:ic-process"
+                                class="aps-filters-icon"
+                            ></adf-icon>
+                            <span class="action-button__label">{{
+                                'PROCESS-EXTENSION.SIDE_NAV_TITLE' | translate
+                            }}</span>
+                        </button>
+                    </div>
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div *ngIf="processManagementExpanded$ | async">
+                <div class="item aps-filters-title aps-filters-icon">
+                    <adf-icon [value]="'adf:dynamic-feed'"></adf-icon>
+                    <span>{{
+                        'PROCESS-EXTENSION.TASK_LIST.TASKS' | translate
+                    }}</span>
+                </div>
+                <aps-task-filters-ext *ngIf="currentFilter"
+                    [currentFilter]="currentFilter"
+                    (filterSelected)="taskFilterSelected($event)"
+                >
+                </aps-task-filters-ext>
+
+                <div class="item aps-filters-title aps-filters-icon">
+                    <adf-icon value="adf:ic-process"></adf-icon>
+                    <span>{{
+                        'PROCESS-EXTENSION.BREADCRUMB.PROCESS_LIST.PROCESSES'
+                            | translate
+                        }}</span>
+                </div>
+                <aps-process-filters-ext *ngIf="currentFilter"
+                    [currentFilter]="currentFilter"
+                    (filterSelected)="processFilterSelected($event)"
+                >
+                </aps-process-filters-ext>
+            </div>
+        </mat-expansion-panel>
+    </mat-accordion>
+</ng-container>
+
+<ng-template #iconMenu>
+    <button [matMenuTriggerFor]="menu" class="action-button" mat-icon-button>
+        <adf-icon
+            value="adf:ic-process"
+            class="aps-filters-icon"
+        ></adf-icon>
+    </button>
+
+    <mat-menu #menu="matMenu" [overlapTrigger]="false">
+        <aps-task-filters-ext
+            [currentFilter]="currentFilter"
+            (filterSelected)="taskFilterSelected($event)"
+        >
+        </aps-task-filters-ext>
+        <aps-process-filters-ext
+            [currentFilter]="currentFilter"
+            (filterSelected)="processFilterSelected($event)"
+        >
+        </aps-process-filters-ext>
+    </mat-menu>
+</ng-template>

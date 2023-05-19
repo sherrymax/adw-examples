@@ -1,0 +1,30 @@
+<mat-list>
+    <ng-container *ngIf="hasProcessDefinitions(); else noProcessDefinitions">
+        <mat-list-item
+            matRipple
+            [matRippleCentered]="true"
+            *ngFor="let processDef of getQuickStartProcessDefinitions()"
+            (click)="onProcessDefinitionClick(processDef)"
+        >
+            <mat-icon mat-list-icon>assessment</mat-icon>
+            <span mat-line>{{ processDef.name }}</span>
+        </mat-list-item>
+        <mat-list-item
+            *ngIf="canShowMore()"
+            [attr.data-automation-id]="'quick-start-more-item'"
+            matRipple
+            [matRippleCentered]="true"
+            (click)="onMoreClick()"
+        >
+            <mat-icon mat-list-icon>more_horiz</mat-icon>
+            <span mat-line>
+                {{ 'PROCESS-EXTENSION.PROCESS_SUBMENU.MORE' | translate }}
+            </span>
+        </mat-list-item>
+    </ng-container>
+    <ng-template #noProcessDefinitions>
+        <mat-list-item [attr.data-automation-id]="'no-process-definitions'">
+            {{ 'PROCESS-EXTENSION.NO_PROCESS_DEFINITIONS' | translate }}
+        </mat-list-item>
+    </ng-template>
+</mat-list>

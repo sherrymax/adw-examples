@@ -1,0 +1,55 @@
+{
+    "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+    "projectType": "library",
+    "sourceRoot": "libs/content-ee/content-services-extension/src",
+    "prefix": "acs",
+    "targets": {
+        "test": {
+            "executor": "@angular-devkit/build-angular:karma",
+            "options": {
+                "main": "libs/content-ee/content-services-extension/src/test.ts",
+                "tsConfig": "libs/content-ee/content-services-extension/tsconfig.spec.json",
+                "karmaConfig": "libs/content-ee/content-services-extension/karma.conf.js"
+            },
+            "configurations": {
+                "adf": {
+                    "tsConfig": "libs/content-ee/content-services-extension/tsconfig.spec.adf.json",
+                    "karmaConfig": "libs/content-ee/content-services-extension/karma.conf.js",
+                    "progress": false,
+                    "codeCoverage": false
+                }
+            },
+            "outputs": ["coverage/libs/content-ee/content-services-extension"]
+        },
+        "lint": {
+            "executor": "@nrwl/linter:eslint",
+            "options": {
+                "lintFilePatterns": [
+                    "libs/content-ee/content-services-extension/src/**/*.ts",
+                    "libs/content-ee/content-services-extension/src/**/*.html"
+                ]
+            },
+            "outputs": ["{options.outputFile}"]
+        },
+        "stylelint": {
+            "executor": "nx-stylelint:lint",
+            "options": {
+                "config": "libs/content-ee/content-services-extension/.stylelintrc.json",
+                "lintFilePatterns": [
+                    "libs/content-ee/content-services-extension/**/*.scss"
+                ]
+            }
+        },
+        "cspell": {
+            "executor": "@alfresco-dbp/monorepo/builders:cspell"
+        },
+        "language-check": {
+            "executor": "@alfresco-dbp/monorepo/builders:language-check"
+        }
+    },
+    "tags": [
+        "scope:content-ee-content-services-extension",
+        "type:feature",
+        "category:content-ee-apa"
+    ]
+}

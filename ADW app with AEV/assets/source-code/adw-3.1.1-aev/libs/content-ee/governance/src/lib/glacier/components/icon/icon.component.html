@@ -1,0 +1,33 @@
+<ng-container *ngIf="isStoredNode()">
+    <mat-icon
+        data-automation-id="aga-store-icon"
+        matTooltip="{{
+            'GOVERNANCE.GLACIER.ICONS-TOOLTIP-MESSAGE.STORE' | translate
+        }}"
+        [svgIcon]="'store'"
+    >
+    </mat-icon>
+</ng-container>
+
+<ng-container *ngIf="isPendingRestoreNode()">
+    <mat-icon
+        data-automation-id="aga-pending-store-icon"
+        matTooltip="{{
+            'GOVERNANCE.GLACIER.ICONS-TOOLTIP-MESSAGE.PENDING-RESTORE'
+                | translate
+        }}"
+    >
+        autorenew
+    </mat-icon>
+</ng-container>
+
+<ng-container *ngIf="isRestoredNode()">
+    <mat-icon
+        data-automation-id="aga-restore-icon"
+        matTooltip="{{
+            'GOVERNANCE.GLACIER.ICONS-TOOLTIP-MESSAGE.RESTORED' | translate
+        }}"
+        [svgIcon]="'restore'"
+    >
+    </mat-icon>
+</ng-container>

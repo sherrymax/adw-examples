@@ -1,0 +1,66 @@
+.adw-group-info-table {
+    margin-top: 10px;
+    height: 210px;
+    border: 1px solid var(--theme-border-color);
+
+    .adw-group-info-table-header,
+    .adw-group-info-table-row {
+        .mat-list-item-content {
+            display: flex;
+            width: 100%;
+            flex-flow: wrap;
+            ;
+        }
+
+        .adw-group-info-table-group-cell {
+            flex: 0 0 60%;
+            font-size: var(--theme-body-1-font-size);
+        }
+
+        .adw-group-info-table-role-cell {
+            flex: 0 0 40%;
+            font-size: var(--theme-body-1-font-size);
+        }
+
+        .mat-form-field {
+            font-size: var(--theme-body-1-font-size);
+
+            .mat-select-value {
+                color: var(--theme-text-bold-color);
+            }
+
+            .mat-select-arrow-wrapper {
+                visibility: hidden;
+            }
+
+            .mat-form-field-underline {
+                display: none;
+            }
+        }
+    }
+
+    .adw-group-info-table-row.mat-list-item {
+        height: 30px;
+    }
+
+    .aca-scrollable-group-list {
+        height: 170px;
+        overflow-y: scroll;
+    }
+
+    .adw-group-info-table-header {
+        margin-top: -10px;
+
+        .adw-group-info-table-group-cell,
+        .adw-group-info-table-role-cell {
+            color: var(--theme-text-color);
+        }
+    }
+
+    .aca-loading-spinner {
+        margin-top: 20px;
+        display: flex;
+        width: 100%;
+        justify-content: center;
+    }
+}

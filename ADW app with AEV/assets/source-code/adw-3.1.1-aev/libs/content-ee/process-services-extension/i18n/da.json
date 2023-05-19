@@ -1,0 +1,100 @@
+{
+  "PROCESS-EXTENSION": {
+    "DIALOG": {
+      "NEW_PROCESS": "Ny proces",
+      "SELECT_APPLICATION": "Vælg applikation",
+      "ERROR": "Du kan ikke starte en proces, da der ikke er nogen tilgængelige procesdefinitioner"
+    },
+    "BREADCRUMB": {
+      "ROOT": "Processtyring",
+      "PROCESS_LIST": {
+        "PROCESSES": "Processer"
+      },
+      "START_PROCESS": "Start proces",
+      "ACTIONS": {
+        "INFO-TOOLTIP": "Vis detaljer"
+      }
+    },
+    "MENU": {
+      "PROCESS_MANAGEMENT": "Processtyring",
+      "CREATE_NEW_PROCESS": "Start proces",
+      "CREATE_PROCESS_NOT_ALLOWED": "Ny proces kan ikke oprettes"
+    },
+    "PROCESS_SUBMENU": {
+      "MORE": "Vis flere"
+    },
+    "ERROR": {
+      "NO_FORM": "Procesdefinition har ikke en defineret form",
+      "NO_CONTENT": "Kan ikke vedhæfte filen fra din enhed",
+      "CAN_NOT_ATTACH": "Ikke i stand til at vedhæfte det valgte indhold",
+      "AUDIT_ERROR": "Se opgavefejl: {{error}}",
+      "TASK_ACCESS_WARNING": "Du kan ikke redigere i opgaven"
+    },
+    "SNACKBAR": {
+      "PROCESS-CREATED": "Proces oprettet'{{ processName }}'",
+      "BACKEND_SERVICE_ERROR": "Ukendt opstået netværksfejl. Servicerelateret procesfunktion er deaktiveret.",
+      "ACTION": "Se kørselsproces"
+    },
+    "NO_PROCESS_DEFINITIONS": "Ingen proces definitioner tilgængelig",
+    "SIDE_NAV_TITLE": "Processtyring",
+    "TASK_LIST": {
+      "TASKS": "Opgaver",
+      "ACTIONS": {
+        "TASK_DETAILS": "Vis"
+      }
+    },
+    "PROCESS_LIST": {
+      "ACTIONS": {
+        "PROCESS_DETAILS": "Vis"
+      }
+    },
+    "TASK_FORM": {
+      "FORM_SAVED": "Formularen er gemt",
+      "FORM_COMPLETED": "Opgaven er gennemført",
+      "CLOSE_TOOLTIP": "Luk",
+      "CLAIM_TASK": "Der er gjort krav på opgave",
+      "UNCLAIM_TASK": "Opgaven er frigivet",
+      "CLAIM_FAILED": "Ikke i stand til at udføre handlingen"
+    },
+    "TASK_DETAILS": {
+      "ERROR": "Ikke i stand til at udføre handlingen",
+      "FAILED_TO_LOAD": "Kunne ikke indlæse opgavedetaljer, prøv efter noget tid",
+      "UPDATED": "{{ property }} opdateret",
+      "FAILED_TO_UPDATE": "Kunne ikke opdatere {{ property }}",
+      "METADATA_TOOLTIP": "Vis detaljer",
+      "NO_TASK_NAME": "Intet navn"
+    }
+  },
+  "SHARED": {
+    "PROCESSES_LIST": {
+      "NO_PROCESS_DEFINITIONS": "Ingen proces definitioner tilgængelig"
+    }
+  },
+  "ADF_PROCESS_LIST": {
+    "PROPERTIES": {
+      "CREATED_BY": "Startet af",
+      "CREATED": "Startdato"
+    },
+    "START_PROCESS": {
+      "NO_PROCESS_DEFINITIONS": "Du kan ikke starte en proces, da der ikke er nogen tilgængelige procesdefinitioner",
+      "NO_START_FORM": "Denne proces kræver ikke yderligere konfigurationer",
+      "NO_PROCESS_DEF_SELECTED": "Ingen kategori/proces valgt",
+      "FORM": {
+        "LABEL": {
+          "SELECT_APPLICATION": "Vælg applikation"
+        }
+      }
+    }
+  },
+  "ADF_TASK_LIST": {
+    "PROPERTIES": {
+      "CREATED": "Oprettelsesdato"
+    },
+    "DETAILS": {
+      "BUTTON": {
+        "CLAIM": "Gør krav på",
+        "UNCLAIM": "Frigiv"
+      }
+    }
+  }
+}

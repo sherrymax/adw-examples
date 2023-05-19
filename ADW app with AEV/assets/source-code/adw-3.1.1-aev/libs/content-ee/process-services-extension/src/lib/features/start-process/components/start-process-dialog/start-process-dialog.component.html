@@ -1,0 +1,50 @@
+<div class="aca-start-process-dialog-header">
+    <span class="aca-start-process-dialog-header-title">
+      {{ 'PROCESS-EXTENSION.DIALOG.NEW_PROCESS' | translate }}
+    </span>
+
+    <button
+      mat-icon-button
+      matDialogClose
+      aria-label="close dialog"
+    >
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+
+<div
+  *ngIf="!showLoadingProcessesError"
+  class="aca-start-process-dialog-application-selector"
+>
+  <mat-form-field>
+    <mat-label>{{ 'PROCESS-EXTENSION.DIALOG.SELECT_APPLICATION' | translate }}</mat-label>
+    <mat-select
+      [formControl]="selectApplicationControl"
+      [compareWith]="selectApplicationComparator"
+      data-automation-id="aca-start-process-dialog-application-selector-id"
+    >
+      <mat-option
+        *ngFor="let application of applications$ | async"
+        [value]="application"
+      >
+        {{application.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<div
+  *ngIf="showLoadingProcessesError"
+  class="aca-loading-processes-error"
+>
+  {{'PROCESS-EXTENSION.DIALOG.ERROR' | translate}}
+</div>
+
+<ng-container *ngIf="!showLoadingProcessesError">
+  <process-list-by-category
+    [processes]="allProcesses$ | async"
+    [showLoadingSpinner]="loadingProcesses"
+    (selectProcess)="onSelectProcess($event)"
+  ></process-list-by-category>
+</ng-container>
+

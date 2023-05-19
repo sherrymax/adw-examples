@@ -1,0 +1,100 @@
+{
+  "PROCESS-EXTENSION": {
+    "DIALOG": {
+      "NEW_PROCESS": "Nowy proces",
+      "SELECT_APPLICATION": "Wybierz aplikację",
+      "ERROR": "Nie można rozpocząć procesu, ponieważ brak dostępnych definicji procesu."
+    },
+    "BREADCRUMB": {
+      "ROOT": "Zarządzanie procesami",
+      "PROCESS_LIST": {
+        "PROCESSES": "Procesy"
+      },
+      "START_PROCESS": "Rozpocznij proces",
+      "ACTIONS": {
+        "INFO-TOOLTIP": "Wyświetl szczegóły"
+      }
+    },
+    "MENU": {
+      "PROCESS_MANAGEMENT": "Zarządzanie procesami",
+      "CREATE_NEW_PROCESS": "Rozpocznij proces",
+      "CREATE_PROCESS_NOT_ALLOWED": "Nie można utworzyć nowego procesu"
+    },
+    "PROCESS_SUBMENU": {
+      "MORE": "Pokaż więcej"
+    },
+    "ERROR": {
+      "NO_FORM": "Definicja procesu nie zawiera zdefiniowanego formularza",
+      "NO_CONTENT": "Nie można dołączyć pliku z urządzenia",
+      "CAN_NOT_ATTACH": "Nie można dołączyć wybranego dokumentu",
+      "AUDIT_ERROR": "Wyświetl błąd zadania: {{error}}",
+      "TASK_ACCESS_WARNING": "Nie masz uprawnień do modyfikacji tego zadania"
+    },
+    "SNACKBAR": {
+      "PROCESS-CREATED": "Utworzono proces „{{ processName }}”",
+      "BACKEND_SERVICE_ERROR": "Wystąpił nieznany błąd sieci. Funkcje usługi przetwarzania są wyłączone.",
+      "ACTION": "Wyświetl uruchomiony proces"
+    },
+    "NO_PROCESS_DEFINITIONS": "Brak definicji procesu",
+    "SIDE_NAV_TITLE": "Zarządzanie procesami",
+    "TASK_LIST": {
+      "TASKS": "Zadania",
+      "ACTIONS": {
+        "TASK_DETAILS": "Widok"
+      }
+    },
+    "PROCESS_LIST": {
+      "ACTIONS": {
+        "PROCESS_DETAILS": "Widok"
+      }
+    },
+    "TASK_FORM": {
+      "FORM_SAVED": "Formularz został zapisany pomyślnie",
+      "FORM_COMPLETED": "Zadanie zostało ukończone",
+      "CLOSE_TOOLTIP": "Zamknij",
+      "CLAIM_TASK": "Zadanie zostało przejęte",
+      "UNCLAIM_TASK": "Zadanie zostało zwolnione",
+      "CLAIM_FAILED": "Nie można wykonać czynności"
+    },
+    "TASK_DETAILS": {
+      "ERROR": "Nie można wykonać czynności",
+      "FAILED_TO_LOAD": "Nie udało się wczytać szczegółów zadania. Spróbuj ponownie później",
+      "UPDATED": "Właściwość {{ property }} została zaktualizowana pomyślnie",
+      "FAILED_TO_UPDATE": "Nie udało się zaktualizować właściwości {{ property }}",
+      "METADATA_TOOLTIP": "Wyświetl szczegóły",
+      "NO_TASK_NAME": "Bez nazwy"
+    }
+  },
+  "SHARED": {
+    "PROCESSES_LIST": {
+      "NO_PROCESS_DEFINITIONS": "Brak definicji procesu"
+    }
+  },
+  "ADF_PROCESS_LIST": {
+    "PROPERTIES": {
+      "CREATED_BY": "Uruchomione przez",
+      "CREATED": "Data rozpoczęcia"
+    },
+    "START_PROCESS": {
+      "NO_PROCESS_DEFINITIONS": "Nie można rozpocząć procesu, ponieważ brak dostępnych definicji procesu.",
+      "NO_START_FORM": "Proces nie wymaga żadnych dodatkowych konfiguracji",
+      "NO_PROCESS_DEF_SELECTED": "Nie wybrano kategorii/procesu",
+      "FORM": {
+        "LABEL": {
+          "SELECT_APPLICATION": "Wybierz aplikację"
+        }
+      }
+    }
+  },
+  "ADF_TASK_LIST": {
+    "PROPERTIES": {
+      "CREATED": "Data utworzenia"
+    },
+    "DETAILS": {
+      "BUTTON": {
+        "CLAIM": "Przejmij",
+        "UNCLAIM": "Zwolnij"
+      }
+    }
+  }
+}

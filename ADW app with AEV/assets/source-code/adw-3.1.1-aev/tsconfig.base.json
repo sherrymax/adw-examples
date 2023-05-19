@@ -1,0 +1,169 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "downlevelIteration": true,
+    "outDir": "./dist/out-tsc",
+    "importHelpers": true,
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "skipLibCheck": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": false,
+    "noImplicitReturns": true,
+    "target": "es2015",
+    "allowSyntheticDefaultImports": true,
+    "typeRoots": [
+      "node_modules/@types",
+      "node_modules/commander/typings/index.d.ts"
+    ],
+    "types": [
+      "jasmine",
+      "jest",
+      "node",
+      "jasminewd2",
+      "@playwright/test"
+    ],
+    "lib": [
+      "es2018",
+      "dom",
+      "DOM.Iterable",
+      "esnext.array",
+      "esnext.string",
+      "es2019"
+    ],
+    "inlineSources": true,
+    "module": "esnext",
+    "allowJs": true,
+    "baseUrl": "./",
+    "paths": {
+      "@alfresco-dbp/content-ce/about": [
+        "apps/content-ce/projects/aca-about/src/public-api"
+      ],
+      "@alfresco-dbp/content-ce/office-services": [
+        "apps/content-ce/projects/adf-office-services-ext/src/public-api"
+      ],
+      "@alfresco-dbp/content-ce/settings": [
+        "apps/content-ce/projects/aca-settings/src/public-api"
+      ],
+      "@alfresco-dbp/content-ce/shared": [
+        "apps/content-ce/projects/aca-shared/src/public-api"
+      ],
+      "@alfresco-dbp/content-ce/shared/rules": [
+        "apps/content-ce/projects/aca-shared/rules/src/public-api"
+      ],
+      "@alfresco-dbp/content-ce/shared/store": [
+        "apps/content-ce/projects/aca-shared/store/src/public-api"
+      ],
+      "@alfresco-dbp/content-ce/testing": [
+        "apps/content-ce/projects/aca-testing-shared/src/index"
+      ],
+      "@alfresco-dbp/content-ee/adf-ai-extension": [
+        "libs/content-ee/adf-ai-extension/src/public-api"
+      ],
+      "@alfresco-dbp/content-ee/adf-content-services-extension": [
+        "libs/content-ee/content-services-extension/src/public-api"
+      ],
+      "@alfresco-dbp/content-ee/adf-governance": [
+        "libs/content-ee/governance/src/public-api"
+      ],
+      "@alfresco-dbp/content-ee/adf-process-services-cloud-extension": [
+        "libs/content-ee/process-services-cloud-extension/src/public-api"
+      ],
+      "@alfresco-dbp/content-ee/adf-process-services-extension": [
+        "libs/content-ee/process-services-extension/src/public-api"
+      ],
+      "@alfresco-dbp/content-ee/custom-modeled-extension": [
+        "libs/content-ee/custom-modeled-extension/src/public-api"
+      ],
+      "@alfresco-dbp/content-ee/extensions-order-extension": [
+        "libs/content-ee/extensions-order-extension/src/public-api"
+      ],
+      "@alfresco-dbp/content-ee/microsoft-office-online-integration-extension": [
+        "libs/content-ee/microsoft-office-online-integration-extension/src/public-api"
+      ],
+      "@alfresco-dbp/content-ee/shared/playwright": [
+        "libs/content-ee/shared/playwright/src/index.ts"
+      ],
+      "@alfresco-dbp/content-ee/shared/playwright/*": [
+        "libs/content-ee/shared/playwright/src/*"
+      ],
+      "@alfresco-dbp/content-ee/shared/testing": [
+        "libs/content-ee/shared/testing/src/index.ts"
+      ],
+      "@alfresco-dbp/content-ee/shared/ui": [
+        "libs/content-ee/shared/ui/src/index.ts"
+      ],
+      "@alfresco-dbp/shared-authentication-services": [
+        "libs/shared/authentication/services/src/index.ts"
+      ],
+      "@alfresco-dbp/shared-authentication-smart": [
+        "libs/shared/authentication/smart/src/index.ts"
+      ],
+      "@alfresco-dbp/shared-lib": [
+        "libs/shared/lib/src/public-api"
+      ],
+      "@alfresco-dbp/shared-playwright": [
+        "libs/shared/playwright/src/index.ts"
+      ],
+      "@alfresco-dbp/shared-playwright/*": [
+        "libs/shared/playwright/src/*"
+      ],
+      "@alfresco-dbp/shared-testing": [
+        "libs/shared/testing/src/index.ts"
+      ],
+      "@alfresco-dbp/shared-testing/*": [
+        "libs/shared/testing/src/*"
+      ],
+      "@alfresco-dbp/shared/form-rules": [
+        "libs/shared/form-rules/src/index.ts"
+      ],
+      "@alfresco-dbp/tools/shared": [
+        "tools/shared/index.ts"
+      ],
+      "@alfresco-dbp/tools/shared/*": [
+        "tools/shared/*"
+      ],
+      "@alfresco/aca-about": [
+        "apps/content-ce/projects/aca-about/src/public-api"
+      ],
+      "@alfresco/aca-folder-rules": [
+        "apps/content-ce/projects/aca-folder-rules/src/public-api"
+      ],
+      "@alfresco/aca-settings": [
+        "apps/content-ce/projects/aca-settings/src/public-api"
+      ],
+      "@alfresco/aca-shared": [
+        "apps/content-ce/projects/aca-shared/src/public-api"
+      ],
+      "@alfresco/aca-shared/rules": [
+        "apps/content-ce/projects/aca-shared/rules/src/public-api"
+      ],
+      "@alfresco/aca-shared/store": [
+        "apps/content-ce/projects/aca-shared/store/src/public-api"
+      ],
+      "@alfresco/aca-testing-shared": [
+        "apps/content-ce/projects/aca-testing-shared/src/index"
+      ],
+      "@alfresco/adf-office-services-ext": [
+        "apps/content-ce/projects/adf-office-services-ext/src/public-api"
+      ],
+      "angular.json": [
+        "./angular.json"
+      ],
+      "package.json": [
+        "./package.json"
+      ]
+    }
+  },
+  "exclude": [
+    "node_modules"
+  ],
+  "angularCompilerOptions": {
+    "preserveWhitespaces": false,
+    "strictTemplates": true
+  }
+}

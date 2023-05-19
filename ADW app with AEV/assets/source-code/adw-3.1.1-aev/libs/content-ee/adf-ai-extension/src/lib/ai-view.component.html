@@ -1,0 +1,121 @@
+<div
+    class="adf-ai-image-container"
+    [ngStyle]="{ transform: transform }"
+    data-automation-id="adf-ai-image-container"
+>
+    <div class="adf-ai-image-wrapper" id="adf-ai-image-wrapper">
+        <img
+            class="adf-ai-image-viewer"
+            id="adf-ai-viewer-image"
+            [src]="url"
+            [ngStyle]="{ cursor: isDragged ? 'move' : 'default' }"
+        />
+        <div id="adf-ai-image-boxes-wrapper"></div>
+        <div *ngIf="loading" class="adf-ai-loading-wrapper">
+            <mat-spinner class="adf-ai-loading"></mat-spinner>
+        </div>
+    </div>
+</div>
+
+<div class="adf-image-viewer__toolbar" *ngIf="showToolbar">
+    <adf-toolbar>
+        <button
+            mat-button
+            [matMenuTriggerFor]="confidenceMenu"
+            [ngClass]="{ disabled: !selectedEngine }"
+        >
+            {{ 'AI-VIEW.CONFIDENCE' | translate }} | {{ confidence }}
+        </button>
+        <mat-menu #confidenceMenu="matMenu">
+            <mat-slider
+                class="adf-ai-slider-confidence"
+                thumbLabel
+                [(ngModel)]="confidence"
+                min="0"
+                max="100"
+                step="0.5"
+                (change)="aiLoad()"
+            ></mat-slider>
+        </mat-menu>
+
+        <button mat-button [matMenuTriggerFor]="aiMenu">{{ 'AI-VIEW.AI' | translate }}</button>
+        <mat-menu #aiMenu="matMenu">
+            <button
+                id="viewer-textract-button"
+                mat-menu-item
+                title="{{ 'AI-VIEW.TEXT_EXTRACT' | translate }}"
+                attr.aria-label="{{ 'AI-VIEW.TEXT_EXTRACT' | translate }}"
+                (click)="aiTextractClick()"
+            >
+                {{ 'AI-VIEW.TEXT_EXTRACT' | translate }}
+            </button>
+
+            <button
+                id="viewer-labels-button"
+                mat-menu-item
+                title="{{ 'AI-VIEW.AI_RECOGNITION' | translate }}"
+                attr.aria-label="{{ 'AI-VIEW.AI_RECOGNITION' | translate }}"
+                (click)="aiRekognitionClick()"
+            >
+                {{ 'AI-VIEW.AI_RECOGNITION' | translate }}
+            </button>
+        </mat-menu>
+
+        <button
+            id="viewer-zoom-in-button"
+            mat-icon-button
+            title="{{ 'ADF_VIEWER.ARIA.ZOOM_IN' | translate }}"
+            attr.aria-label="{{ 'ADF_VIEWER.ARIA.ZOOM_IN' | translate }}"
+            (click)="zoomIn()"
+        >
+            <mat-icon>zoom_in</mat-icon>
+        </button>
+
+        <button
+            id="viewer-zoom-out-button"
+            title="{{ 'ADF_VIEWER.ARIA.ZOOM_OUT' | translate }}"
+            attr.aria-label="{{ 'ADF_VIEWER.ARIA.ZOOM_OUT' | translate }}"
+            mat-icon-button
+            (click)="zoomOut()"
+        >
+            <mat-icon>zoom_out</mat-icon>
+        </button>
+
+        <div
+            class="adf-viewer__toolbar-page-scale"
+            data-automation-id="adf-page-scale"
+        >
+            {{ currentScaleText }}
+        </div>
+
+        <button
+            id="viewer-rotate-left-button"
+            title="{{ 'AI-VIEW.ROTATE_LEFT' | translate }}"
+            attr.aria-label="{{ 'AI-VIEW.ROTATE_LEFT' | translate }}"
+            mat-icon-button
+            (click)="rotateLeft()"
+        >
+            <mat-icon>rotate_left</mat-icon>
+        </button>
+
+        <button
+            id="viewer-rotate-right-button"
+            title="{{ 'AI-VIEW.ROTATE_RIGHT' | translate }}"
+            attr.aria-label="{{ 'AI-VIEW.ROTATE_RIGHT' | translate }}"
+            mat-icon-button
+            (click)="rotateRight()"
+        >
+            <mat-icon>rotate_right</mat-icon>
+        </button>
+
+        <button
+            id="viewer-reset-button"
+            title="{{ 'ADF_VIEWER.ARIA.RESET' | translate }}"
+            attr.aria-label="{{ 'ADF_VIEWER.ARIA.RESET' | translate }}"
+            mat-icon-button
+            (click)="reset()"
+        >
+            <mat-icon>zoom_out_map</mat-icon>
+        </button>
+    </adf-toolbar>
+</div>

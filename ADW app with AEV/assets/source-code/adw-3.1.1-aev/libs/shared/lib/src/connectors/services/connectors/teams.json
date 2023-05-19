@@ -1,0 +1,132 @@
+{
+    "name": "teamsConnector",
+    "description": "The following functions can be associated to a service task and use the MS Teams to execute actions with Microsoft Teams.",
+    "actions": {
+      "e1b77f15-5819-4973-bb05-6ddc0e791289": {
+        "id": "e1b77f15-5819-4973-bb05-6ddc0e791289",
+        "name": "CREATE_CHANNEL",
+        "description": "Creates a new public channel within a Team",
+        "inputs": [{
+          "id": "50324596-3b23-4fb2-ad37-8f7e911e3a7c",
+          "name": "teamId",
+          "description": "Identifier of the Team in which the channel will be created",
+          "type": "string",
+          "required": true
+        }, {
+          "id": "19155011-015c-431a-baf4-16cb22ed9281",
+          "name": "channelName",
+          "description": "Name of the channel",
+          "type": "string",
+          "required": true
+        }, {
+          "id": "bdfaf89a-0647-43ca-8bed-687d50776bfe",
+          "name": "channelDescription",
+          "description": "Description of the channel",
+          "type": "string",
+          "required": false
+        }, {
+          "id": "04cd3ff3-1973-4bc9-a6d1-48dd232a4e8d",
+          "name": "channelType",
+          "description": "Type of the channel",
+          "type": "string",
+          "required": true
+        }],
+        "outputs": [{
+          "id": "e524e268-2157-4dfc-b68d-6bdd3796f6db",
+          "name": "channelId",
+          "description": "Identifier of the channel created",
+          "type": "string"
+        }, {
+          "id": "04837739-e9dc-474f-bbc6-23da66886470",
+          "name": "result",
+          "description": "Array of JSON objects returned by MS Teams Graph API containing the  following properties: 'displayName' (The name of the channel), 'description' (The description of the channel)",
+          "type": "json"
+        }]
+      },
+      "5dd965a6-65e2-4572-95dd-81e21bdf64f3": {
+        "id": "5dd965a6-65e2-4572-95dd-81e21bdf64f3",
+        "name": "GET_TEAMS",
+        "description": "Retrieves all teams of the organisation that are visible to the application",
+        "inputs": [{
+          "id": "359bc230-5703-4080-8e24-0bce44abb685",
+          "name": "teamName",
+          "description": "Name of the team. If provided, the result will contain only the team that matches the name,",
+          "type": "string"
+        }],
+        "outputs": [{
+          "id": "5b48f27f-7cfc-412a-9a27-907a6daa39d5",
+          "name": "result",
+          "description": "Array of JSON objects returned by MS Teams Graph API containing the  following properties: 'id' (The identifier of the team), 'displayName' (The name of the team)",
+          "type": "json"
+        }]
+      },
+      "57ac0223-75fe-4208-9b8b-9cc7a9bbe520": {
+        "id": "57ac0223-75fe-4208-9b8b-9cc7a9bbe520",
+        "name": "GET_CHANNELS",
+        "description": "Retrieves all existing channels from a specific team.",
+        "inputs": [{
+          "id": "1cc1dad2-9c73-496f-96ec-51c3a23fc5dd",
+          "name": "teamId",
+          "description": "Identifier of the team from which channels are retrieved",
+          "type": "string",
+          "required": true
+        }, {
+          "id": "a94167fa-d993-413d-8fdc-6a667a3afe29",
+          "name": "channelName",
+          "description": "Name of the channel. If provided, the result will contain only the channel that matches the name,",
+          "type": "string",
+          "required": false
+        }],
+        "outputs": [{
+          "id": "5b48f27f-7cfc-412a-9a27-907a6daa39d5",
+          "name": "result",
+          "description": "Array of JSON objects returned by MS Teams Graph API containing the  following properties: 'id' (The identifier of the channel), 'displayName' (The name of the channel) and 'membershipType' (The membershipType of the channel)",
+          "type": "json"
+        }]
+      }
+    },
+    "errors": [{
+      "name": "MISSING_INPUT",
+      "code": "MISSING_INPUT",
+      "description": "A mandatory input was not provided"
+    }, {
+      "name": "INVALID_INPUT",
+      "code": "INVALID_INPUT",
+      "description": "An input provided is invalid (e.g. It has a wrong type)"
+    }, {
+      "name": "INVALID_REQUEST",
+      "code": "INVALID_REQUEST",
+      "description": "An invalid request is received"
+    }, {
+      "name": "UNKNOWN_ERROR",
+      "code": "UNKNOWN_ERROR",
+      "description": "An unexpected error occurred during the execution of the action."
+    }],
+    "config": [{
+      "name": "TEAMS_CLIENT_ID",
+      "description": "",
+      "value": "",
+      "required": true
+    }, {
+      "name": "TEAMS_CLIENT_SECRET",
+      "description": "",
+      "value": "",
+      "required": true,
+      "secure": true
+    }, {
+      "name": "TEAMS_SCOPE",
+      "description": "",
+      "value": "https://graph.microsoft.com/.default"
+    }, {
+      "name": "TEAMS_USERNAME",
+      "description": "",
+      "value": "",
+      "required": true
+    }, {
+      "name": "TEAMS_TENANT",
+      "description": "",
+      "value": "",
+      "required": true
+    }]
+  }
+  

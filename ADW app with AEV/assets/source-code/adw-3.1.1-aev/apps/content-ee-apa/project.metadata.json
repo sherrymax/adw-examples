@@ -1,0 +1,96 @@
+{
+  "deploy": {
+    "releaseVersion": "3.1.1",
+    "tagAliases": [
+      "7.6.1"
+    ],
+    "tagVersionSuffix": "-apa"
+  },
+  "scripts": {
+    "prebuild": [
+      {
+        "command": "mkdir",
+        "args": [
+          "-p",
+          "$THIS_PROJECT_ROOT_PATH/.tmp"
+        ]
+      },
+      {
+        "command": "mkdir",
+        "args": [
+          "-p",
+          "apps/content-ce/app/.tmp"
+        ]
+      },
+      {
+        "command": "cp",
+        "args": [
+          "apps/content-ce/app/src/app.config.json.tpl",
+          "apps/content-ce/app/.tmp/app.config.json"
+        ]
+      },
+      {
+        "command": "$THIS_PROJECT_ROOT_PATH/remove-me-setup.js"
+      },
+      {
+        "command": "cp",
+        "args": [
+          "$THIS_PROJECT_ROOT_PATH/.tmp/app.config.json.tpl",
+          "$THIS_PROJECT_ROOT_PATH/.tmp/app.config.json"
+        ]
+      }
+    ],
+    "prestart": [
+      {
+        "command": "mkdir",
+        "args": [
+          "-p",
+          "$THIS_PROJECT_ROOT_PATH/.tmp"
+        ]
+      },
+      {
+        "command": "mkdir",
+        "args": [
+          "-p",
+          "apps/content-ce/app/.tmp"
+        ]
+      },
+      {
+        "command": "cp",
+        "args": [
+          "apps/content-ce/app/src/app.config.json.tpl",
+          "apps/content-ce/app/.tmp/app.config.json"
+        ]
+      },
+      {
+        "command": "$THIS_PROJECT_ROOT_PATH/remove-me-setup.js"
+      },
+      {
+        "command": "./node_modules/.bin/envsub",
+        "args": [
+          "--env-file",
+          "./.env",
+          "--env",
+          "APP_CONFIG_BPM_HOST={protocol}//{hostname}{:port}",
+          "--env",
+          "APP_CONFIG_ECM_HOST={protocol}//{hostname}{:port}",
+          "--all",
+          "$THIS_PROJECT_ROOT_PATH/.tmp/app.config.json.tpl",
+          "$THIS_PROJECT_ROOT_PATH/.tmp/app.config.json"
+        ]
+      },
+      {
+        "command": "./node_modules/.bin/ajv",
+        "args": [
+          "validate",
+          "-s",
+          "./node_modules/@alfresco/adf-core/app.config.schema.json",
+          "-d",
+          "$THIS_PROJECT_ROOT_PATH/.tmp/app.config.json",
+          "--errors=text",
+          "--verbose"
+        ]
+      }
+    ]
+  }
+}

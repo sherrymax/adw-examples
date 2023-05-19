@@ -1,0 +1,98 @@
+<aca-page-layout>
+    <aca-page-layout-header>
+        <adf-breadcrumb
+            root="LIBRARY_LIST.ALL_LIBRARIES.TITLE"
+        ></adf-breadcrumb>
+
+        <adf-toolbar class="adf-toolbar--inline">
+            <ng-container
+                *ngFor="let entry of actions; trackBy: trackByActionId"
+            >
+                <aca-toolbar-action [actionRef]="entry"></aca-toolbar-action>
+            </ng-container>
+        </adf-toolbar>
+    </aca-page-layout-header>
+
+    <aca-page-layout-content>
+        <div class="main-content">
+            <adw-data-table-extension
+                (name-click)="navigateTo($any($event).detail?.node)"
+                (row-dblclick)="navigateTo($any($event).detail?.value?.obj)"
+                [items]="$any(sites)"
+                [loading]="isLoading"
+                acaContextActions
+                adwDataTable
+                selectionMode="single"
+            >
+                <data-columns>
+                    <data-column key="$thumbnail" type="image"></data-column>
+
+                    <data-column
+                        title="{{ 'LIBRARY_LIST.COLUMNS.NAME' | translate }}"
+                        key="title"
+                        type="text"
+                        class="adf-expand-cell-3"
+                    >
+                        <ng-template let-context>
+                            <adf-library-name-column
+                                [context]="context"
+                            ></adf-library-name-column>
+                        </ng-template>
+                    </data-column>
+
+                    <data-column
+                        title="{{
+                            'LIBRARY_LIST.COLUMNS.DESCRIPTION' | translate
+                        }}"
+                        key="description"
+                        type="text"
+                        class="adf-expand-cell-5 adf-ellipsis-cell"
+                    >
+                    </data-column>
+
+                    <data-column
+                        title="{{ 'LIBRARY_LIST.COLUMNS.MY_ROLE' | translate }}"
+                        key="role"
+                        type="text"
+                        class="adw-role-cell"
+                    >
+                        <ng-template let-context>
+                            <adf-library-role-column
+                                [context]="context">
+                            </adf-library-role-column>
+                        </ng-template>
+                    </data-column>
+
+                    <data-column
+                        title="{{
+                            'LIBRARY_LIST.COLUMNS.VISIBILITY' | translate
+                        }}"
+                        key="visibility"
+                        type="text"
+                        class="adw-library-list-visibility-column"
+                    >
+                    </data-column>
+                </data-columns>
+
+                <adf-custom-empty-content-template>
+                    <adf-empty-content
+                        icon="library_books"
+                        subtitle="{{ 'LIBRARY_LIST.EMPTY_TEMPLATE.SUBTITLE' | translate }}"
+                        title="{{ 'LIBRARY_LIST.EMPTY_TEMPLATE.TITLE' | translate }}">
+                    </adf-empty-content>
+                </adf-custom-empty-content-template>
+
+
+            </adw-data-table-extension>
+
+            <adf-pagination acaPagination
+                            [pagination]="sites?.list?.pagination"
+                            (change)="updatePagination($any($event))">
+            </adf-pagination>
+        </div>
+
+        <div class="sidebar" *ngIf="infoDrawerOpened$ | async">
+            <aca-info-drawer [node]="$any(selection.library)"></aca-info-drawer>
+        </div>
+    </aca-page-layout-content>
+</aca-page-layout>

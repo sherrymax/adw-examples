@@ -1,0 +1,29 @@
+.adf-datatable-list {
+    .adf-dynamic-column aga-record-column {
+        width: 100%;
+
+        .aga-disabled-name {
+            color: gray;
+            text-decoration: none;
+
+            &:hover {
+                .aga-datatable-cell-value {
+                    text-decoration: none;
+                }
+            }
+        }
+
+        .aga-datatable-cell-value {
+            &:hover {
+                text-decoration: underline;
+                color: var(--theme-text-bold-color);
+            }
+        }
+    }
+}
+
+.adf-is-selected {
+    .aga-datatable-cell-value {
+        color: var(--theme-primary-color);
+    }
+}

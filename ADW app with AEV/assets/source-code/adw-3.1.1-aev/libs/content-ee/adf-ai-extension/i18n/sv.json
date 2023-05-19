@@ -1,0 +1,10 @@
+{
+  "AI-VIEW": {
+    "ROTATE_LEFT": "Rotera åt vänster",
+    "ROTATE_RIGHT": "Rotera åt höger",
+    "CONFIDENCE": "Noggrannhet",
+    "AI": "AI",
+    "TEXT_EXTRACT": "aiTextract",
+    "AI_RECOGNITION": "aiRekognition"
+  }
+}

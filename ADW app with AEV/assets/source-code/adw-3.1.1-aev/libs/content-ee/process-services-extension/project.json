@@ -1,0 +1,52 @@
+{
+    "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+    "projectType": "library",
+    "sourceRoot": "libs/content-ee/process-services-extension/src",
+    "prefix": "aps",
+    "targets": {
+        "test": {
+            "executor": "@angular-devkit/build-angular:karma",
+            "options": {
+                "main": "libs/content-ee/process-services-extension/src/test.ts",
+                "tsConfig": "libs/content-ee/process-services-extension/tsconfig.spec.json",
+                "karmaConfig": "libs/content-ee/process-services-extension/karma.conf.js"
+            },
+            "configurations": {
+                "adf": {
+                    "tsConfig": "libs/content-ee/process-services-extension/tsconfig.spec.adf.json",
+                    "karmaConfig": "libs/content-ee/process-services-extension/karma.conf.js",
+                    "progress": false,
+                    "codeCoverage": false
+                }
+            },
+            "outputs": ["coverage/libs/content-ee/process-services-extension"]
+        },
+        "lint": {
+            "executor": "@nrwl/linter:eslint",
+            "options": {
+                "lintFilePatterns": [
+                    "libs/content-ee/process-services-extension/src/**/*.ts",
+                    "libs/content-ee/process-services-extension/src/**/*.html"
+                ]
+            },
+            "outputs": ["{options.outputFile}"]
+        },
+        "stylelint": {
+            "executor": "nx-stylelint:lint",
+            "options": {
+                "config": "libs/content-ee/process-services-extension/.stylelintrc.json",
+                "lintFilePatterns": [
+                    "libs/content-ee/process-services-extension/**/*.scss"
+                ]
+            }
+        },
+        "cspell": {
+            "executor": "@alfresco-dbp/monorepo/builders:cspell"
+        }
+    },
+    "tags": [
+        "scope:content-ee-process-services-extension",
+        "type:feature",
+        "category:content-ee"
+    ]
+}

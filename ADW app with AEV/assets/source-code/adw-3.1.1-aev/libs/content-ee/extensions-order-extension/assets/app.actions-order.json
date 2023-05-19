@@ -1,0 +1,344 @@
+{
+  "$schema": "../../extension.schema.json",
+  "$id": "app.menus.order",
+  "$name": "app.menus.order",
+  "$version": "1.0.0",
+  "$vendor": "Alfresco Software, Ltd.",
+  "$license": "LGPL-3.0",
+  "$runtime": "1.8.0",
+  "$description": "Items order",
+
+  "features": {
+    "create": [
+      {
+        "id": "app.create.uploadFile",
+        "order": 100
+      },
+      {
+        "id": "app.create.uploadFolder",
+        "order": 200
+      },
+      {
+        "id": "app.create.separator.1",
+        "order": 300
+      },
+      {
+        "id": "app.create.folder",
+        "order": 400
+      },
+      {
+        "id": "app.create.library",
+        "order": 600
+      },
+      {
+        "id": "app.create.separator.3",
+        "type": "separator",
+        "order": 800
+      }
+    ],
+    "toolbar": [
+      {
+        "id": "app.toolbar.share",
+        "order": 100
+      },
+      {
+        "id": "app.toolbar.preview",
+        "order": 300
+      },
+      {
+        "id": "app.toolbar.download",
+        "order": 200
+      },
+      {
+        "id": "app.toolbar.purgeDeletedNodes",
+        "order": 400
+      },
+      {
+        "id": "app.toolbar.restoreDeletedNodes",
+        "order": 500
+      },
+      {
+        "id": "app.toolbar.joinLibrary",
+        "order": 600
+      },
+      {
+        "id": "app.toolbar.leaveLibrary",
+        "order": 650
+      },
+      {
+        "id": "app.create.separator.2",
+        "order": 680
+      },
+      {
+        "id": "app.toolbar.info.infoDrawer",
+        "order": 700
+      },
+      {
+        "id": "app.libraries.toolbar.infoDrawer",
+        "order": 800
+      },
+      {
+        "id": "app.toolbar.more",
+        "order": 10000,
+        "children": [
+          {
+            "id": "app.toolbar.toggleLock",
+            "order": 100
+          },
+          {
+            "id": "app.toolbar.uploadNodeVersion",
+            "order": 200
+          },
+          {
+            "id": "app.toolbar.editFolder",
+            "order": 300
+          },
+          {
+            "id": "app.toolbar.favorite",
+            "order": 400
+          },
+          {
+            "id": "app.libraries.toolbar.toggleFavorite",
+            "order": 401
+          },
+          {
+            "id": "app.toolbar.favorite.add",
+            "order": 402
+          },
+          {
+            "id": "app.toolbar.favorite.remove",
+            "order": 403
+          },
+          {
+            "id": "app.create.separator.1",
+            "order": 500
+          },
+          {
+            "id": "app.toolbar.move",
+            "order": 600
+          },
+          {
+            "id": "app.toolbar.copy",
+            "order": 700
+          },
+          {
+            "id": "app.toolbar.delete",
+            "order": 800
+          },
+          {
+            "id": "app.create.separator.3",
+            "order": 900
+          },
+          {
+            "id": "app.toolbar.versions",
+            "order": 1100
+          },
+          {
+            "id": "app.toolbar.permissions",
+            "order": 1200
+          },
+          {
+            "id": "app.toolbar.deleteLibrary",
+            "order": 100
+          }
+        ]
+      }
+    ],
+    "contextMenu": [
+      {
+        "id": "app.context.menu.share",
+        "order": 100
+      },
+      {
+        "id": "app.context.menu.download",
+        "order": 200
+      },
+      {
+        "id": "app.context.menu.preview",
+        "order": 300
+      },
+      {
+        "id": "app.create.separator.1",
+        "order": 400
+      },
+      {
+        "id": "app.context.toggleLock",
+        "order": 500
+      },
+      {
+        "id": "app.context.menu.editFolder",
+        "order": 600
+      },
+      {
+        "id": "app.context.menu.uploadNodeVersion",
+        "order": 700
+      },
+      {
+        "id": "app.context.menu.favorite.add",
+        "order": 800
+      },
+      {
+        "id": "app.context.menu.favorite.remove",
+        "order": 801
+      },
+      {
+        "id": "app.context.menu.favorite",
+        "order": 802
+      },
+      {
+        "id": "app.context.menu.libraries.toggleFavorite",
+        "order": 803
+      },
+      {
+        "id": "app.create.separator.2",
+        "order": 900
+      },
+      {
+        "id": "app.context.menu.move",
+        "order": 1000
+      },
+      {
+        "id": "app.context.menu.copy",
+        "order": 1100
+      },
+      {
+        "id": "app.context.menu.delete",
+        "order": 1200
+      },
+      {
+        "id": "app.create.separator.3",
+        "order": 1300
+      },
+      {
+        "id": "app.context.menu.versions",
+        "order": 1400
+      },
+      {
+        "id": "app.context.menu.permissions",
+        "order": 1500
+      },
+      {
+        "id": "app.context.menu.joinLibrary",
+        "order": 100
+      },
+      {
+        "id": "app.context.menu.leaveLibrary",
+        "order": 200
+      },
+      {
+        "id": "app.context.menu.deleteLibrary",
+        "order": 300
+      },
+      {
+        "id": "app.context.menu.purgeDeletedNodes",
+        "order": 100
+      },
+      {
+        "id": "app.context.menu.restoreDeletedNodes",
+        "order": 200
+      }
+    ],
+    "viewer": {
+      "toolbarActions": [
+        {
+          "id": "app.viewer.fullscreen",
+          "order": 100
+        },
+        {
+          "id": "app.viewer.separator.1",
+          "order": 180
+        },
+        {
+          "id": "app.viewer.share",
+          "order": 200
+        },
+        {
+          "id": "app.viewer.download",
+          "order": 300
+        },
+        {
+          "id": "app.viewer.print",
+          "order": 400
+        },
+        {
+          "id": "app.viewer.separator.2",
+          "order": 450
+        },
+        {
+          "id": "app.viewer.infoDrawer",
+          "order": 500
+        },
+        {
+          "id": "app.viewer.toolbar.more",
+          "order": 10000,
+          "children": [
+            {
+              "id": "aos.viewer.openWith.office",
+              "order": 60
+            },
+            {
+              "id": "app.viewer.toggleLock",
+              "order": 100
+            },
+            {
+              "id": "app.toolbar.uploadNodeVersion",
+              "order": 200
+            },
+            {
+              "id": "app.viewer.favorite.add",
+              "order": 300
+            },
+            {
+              "id": "app.viewer.favorite.remove",
+              "order": 301
+            },
+            {
+              "id": "app.viewer.favorite",
+              "order": 302
+            },
+            {
+              "id": "app.viewer.more.separator.1",
+              "order": 400
+            },
+            {
+              "id": "app.viewer.move",
+              "order": 500
+            },
+            {
+              "id": "app.viewer.copy",
+              "order": 600
+            },
+            {
+              "id": "app.viewer.delete",
+              "order": 700
+            },
+            {
+              "id": "app.viewer.more.separator.3",
+              "order": 800
+            },
+            {
+              "id": "app.viewer.versions",
+              "order": 900
+            },
+            {
+              "id": "app.viewer.permissions",
+              "order": 1000
+            }
+          ]
+        }
+      ],
+      "shared": {
+        "toolbarActions": [
+          {
+            "id": "app.viewer.shared.fullscreen",
+            "order": 100
+          },
+          {
+            "id": "app.viewer.shared.download",
+            "order": 200
+          }
+        ]
+      }
+    }
+  }
+}

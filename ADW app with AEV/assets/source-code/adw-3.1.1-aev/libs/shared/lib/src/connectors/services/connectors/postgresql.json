@@ -1,0 +1,220 @@
+{
+    "name": "postgresqlConnector",
+    "description": "PostgreSQL connector",
+    "actions": {
+        "ddb970c7-22e9-44a4-a42e-757cc7d6d018": {
+            "id": "ddb970c7-22e9-44a4-a42e-757cc7d6d018",
+            "name": "INSERT",
+            "description": "Insert rows in a database",
+            "inputs": [
+                {
+                    "id": "74b29d95-4e8c-454c-b798-5155c51fe96d",
+                    "name": "metadata",
+                    "description": "Map of parameters",
+                    "type": "key-value",
+                    "required": false
+                },
+                {
+                    "id": "1b4bbea9-752a-48ed-a07b-4ca78e08015d",
+                    "name": "query",
+                    "description": "Query to execute",
+                    "type": "string",
+                    "required": true
+                }
+            ],
+            "outputs": [
+                {
+                    "id": "64de8f03-ce6a-4346-a98a-79a168b38005",
+                    "name": "result",
+                    "description": "Number of rows affected",
+                    "type": "integer"
+                }
+            ]
+        },
+        "d2962df4-0f8a-4dfa-87e1-956471220a2e": {
+            "id": "d2962df4-0f8a-4dfa-87e1-956471220a2e",
+            "name": "UPDATE",
+            "description": "Update rows from a database",
+            "inputs": [
+                {
+                    "id": "74b29d95-4e8c-454c-b798-5155c51fe96d",
+                    "name": "metadata",
+                    "description": "Map of parameters",
+                    "type": "key-value",
+                    "required": false
+                },
+                {
+                    "id": "1b4bbea9-752a-48ed-a07b-4ca78e08015d",
+                    "name": "query",
+                    "description": "Query to execute",
+                    "type": "string",
+                    "required": true
+                }
+            ],
+            "outputs": [
+                {
+                    "id": "64de8f03-ce6a-4346-a98a-79a168b38005",
+                    "name": "result",
+                    "description": "Number of rows affected",
+                    "type": "integer"
+                }
+            ]
+        },
+        "d4349820-4982-4d4b-a7e0-96557edc2f28": {
+            "id": "d4349820-4982-4d4b-a7e0-96557edc2f28",
+            "name": "DELETE",
+            "description": "Delete rows from a database",
+            "inputs": [
+                {
+                    "id": "74b29d95-4e8c-454c-b798-5155c51fe96d",
+                    "name": "metadata",
+                    "description": "Map of parameters",
+                    "type": "key-value",
+                    "required": false
+                },
+                {
+                    "id": "1b4bbea9-752a-48ed-a07b-4ca78e08015d",
+                    "name": "query",
+                    "description": "Query to execute",
+                    "type": "string",
+                    "required": true
+                }
+            ],
+            "outputs": [
+                {
+                    "id": "64de8f03-ce6a-4346-a98a-79a168b38005",
+                    "name": "result",
+                    "description": "Number of rows affected",
+                    "type": "integer"
+                }
+            ]
+        },
+        "71fdd0c0-9aab-4b47-bc31-76ba7331d1ec": {
+            "id": "71fdd0c0-9aab-4b47-bc31-76ba7331d1ec",
+            "name": "SELECT",
+            "description": "Extract data from a database",
+            "inputs": [
+                {
+                    "id": "74b29d95-4e8c-454c-b798-5155c51fe96d",
+                    "name": "metadata",
+                    "description": "Map of parameters",
+                    "type": "key-value",
+                    "required": false
+                },
+                {
+                    "id": "1b4bbea9-752a-48ed-a07b-4ca78e08015d",
+                    "name": "query",
+                    "description": "Query to execute",
+                    "type": "string",
+                    "required": true
+                }
+            ],
+            "outputs": [
+                {
+                    "id": "bb1e0796-2a1b-4e99-be27-076cd0cb6303",
+                    "name": "result",
+                    "description": "Object including requested data",
+                    "type": "json"
+                }
+            ]
+        }
+    },
+    "errors": [
+        {
+            "name": "MISSING_INPUT",
+            "code": "MISSING_INPUT",
+            "description": "A mandatory input variable was not provided"
+        },
+        {
+            "name": "INVALID_INPUT",
+            "code": "INVALID_INPUT",
+            "description": "The input variable has an invalid type"
+        },
+        {
+            "name": "DATA_ACCESS_ERROR",
+            "code": "DATA_ACCESS_ERROR",
+            "description": "Unable to access data"
+        },
+        {
+            "name": "DATA_INTEGRITY_VIOLATION_ERROR",
+            "code": "DATA_INTEGRITY_VIOLATION_ERROR",
+            "description": "Data integrity violation error occurs when performing database operation"
+        },
+        {
+            "name": "CONNECTION_ERROR",
+            "code": "CONNECTION_ERROR",
+            "description": "Cannot connect to a database instance"
+        },
+        {
+            "name": "SQL_GRAMMAR_ERROR",
+            "code": "SQL_GRAMMAR_ERROR",
+            "description": "Invalid syntax error"
+        },
+        {
+            "name": "DUPLICATE_KEY_ERROR",
+            "code": "DUPLICATE_KEY_ERROR",
+            "description": "Duplicate key error occurs when performing database operation"
+        },
+        {
+            "name": "OPTIMISTIC_LOCK_ERROR",
+            "code": "OPTIMISTIC_LOCK_ERROR",
+            "description": "Optimistic error occurs when performing database operation"
+        },
+        {
+            "name": "DEAD_LOCK_ERROR",
+            "code": "DEAD_LOCK_ERROR",
+            "description": "Deadlock error occurs when performing database operation"
+        },
+        {
+            "name": "PERMISSION_DENIED_ERROR",
+            "code": "PERMISSION_DENIED_ERROR",
+            "description": "Lack of permission to the resource and method requested"
+        },
+        {
+            "name": "UNKNOWN_ERROR",
+            "code": "UNKNOWN_ERROR",
+            "description": "Unexpected runtime error"
+        }
+    ],
+    "config": [
+        {
+            "name": "DB_USERNAME",
+            "description": "Database username",
+            "required": true,
+            "value": ""
+        },
+        {
+            "name": "DB_PASSWORD",
+            "description": "Database password",
+            "value": "",
+            "required": true,
+            "secure": true
+        },
+        {
+            "name": "DB_NAME",
+            "description": "Database name",
+            "value": ""
+        },
+        {
+            "name": "POSTGRES_HOST",
+            "description": "Postgresql host",
+            "value": ""
+        },
+        {
+            "name": "POSTGRES_PORT",
+            "description": "Postgresql port",
+            "value": ""
+        },
+        {
+            "name": "DB_DATASOURCE",
+            "description": "Database datasource",
+            "value": "jdbc:postgresql://${POSTGRES_HOST}:${POSTGRES_PORT}/${DB_NAME}",
+            "required": true
+        },
+        {
+            "name": "DB_DRIVER_CLASS_NAME",
+            "description": "Database driver class name",
+            "value": "org.postgresql.Driver"
+        }
+    ]
+}

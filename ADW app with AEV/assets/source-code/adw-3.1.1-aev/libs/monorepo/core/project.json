@@ -1,0 +1,54 @@
+{
+    "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+    "projectType": "library",
+    "sourceRoot": "libs/monorepo/core/src",
+    "targets": {
+        "lint": {
+            "executor": "@nrwl/linter:eslint",
+            "options": {
+                "lintFilePatterns": [
+                    "libs/monorepo/core/src/**/*.ts",
+                    "libs/monorepo/core/src/**/*.html"
+                ]
+            },
+            "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+            "executor": "@nrwl/jest:jest",
+            "options": {
+                "jestConfig": "libs/monorepo/core/jest.config.ts",
+                "passWithNoTests": true,
+                "runInBand": true
+            },
+            "dependsOn": [
+                {
+                    "target": "test",
+                    "projects": "dependencies"
+                }
+            ],
+            "outputs": ["coverage/libs/monorepo/core"]
+        },
+        "build": {
+            "executor": "@nrwl/js:tsc",
+            "outputs": ["{options.outputPath}"],
+            "options": {
+                "outputPath": "node_modules/@alfresco-dbp/monorepo/core",
+                "tsConfig": "libs/monorepo/core/tsconfig.lib.json",
+                "packageJson": "libs/monorepo/core/package.json",
+                "main": "libs/monorepo/core/src/index.ts",
+                "assets": ["libs/monorepo/core/*.md"]
+            },
+            "dependsOn": [
+                {
+                    "target": "build",
+                    "projects": "dependencies"
+                }
+            ]
+        },
+        "cspell": {
+            "executor": "@alfresco-dbp/monorepo/builders:cspell"
+        }
+    },
+    "tags": ["scope:monorepo-core", "category:tooling"],
+    "implicitDependencies": ["monorepo-utils"]
+}

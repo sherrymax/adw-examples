@@ -1,0 +1,11 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "type": "object",
+  "properties": {
+    "include": {
+      "type": "string",
+      "description": "Files to be spell checked",
+      "default": ""
+    }
+  }
+}

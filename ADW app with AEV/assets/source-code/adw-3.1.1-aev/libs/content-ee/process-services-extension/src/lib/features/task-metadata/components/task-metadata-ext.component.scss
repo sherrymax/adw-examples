@@ -1,0 +1,27 @@
+.aps {
+    &-task-metadata-container {
+        word-break: break-all;
+    }
+
+    &-task-metadata-drawer {
+        width: 350px;
+    }
+}
+
+.adf-info-drawer-layout {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.adf-info-drawer-layout {
+    min-height: 100%;
+}
+
+.adf-textitem-clickable {
+    .adf-textitem-action {
+        display: none;
+    }
+}

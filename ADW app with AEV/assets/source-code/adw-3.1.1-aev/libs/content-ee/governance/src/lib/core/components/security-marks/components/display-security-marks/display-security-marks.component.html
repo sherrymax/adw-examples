@@ -1,0 +1,7 @@
+<div *ngFor="let securityMark of marksData | async | slice:0:3;">
+    <div id="displayBox">{{ securityMark }}</div>
+</div>
+<div id="showAll" *ngIf="isShowAllButtonVisible()">
+    <div (click)="showAll()" id="content">{{'GOVERNANCE.SECURITY_MARKS.SHOW_ALL' | translate}}</div>
+</div>
+

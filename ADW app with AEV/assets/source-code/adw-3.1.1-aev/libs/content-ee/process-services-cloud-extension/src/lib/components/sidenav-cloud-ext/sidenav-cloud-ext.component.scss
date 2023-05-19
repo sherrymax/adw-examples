@@ -1,0 +1,71 @@
+.apa-action-button {
+    &-label {
+        margin: 0 8px;
+    }
+    color: var(--theme-secondary-text-color) !important;
+
+    &--active {
+        color: var(--theme-primary-color) !important;
+    }
+
+    &:hover {
+        color: var(--theme-primary-color) !important;
+    }
+}
+
+.adf-filters__entry {
+    opacity: 1;
+    color: var(--theme-secondary-text-color) !important;
+
+    &:hover {
+        color: var(--theme-primary-color) !important;
+    }
+
+    &.adf-active {
+        color: var(--theme-primary-color) !important;
+    }
+}
+
+.apa-action-button-label {
+    &:hover {
+        color: var(--theme-primary-color) !important;
+    }
+}
+
+.apa-sidenav-cloud-container {
+    .apa-filters-title {
+        display: flex;
+        cursor: auto;
+        align-items: flex-end;
+        color: var(--theme-secondary-text-color) !important;
+        span {
+            margin-left: 10px;
+        }
+    }
+
+    .mat-expansion-panel-body {
+        padding: 0 14px 6px !important;
+    }
+
+    .apa-filters-icon {
+        opacity: 1;
+    }
+}
+
+.adf-task-filters__entry {
+    &:hover {
+        color: var(--theme-primary-color) !important;
+    }
+
+    .adf-active {
+        &.adf-active {
+            color: var(--theme-primary-color) !important;
+        }
+    }
+
+    .adf-filter-action-button__counter {
+        &.adf-active {
+            background-color: var(--adf-filter-action-button-counter) !important;
+        }
+    }
+}

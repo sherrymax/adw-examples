@@ -1,0 +1,18 @@
+.aps {
+    &-process-instance-header-container {
+        word-break: break-all;
+    }
+
+    &-process-metadata-drawer {
+        width: 350px;
+        overflow-y: auto;
+    }
+
+    &-process-metadata {
+        height: 100%;
+
+        .adf-info-drawer-layout {
+            min-height: 100%;
+        }
+    }
+}

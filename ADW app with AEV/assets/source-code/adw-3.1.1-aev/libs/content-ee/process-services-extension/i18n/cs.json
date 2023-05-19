@@ -1,0 +1,100 @@
+{
+  "PROCESS-EXTENSION": {
+    "DIALOG": {
+      "NEW_PROCESS": "Nový proces",
+      "SELECT_APPLICATION": "Vybrat aplikaci",
+      "ERROR": "Proces nelze zahájit, protože nejsou k dispozici žádné definice procesu"
+    },
+    "BREADCRUMB": {
+      "ROOT": "Správa procesů",
+      "PROCESS_LIST": {
+        "PROCESSES": "Procesy"
+      },
+      "START_PROCESS": "Zahájit proces",
+      "ACTIONS": {
+        "INFO-TOOLTIP": "Zobrazit podrobnosti"
+      }
+    },
+    "MENU": {
+      "PROCESS_MANAGEMENT": "Správa procesů",
+      "CREATE_NEW_PROCESS": "Zahájit proces",
+      "CREATE_PROCESS_NOT_ALLOWED": "Nelze vytvořit nový proces"
+    },
+    "PROCESS_SUBMENU": {
+      "MORE": "Zobrazit více"
+    },
+    "ERROR": {
+      "NO_FORM": "Definice procesu nemá definovaný formulář",
+      "NO_CONTENT": "Nelze připojit soubor z vašeho zařízení",
+      "CAN_NOT_ATTACH": "Nelze připojit vybraný obsah",
+      "AUDIT_ERROR": "Zobrazit chybu úkolu: {{error}}",
+      "TASK_ACCESS_WARNING": "Nemáte oprávnění ke změně úkolu"
+    },
+    "SNACKBAR": {
+      "PROCESS-CREATED": "Vytvořený proces '{{ processName }}'",
+      "BACKEND_SERVICE_ERROR": "Došlo k neznámé chybě sítě. Funkce související se službou procesu jsou zakázány.",
+      "ACTION": "Zobrazit spuštěný proces"
+    },
+    "NO_PROCESS_DEFINITIONS": "K dispozici nejsou žádné definice procesů",
+    "SIDE_NAV_TITLE": "Správa procesů",
+    "TASK_LIST": {
+      "TASKS": "Úkoly",
+      "ACTIONS": {
+        "TASK_DETAILS": "Zobrazit"
+      }
+    },
+    "PROCESS_LIST": {
+      "ACTIONS": {
+        "PROCESS_DETAILS": "Zobrazit"
+      }
+    },
+    "TASK_FORM": {
+      "FORM_SAVED": "Formulář byl úspěšně uložen",
+      "FORM_COMPLETED": "Úkol byl dokončen",
+      "CLOSE_TOOLTIP": "Zavřít",
+      "CLAIM_TASK": "Úkol byl převzat",
+      "UNCLAIM_TASK": "Úkol byl vydán",
+      "CLAIM_FAILED": "Akci nelze provést"
+    },
+    "TASK_DETAILS": {
+      "ERROR": "Akci nelze provést",
+      "FAILED_TO_LOAD": "Nepodařilo se načíst podrobnosti úkolu, opakujte akci později",
+      "UPDATED": "Vlastnost {{ property }} byla úspěšně aktualizována",
+      "FAILED_TO_UPDATE": "Nepodařilo se aktualizovat vlastnost {{ property }}",
+      "METADATA_TOOLTIP": "Zobrazit podrobnosti",
+      "NO_TASK_NAME": "Bez názvu"
+    }
+  },
+  "SHARED": {
+    "PROCESSES_LIST": {
+      "NO_PROCESS_DEFINITIONS": "K dispozici nejsou žádné definice procesů"
+    }
+  },
+  "ADF_PROCESS_LIST": {
+    "PROPERTIES": {
+      "CREATED_BY": "Zahájil(a)",
+      "CREATED": "Datum zahájení"
+    },
+    "START_PROCESS": {
+      "NO_PROCESS_DEFINITIONS": "Proces nelze zahájit, protože nejsou k dispozici žádné definice procesu",
+      "NO_START_FORM": "Tento proces nevyžaduje žádné další konfigurace",
+      "NO_PROCESS_DEF_SELECTED": "Není vybrána žádná kategorie/proces",
+      "FORM": {
+        "LABEL": {
+          "SELECT_APPLICATION": "Vybrat aplikaci"
+        }
+      }
+    }
+  },
+  "ADF_TASK_LIST": {
+    "PROPERTIES": {
+      "CREATED": "Datum vytvoření"
+    },
+    "DETAILS": {
+      "BUTTON": {
+        "CLAIM": "Převzít",
+        "UNCLAIM": "Vzdát se"
+      }
+    }
+  }
+}
