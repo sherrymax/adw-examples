@@ -9,7 +9,7 @@
 import { Component, OnInit, ViewChild, OnDestroy, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
-import { TaskFormComponent, TaskDetailsModel, TaskListService } from '@alfresco/adf-process-services';
+import { TaskFormComponent, TaskDetailsModel, TaskListService} from '@alfresco/adf-process-services';
 import { Store } from '@ngrx/store';
 import { ProcessServicesExtActions } from '../../../process-services-ext-actions-types';
 import { SnackbarInfoAction, SnackbarWarningAction } from '@alfresco-dbp/content-ce/shared/store';
@@ -192,6 +192,10 @@ export class TaskDetailsExtComponent implements OnInit, OnDestroy {
                         console.log('Response: ' + i, resData.sourceId.split(';')[0]);
                         let _nodeId = resData.sourceId.split(';')[0];
 
+                        if(_nodeId.indexOf('@')!= -1){
+                            _nodeId = resData.sourceId.split('@')[0];
+                        }
+
                         setTimeout(() => {
                             console.log('_nodeId > ' + _nodeId);
 
@@ -215,4 +219,8 @@ export class TaskDetailsExtComponent implements OnInit, OnDestroy {
                 console.log('Error: ', error);
             });
     }
+
+
+
+
 }
