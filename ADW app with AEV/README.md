@@ -82,12 +82,12 @@ ADP Users can use NGINX to deploy the production build. Please follow the below 
 
 ## Development Mode
 
-1. Download Source code
-The source code of Alfresco Digital Workspace (ADW) Application can be downloaded from <a href="https://nexus.alfresco.com/nexus/#nexus-search;quick~alfresco-digital-workspace" target="_blank">Nexus Repository</a>
+1. <b>Download Source code</b>
+It is always recommended to start working on the source code of a stable version of Alfresco Digital Workspace (ADW). This source code can be downloaded from <a href="https://nexus.alfresco.com/nexus/#nexus-search;quick~alfresco-digital-workspace" target="_blank">Alfresco Nexus Repository</a>
 for Alfresco Enterprise Customers.
->The source code of this Custom ADW application is [available here](assets/source-code/).
+>A sample Custom ADW application built on v3.1.1 is [available here](assets/source-code/). Please use this as a reference while building your own custom ADW app.
 
-2. Install the dependencies
+2. <b>Install the dependencies</b>
 Open a command prompt and run the following command to install all third-party dependencies.
     ```
     npm ci
