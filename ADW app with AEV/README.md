@@ -14,7 +14,7 @@ Users should have the flexibility to choose between:
 
 ## Modes
 This article details the steps for the following Modes
-* Production Mode - Please download the production build [available here](assets/prod-build/html.zip). The downloaded zip file can be deployed on NGINX server or Tomcat server. 
+* Production Mode - Please download the production build [available here](assets/prod-build/html.zip). The downloaded zip file can be deployed on NGINX server or Tomcat server.
 
 * Development Mode - Developers could download the code, install dependencies and compile and run the code to generate the desired output. Please refer to the below steps.
 
@@ -83,23 +83,23 @@ ADP Users can use NGINX to deploy the production build. Please follow the below 
 ## Development Mode
 
 1. Download Source code
-The source code of Alfresco Digital Workspace (ADW) Application can be downloaded from [Nexus Repository](https://nexus.alfresco.com/) for Alfresco Enterprise Customers.
+The source code of Alfresco Digital Workspace (ADW) Application can be downloaded from [Nexus Repository](https://nexus.alfresco.com/nexus/#nexus-search;quick~alfresco-digital-workspace) for Alfresco Enterprise Customers.
 >The source code of this Custom ADW application is [available here](assets/source-code/).
 
 2. Install the dependencies
 Open a command prompt and run the following command to install all third-party dependencies.
-    ``` 
+    ```
     npm ci
     ```
 
 3. Run the following command to run the application.
-    ``` 
-    npm start content-ee 
+    ```
+    npm start content-ee
     ```
 
 4. Run the following command to build the application to deploy or server.
-    ``` 
-    npm run build content-ee 
+    ```
+    npm run build content-ee
     ```
 
 5. Navigate to Alfresco Digital Workspace in a new browser.
